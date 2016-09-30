@@ -1,0 +1,16 @@
+* Darcylee's Emacs config
+
+** 使用方法
+
+#+BEGIN_SRC sh
+  #clone spacemacs repo and use develop branch
+  git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d -b develop
+
+  #clone darcyee layer and checkout develop branch
+  git clone https://github.com/darcylee/spacemacs-config.git ~/.spacemacs.d/
+#+END_SRC
+** 安装 SourceCodePro 字体
+下载地址：https://github.com/adobe-fonts/source-code-pro/releases
+
+** 说明
+本配置里面包含的几个layer，部分来自别子龙山人https://github.com/zilongshanren/spacemacs-private
