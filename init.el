@@ -36,8 +36,10 @@
           magit-revert-buffers 'silent
           magit-refs-show-commit-count 'all
           magit-revision-show-gravatars nil)
+
      (auto-completion :variables auto-completion-enable-sort-by-usage t
                       :disabled-for org markdown)
+     (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English")
      restclient
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'eshell)

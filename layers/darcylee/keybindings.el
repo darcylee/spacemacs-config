@@ -20,3 +20,4 @@
 (global-set-key (kbd "s-w") 'delete-window)
 (global-set-key (kbd "s-W") 'delete-frame)
 (global-set-key (kbd "s-d") 'kill-line)
+(global-set-key (kbd "s-z") 'undo-tree-undo)
