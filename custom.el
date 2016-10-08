@@ -57,7 +57,7 @@
  '(vc-follow-symlinks t)
  '(web-mode-markup-indent-offset 2)
  '(ycmd-extra-conf-handler (quote load))
- '(ycmd-extra-conf-whitelist (quote ("~/cocos2d-x/*"))))
+ '(ycmd-extra-conf-whitelist (quote ("~/work/*"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
