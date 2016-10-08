@@ -13,4 +13,5 @@
                                       zilongshanren-programming
                                       zilongshanren-org
                                       zilongshanren-better-defaults
+                                      zilongshanren-misc
                                       ))
