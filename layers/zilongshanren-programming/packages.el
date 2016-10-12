@@ -43,6 +43,7 @@
         graphviz-dot-mode
         cider
         editorconfig
+        ycmd
         ))
 
 (defun zilongshanren-programming/init-editorconfig ()
@@ -101,9 +102,9 @@
   (setq python-shell-interpreter "python"))
 
 (defun zilongshanren-programming/post-init-js-doc ()
-  (setq js-doc-mail-address "guanghui8827@gmail.com"
-        js-doc-author (format "Guanghui Qu <%s>" js-doc-mail-address)
-        js-doc-url "http://www.zilongshanren.com"
+  (setq js-doc-mail-address "darcylee1986@gmail.com"
+        js-doc-author (format "Darcy Lee <%s>" js-doc-mail-address)
+        js-doc-url "http://darcylee.coding.me/"
         js-doc-license "MIT")
 
  (defun my-js-doc-insert-function-doc-snippet ()

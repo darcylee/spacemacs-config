@@ -11,6 +11,69 @@
 
 (define-key global-map (kbd "C-c y") 'youdao-dictionary-search-at-point+)
 (global-set-key (kbd "s-l") 'goto-line)
+(global-set-key (kbd "C-s-h") 'mark-defun)
+;; Utility functions
+(defun bb/define-key (keymap &rest bindings)
+  (declare (indent 1))
+  (while bindings
+    (define-key keymap (pop bindings) (pop bindings))))
+
+(define-key evil-normal-state-map (kbd "-") nil)
+
+(bb/define-key evil-normal-state-map
+               "+" 'evil-numbers/inc-at-pt
+               "-" 'evil-numbers/dec-at-pt
+               "\\" 'evil-repeat-find-char-reverse
+               "[s" (lambda (n) (interactive "p") (dotimes (c n nil) (insert " ")))
+               "]s" (lambda (n) (interactive "p")
+                      (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
+
+(with-eval-after-load 'company
+  (progn
+    (bb/define-key company-active-map
+                   (kbd "C-w") 'evil-delete-backward-word)
+
+    (bb/define-key company-active-map
+                   (kbd "s-w") 'company-show-location)))
+
+(spacemacs/declare-prefix "ot" "Toggle")
+
+
+(if (configuration-layer/layer-usedp 'helm)
+    (progn (global-set-key (kbd "<f1>") 'zilongshanren/helm-hotspots)
+           (spacemacs/set-leader-keys "oo" 'zilongshanren/helm-hotspots)))
+
+(spacemacs/set-leader-keys "oc" 'my-auto-update-tags-when-save)
+(spacemacs/set-leader-keys "op" 'zilongshanren/org-save-and-export)
+(spacemacs/set-leader-keys "fR" 'zilongshanren/rename-file-and-buffer)
+
+;;Must set key to nil to prevent error: Key sequence b m s starts with non-prefix key b m
+(spacemacs/set-leader-keys "bm" nil)
+(spacemacs/set-leader-keys "bD" 'spacemacs/kill-other-buffers)
+(spacemacs/declare-prefix "bm" "Bookmark")
+(spacemacs/set-leader-keys "bms" 'bookmark-set)
+(spacemacs/set-leader-keys "bmr" 'bookmark-rename)
+(spacemacs/set-leader-keys "bmd" 'bookmark-delete)
+(spacemacs/set-leader-keys "bmj" 'counsel-bookmark)
+
+(spacemacs/set-leader-keys "od" 'occur-dwim)
+(spacemacs/set-leader-keys "ox" 'org-open-at-point)
+(spacemacs/set-leader-keys "oac" 'zilongshanren/browser-refresh--chrome-applescript)
+
+;; helm specific keybindings
+(if (configuration-layer/layer-usedp 'helm)
+    (progn
+      (spacemacs/set-leader-keys "rh" 'helm-resume)
+      (spacemacs/set-leader-keys "sj" 'counsel-imenu)))
+
+(spacemacs/set-leader-keys "en" 'flycheck-next-error)
+(spacemacs/set-leader-keys "ep" 'flycheck-previous-error)
+(spacemacs/set-leader-keys "o(" 'ielm)
+
+(spacemacs/set-leader-keys "gL" 'magit-log-buffer-file)
+(spacemacs/set-leader-keys "og" 'my-git-timemachine)
+
+(spacemacs/set-leader-keys "sj" 'helm-imenu)
 
 (global-set-key(kbd "C-w") 'evil-delete-backward-word)
 (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)

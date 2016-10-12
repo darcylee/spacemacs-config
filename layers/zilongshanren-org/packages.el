@@ -234,8 +234,11 @@ unwanted space when exporting org-mode to html."
               ("s" "Code Snippet" entry
                (file "~/org-notes/snippets.org")
                "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
-              ("w" "work" entry (file+headline "~/org-notes/gtd.org" "Cocos2D-X")
+              ("w" "work" entry (file+headline "~/org-notes/gtd.org" "Work")
                "* TODO [#A] %?\n  %i\n %U"
+               :empty-lines 1)
+              ("p" "personal" entry (file+headline "~/org-notes/gtd.org" "Personal")
+               "* TODO [#B] %?\n  %i\n %U"
                :empty-lines 1)
               ("c" "Chrome" entry (file+headline "~/org-notes/notes.org" "Quick notes")
                "* TODO [#C] %?\n %(zilongshanren/retrieve-chrome-current-tab-url)\n %i\n %U"
@@ -258,8 +261,8 @@ unwanted space when exporting org-mode to html."
               ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
               ("b" "Blog" tags-todo "BLOG")
               ("p" . "项目安排")
-              ("pw" tags-todo "PROJECT+WORK+CATEGORY=\"cocos2d-x\"")
-              ("pl" tags-todo "PROJECT+DREAM+CATEGORY=\"zilongshanren\"")
+              ("pw" tags-todo "PROJECT+WORK+CATEGORY=\"Work\"")
+              ("pl" tags-todo "PROJECT+DREAM+CATEGORY=\"darcylee\"")
               ("W" "Weekly Review"
                ((stuck "") ;; review stuck projects as designated by org-stuck-projects
                 (tags-todo "PROJECT") ;; review all projects (assuming you use todo keywords to designate projects)
@@ -292,7 +295,7 @@ unwanted space when exporting org-mode to html."
                :section-numbers nil
                :html-preamble ,zilongshanren-website-html-preamble
                :author "zilongshanren"
-               :email "guanghui8827@gmail.com"
+               :email "darcylee1986@gmail.com"
                :auto-sitemap t          ; Generate sitemap.org automagically...
                :sitemap-filename "index.org" ; ... call it sitemap.org (it's the default)...
                :sitemap-title "我的wiki"     ; ... with title 'Sitemap'.
