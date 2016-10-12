@@ -359,6 +359,7 @@
     ;; (define-key evil-insert-state-map "\C-k" 'kill-line)
     (define-key evil-normal-state-map "\C-e" 'end-of-line)
     (define-key evil-normal-state-map "\C-n" 'next-line)
+    (define-key evil-normal-state-map "\C-p" 'previous-line)
     (define-key evil-normal-state-map "\C-k" 'kill-line)
     (define-key evil-emacs-state-map (kbd "s-f") 'forward-word)
     (define-key evil-insert-state-map (kbd "s-f") 'forward-word)
