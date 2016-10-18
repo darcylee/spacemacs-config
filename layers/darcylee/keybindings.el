@@ -90,6 +90,8 @@
 (global-set-key (kbd "s-z") 'undo-tree-undo)
 (global-set-key (kbd "s-Z") 'undo-tree-redo)
 (global-set-key (kbd "s-s") 'save-buffer)
+(global-set-key (kbd "C-s-n") 'move-text-down)
+(global-set-key (kbd "C-s-p") 'move-text-up)
 
 (when (spacemacs/system-is-mswindows)
   (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
@@ -105,4 +107,6 @@
   (global-set-key (kbd "s-n") 'make-frame)
   (global-set-key (kbd "s-z") 'undo-tree-undo)
   (global-set-key (kbd "s-Z") 'undo-tree-redo)
-  (global-set-key (kbd "s-s") 'save-buffer))
+  (global-set-key (kbd "s-s") 'save-buffer)
+  (global-set-key (kbd "C-s-n") 'move-text-down)
+  (global-set-key (kbd "C-s-p") 'move-text-up))
