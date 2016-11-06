@@ -66,6 +66,7 @@
 
      syntax-checking
      version-control
+     ycmd
      darcylee
      )
    ;; List of additional packages that will be installed without being
@@ -191,6 +192,7 @@
 
   (fset 'evil-visual-update-x-selection 'ignore)
 
+  (setq c-c++-enable-clang-support t)
   ;; force horizontal split window
   (setq split-width-threshold 120)
   (linum-relative-on)
