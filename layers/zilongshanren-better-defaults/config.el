@@ -100,7 +100,7 @@
 (add-hook 'kill-emacs-hook #'zilongshanren/cleanup-recentf-and-known-projects)
 
 ;; change evil initial mode state
-(menu-bar-mode t)
+;; (menu-bar-mode t)
 
 (add-hook 'before-save-hook
           (lambda ()
