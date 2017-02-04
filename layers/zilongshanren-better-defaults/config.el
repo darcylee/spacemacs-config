@@ -90,17 +90,15 @@
             kill-buffer-query-functions))
 
 ;; cleanup recent files
-(defun zilongshanren/cleanup-recentf-and-known-projects ()
+(defun zilongshanren/cleanup-recentf ()
   (progn
     (and (fboundp 'recentf-cleanup)
-         (recentf-cleanup))
-    (and (fboundp 'projectile-cleanup-known-projects)
-         (projectile-cleanup-known-projects))))
+         (recentf-cleanup))))
 
-(add-hook 'kill-emacs-hook #'zilongshanren/cleanup-recentf-and-known-projects)
+(add-hook 'kill-emacs-hook #'zilongshanren/cleanup-recentf)
 
 ;; change evil initial mode state
-;; (menu-bar-mode t)
+(menu-bar-mode t)
 
 (add-hook 'before-save-hook
           (lambda ()
@@ -153,7 +151,8 @@ Single Capitals as you type."
           (make-directory dir t))))))
 
 (add-hook 'minibuffer-inactive-mode-hook
-          '(lambda() (set (make-local-variable 'semantic-mode) nil)))
+          #'(lambda() (set (make-local-variable 'semantic-mode) nil)
+              (set (make-local-variable 'electric-pair-mode) nil)))
 
 ;; http://trey-jackson.blogspot.com/2010/04/emacs-tip-36-abort-minibuffer-when.html
 (defun zilongshanren/stop-using-minibuffer ()
@@ -165,10 +164,10 @@ Single Capitals as you type."
 
 (setq tags-add-tables nil)
 
-;; (electric-pair-mode t)
+(electric-pair-mode t)
 ;; https://www.reddit.com/r/emacs/comments/4xhxfw/how_to_tune_the_behavior_of_eletricpairmode/
-;; (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
-;; (show-paren-mode t)
+(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
+(show-paren-mode t)
 
 ;; http://oremacs.com/2015/01/17/setting-up-ediff/
 (defmacro csetq (variable value)
