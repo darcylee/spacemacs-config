@@ -38,7 +38,7 @@
         gist
         hydra
         wrap-region
-        helm-ag
+        ;; helm-ag
         ranger
         golden-ratio
         (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))

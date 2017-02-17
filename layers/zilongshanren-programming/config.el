@@ -62,6 +62,8 @@
        '(("\\.mak\\'" . makefile-bsdmake-mode))
        auto-mode-alist))
 
+(setq gofmt-command "goimports")
+
 
 (defmacro zilongshanren|toggle-company-backends (backend)
   "Push or delete the backend to company-backends"

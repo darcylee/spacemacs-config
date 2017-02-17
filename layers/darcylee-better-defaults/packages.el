@@ -1,15 +1,15 @@
-;;; packages.el --- zilongshanren Layer packages File for Spacemacs
+;;; packages.el --- darcylee-better-default layer packages file for Spacemacs.
 ;;
-;; Copyright (c) 2014-2016 zilongshanren
+;; Copyright (c) 2012-2016 Sylvain Benner & Contributors
 ;;
-;; Author: zilongshanren <guanghui8827@gmail.com>
-;; URL: https://github.com/zilongshanren/spacemacs-private
+;; Author: dl <darcylee1986@gmail.com>
+;; URL: https://github.com/darcylee/spacemacs-config.git
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
 ;;; License: GPLv3
 
-(defconst zilongshanren-better-defaults-packages
+(defconst darcylee-better-defaults-packages
   '(
     (dired-mode :location built-in)
     (profiler :location built-in)
@@ -17,7 +17,7 @@
     )
 )
 
-(defun zilongshanren-better-defaults/post-init-recentf ()
+(defun darcylee-better-defaults/post-init-recentf ()
   (progn
     (setq recentf-exclude
           '("COMMIT_MSG"
@@ -40,7 +40,7 @@
             ".*png$"))
     (setq recentf-max-saved-items 2048)))
 
-(defun zilongshanren-better-defaults/init-dired-mode ()
+(defun darcylee-better-defaults/init-dired-mode ()
   (use-package dired-mode
     :defer t
     :init
@@ -63,7 +63,7 @@
               ("\\.md\\'" "open")))
 
       (setq dired-omit-files
-      (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$"))
+            (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$"))
 
       ;; always delete and copy recursively
       (setq dired-recursive-deletes 'always)
@@ -90,8 +90,7 @@
       )
     ))
 
-
-(defun zilongshanren-better-defaults/init-profiler ()
+(defun darcylee-better-defaults/init-profiler ()
   (use-package profiler
     :init
     (evilified-state-evilify profiler-report-mode profiler-report-mode-map)))

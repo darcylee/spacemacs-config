@@ -44,6 +44,7 @@
         cider
         ;; editorconfig
         robe
+        ycmd
         ))
 
 (defun zilongshanren-programming/post-init-robe ()
@@ -129,9 +130,9 @@
   (setq python-shell-interpreter "python"))
 
 (defun zilongshanren-programming/post-init-js-doc ()
-  (setq js-doc-mail-address "darcylee1986@gmail.com"
+  (setq js-doc-mail-address 'user-mail-address
         js-doc-author (format "Darcy Lee <%s>" js-doc-mail-address)
-        js-doc-url "http://darcylee.coding.me/"
+        js-doc-url 'user-home-page
         js-doc-license "MIT")
 
  (defun my-js-doc-insert-function-doc-snippet ()
@@ -575,7 +576,7 @@
           company-idle-delay 0.08)
 
     (when (configuration-layer/package-usedp 'company)
-      (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode))
+      (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode go-mode))
     ))
 (defun zilongshanren-programming/post-init-company-c-headers ()
   (progn

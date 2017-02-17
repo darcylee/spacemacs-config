@@ -7,6 +7,12 @@
 (defvar blog-admin-dir ""
   "blog-admin files location")
 
+(defvar user-mail-address
+  "darcylee1986@gmail.com")
+
+(defvar user-home-page
+  "http://www.gitlee.com")
+
 (setq-default
  org-agenda-dir "~/org-notes"
  deft-dir "~/org-notes"

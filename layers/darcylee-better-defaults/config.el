@@ -1,9 +1,9 @@
-;;; config.el --- zilongshanren Layer packages File for Spacemacs
+;;; config.el --- darcylee-better-default layer packages file for Spacemacs.
 ;;
-;; Copyright (c) 2015-2016 zilongshanren
+;; Copyright (c) 2012-2016 Sylvain Benner & Contributors
 ;;
-;; Author: zilongshanren <guanghui8827@gmail.com>
-;; URL: https://github.com/zilongshanren/spacemacs-private
+;; Author: dl <darcylee1986@gmail.com>
+;; URL: https://github.com/darcylee/spacemacs-config.git
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -90,12 +90,12 @@
             kill-buffer-query-functions))
 
 ;; cleanup recent files
-(defun zilongshanren/cleanup-recentf ()
+(defun darcylee/cleanup-recentf ()
   (progn
     (and (fboundp 'recentf-cleanup)
          (recentf-cleanup))))
 
-(add-hook 'kill-emacs-hook #'zilongshanren/cleanup-recentf)
+(add-hook 'kill-emacs-hook #'darcylee/cleanup-recentf)
 
 ;; change evil initial mode state
 (menu-bar-mode t)
@@ -155,12 +155,12 @@ Single Capitals as you type."
               (set (make-local-variable 'electric-pair-mode) nil)))
 
 ;; http://trey-jackson.blogspot.com/2010/04/emacs-tip-36-abort-minibuffer-when.html
-(defun zilongshanren/stop-using-minibuffer ()
+(defun darcylee/stop-using-minibuffer ()
   "kill the minibuffer"
   (when (and (>= (recursion-depth) 1) (active-minibuffer-window))
     (abort-recursive-edit)))
 
-(add-hook 'mouse-leave-buffer-hook 'zilongshanren/stop-using-minibuffer)
+(add-hook 'mouse-leave-buffer-hook 'darcylee/stop-using-minibuffer)
 
 (setq tags-add-tables nil)
 

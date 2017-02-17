@@ -1,6 +1,6 @@
 ;;; funcs.el --- zilongshanren Layer packages File for Spacemacs
 ;;
-;; Copyright (c) 2015-2016 zilongshanren 
+;; Copyright (c) 2015-2016 zilongshanren
 ;;
 ;; Author: zilongshanren <guanghui8827@gmail.com>
 ;; URL: https://github.com/zilongshanren/spacemacs-private
@@ -22,7 +22,8 @@ comment box."
     (goto-char e)
     (set-marker e nil)))
 
-
+;; TODO: sdfsdfsdfasdf
+;; TODO: s1
 
 ;; "http://stackoverflow.com/questions/2242572/emacs-todo-indicator-at-left-side"
 (defun zilongshanren/annotate-todo ()

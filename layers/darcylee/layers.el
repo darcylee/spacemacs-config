@@ -12,6 +12,6 @@
 (configuration-layer/declare-layers '(
                                       zilongshanren-programming
                                       zilongshanren-org
-                                      zilongshanren-better-defaults
+                                      darcylee-better-defaults
                                       zilongshanren-misc
                                       ))
