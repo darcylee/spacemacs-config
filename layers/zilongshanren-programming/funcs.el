@@ -22,9 +22,6 @@ comment box."
     (goto-char e)
     (set-marker e nil)))
 
-;; TODO: sdfsdfsdfasdf
-;; TODO: s1
-
 ;; "http://stackoverflow.com/questions/2242572/emacs-todo-indicator-at-left-side"
 (defun zilongshanren/annotate-todo ()
   "put fringe marker on TODO: lines in the curent buffer"
