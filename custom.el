@@ -16,7 +16,7 @@
  '(erc-port 6666)
  '(evil-want-C-i-jump t)
  '(evil-want-Y-yank-to-eol t)
- '(exec-path-from-shell-arguments (quote ("-l")))
+ '(exec-path-from-shell-arguments (quote ("-i")))
  '(expand-region-contract-fast-key "V")
  '(expand-region-exclude-text-mode-expansions (quote (html-mode nxml-mode web-mode)))
  '(expand-region-reset-fast-key "r")
