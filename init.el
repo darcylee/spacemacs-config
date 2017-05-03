@@ -66,7 +66,6 @@ values."
      deft
      markdown
      org
-     shaders
      yaml
      react
      (python :variables
