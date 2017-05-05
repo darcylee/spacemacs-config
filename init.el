@@ -368,7 +368,7 @@ values."
   ;; force horizontal split window
   (setq split-width-threshold 120)
 
-  (spacemacs|add-company-backends :modes text-mode)
+  ;; (spacemacs|add-company-backends :modes text-mode)
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
