@@ -52,10 +52,15 @@
   (save-excursion
     (untabify (point-min) (point-max)) nil))
 
+(defun zilongshanren/tabify-buffer ()
+  (interactive)
+  (save-excursion
+    (tabify (point-min) (point-max)) nil))
+
 (add-hook 'c++-mode-hook
           #'(lambda ()
              (add-hook 'write-contents-hooks
-                       'zilongshanren/untabify-buffer nil t)))
+                       'zilongshanren/tabify-buffer nil t)))
 
 (setq auto-mode-alist
       (append
