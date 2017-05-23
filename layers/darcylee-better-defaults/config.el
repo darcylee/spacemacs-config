@@ -174,3 +174,7 @@ Single Capitals as you type."
             ',variable ,value))
 
 (csetq ediff-diff-options "-w")
+
+;; spcify config
+(setq-default indent-tabs-mode nil
+              tab-width 4)
