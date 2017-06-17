@@ -1,9 +1,9 @@
-;;; config.el --- zilongshanren Layer packages File for Spacemacs
+;;; config.el --- darcylee Layer packages File for Spacemacs
 ;;
-;; Copyright (c) 2015-2016 zilongshanren
+;; Copyright (c) 2017-2017 darcylee
 ;;
-;; Author: zilongshanren <guanghui8827@gmail.com>
-;; URL: https://github.com/zilongshanren/spacemacs-private
+;; Author: darcylee <darcylee1986@gmail.com>
+;; URL: https://github.com/darcylee/spacemacs-config
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -16,7 +16,7 @@
   :documentation "Enable iimage mode"
   :evil-leader "oti")
 
-(add-hook 'term-mode-hook 'zilongshanren/ash-term-hooks)
+(add-hook 'term-mode-hook 'darcylee/ash-term-hooks)
 
 
 ;; reformat your json file, it requires python
@@ -44,15 +44,13 @@
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
 (add-to-list 'auto-mode-alist '("\\.c\\'" . c++-mode))
 
-
-
 ;; return nil to write content to file
-(defun zilongshanren/untabify-buffer ()
+(defun darcylee/untabify-buffer ()
   (interactive)
   (save-excursion
     (untabify (point-min) (point-max)) nil))
 
-(defun zilongshanren/tabify-buffer ()
+(defun darcylee/tabify-buffer ()
   (interactive)
   (save-excursion
     (tabify (point-min) (point-max)) nil))
@@ -60,7 +58,7 @@
 (add-hook 'c++-mode-hook
           #'(lambda ()
              (add-hook 'write-contents-hooks
-                       'zilongshanren/tabify-buffer nil t)))
+                       'darcylee/tabify-buffer nil t)))
 
 (setq auto-mode-alist
       (append
@@ -70,7 +68,7 @@
 (setq gofmt-command "goimports")
 
 
-(defmacro zilongshanren|toggle-company-backends (backend)
+(defmacro darcylee|toggle-company-backends (backend)
   "Push or delete the backend to company-backends"
   (let ((funsymbol (intern (format "zilong/company-toggle-%S" backend))))
     `(defun ,funsymbol ()

@@ -10,7 +10,7 @@
 ;;; License: GPLv3
 
 (configuration-layer/declare-layers '(
-                                      zilongshanren-programming
+                                      darcylee-programming
                                       zilongshanren-org
                                       darcylee-better-defaults
                                       zilongshanren-misc

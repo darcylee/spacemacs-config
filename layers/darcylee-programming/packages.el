@@ -1,9 +1,9 @@
-;;; packages.el --- zilongshanren Layer packages File for Spacemacs
+;;; packages.el --- darcylee Layer packages File for Spacemacs
 ;;
-;; Copyright (c) 2014-2016 zilongshanren
+;; Copyright (c) 2014-2016 darcylee
 ;;
-;; Author: zilongshanren <guanghui8827@gmail.com>
-;; URL: https://github.com/zilongshanren/spacemacs-private
+;; Author: darcylee <guanghui8827@gmail.com>
+;; URL: https://github.com/darcylee/spacemacs-config
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -12,7 +12,7 @@
 ;; List of all packages to install and/or initialize. Built-in packages
 ;; which require an initialization must be listed explicitly in the list.
 
-(setq zilongshanren-programming-packages
+(setq darcylee-programming-packages
       '(
         css-mode
         paredit
@@ -47,10 +47,10 @@
         ycmd
         ))
 
-(defun zilongshanren-programming/post-init-robe ()
+(defun darcylee-programming/post-init-robe ()
   (progn
     (add-hook 'inf-ruby-mode-hook 'spacemacs/toggle-auto-completion-on)
-    (defun zilongshanren/ruby-send-current-line (&optional print)
+    (defun darcylee/ruby-send-current-line (&optional print)
       "Send the current line to the inferior Ruby process."
       (interactive "P")
       (ruby-send-region
@@ -58,12 +58,12 @@
        (line-end-position))
       (when print (ruby-print-result)))
 
-    (defun zilongshanren/ruby-send-current-line-and-go ()
+    (defun darcylee/ruby-send-current-line-and-go ()
       (interactive)
-      (zilongshanren/ruby-send-current-line)
+      (darcylee/ruby-send-current-line)
       (ruby-switch-to-inf t))
 
-    (defun zilongshanren/start-inf-ruby-and-robe ()
+    (defun darcylee/start-inf-ruby-and-robe ()
       (interactive)
       (when (not (get-buffer "*ruby*"))
         (inf-ruby))
@@ -73,27 +73,27 @@
       (spacemacs/set-leader-keys-for-major-mode mode
         "sb" 'ruby-send-block
         "sB" 'ruby-send-buffer
-        "sl" 'zilongshanren/ruby-send-current-line
-        "sL" 'zilongshanren/ruby-send-current-line-and-go
-        "sI" 'zilongshanren/start-inf-ruby-and-robe))))
+        "sl" 'darcylee/ruby-send-current-line
+        "sL" 'darcylee/ruby-send-current-line-and-go
+        "sI" 'darcylee/start-inf-ruby-and-robe))))
 
-(defun zilongshanren-programming/init-editorconfig ()
+(defun darcylee-programming/init-editorconfig ()
   (use-package editorconfig
     :init
     (progn
       (defun conditional-enable-editorconfig ()
-        (if (and (zilongshanren/vcs-project-root)
+        (if (and (darcylee/vcs-project-root)
                  (locate-dominating-file default-directory ".editorconfig"))
             (editorconfig-apply)))
       (add-hook 'prog-mode-hook 'conditional-enable-editorconfig))))
 
-(defun zilongshanren-programming/post-init-cider ()
+(defun darcylee-programming/post-init-cider ()
   (setq cider-cljs-lein-repl
         "(do (require 'figwheel-sidecar.repl-api)
            (figwheel-sidecar.repl-api/start-figwheel!)
            (figwheel-sidecar.repl-api/cljs-repl))")
 
-  (defun zilongshanren/cider-figwheel-repl ()
+  (defun darcylee/cider-figwheel-repl ()
     (interactive)
     (save-some-buffers)
     (with-current-buffer (cider-current-repl-buffer)
@@ -103,14 +103,14 @@
              (figwheel-sidecar.repl-api/cljs-repl)")
       (cider-repl-return)))
 
-  (global-set-key (kbd "C-c C-f") #'zilongshanren/cider-figwheel-repl))
+  (global-set-key (kbd "C-c C-f") #'darcylee/cider-figwheel-repl))
 
-(defun zilongshanren-programming/post-init-graphviz-dot-mode ()
+(defun darcylee-programming/post-init-graphviz-dot-mode ()
   (with-eval-after-load 'graphviz-dot-mode
       (require 'company-keywords)
       (push '(graphviz-dot-mode  "digraph" "node" "shape" "subgraph" "label" "edge" "bgcolor" "style" "record") company-keywords-alist)))
 
-(defun zilongshanren-programming/post-init-dumb-jump ()
+(defun darcylee-programming/post-init-dumb-jump ()
   (setq dumb-jump-selector 'ivy)
   (defun my-dumb-jump ()
     (interactive)
@@ -118,18 +118,18 @@
     (dumb-jump-go))
   (global-set-key (kbd "C-s-g") 'my-dumb-jump))
 
-(defun zilongshanren-programming/post-init-clojure-mode ()
+(defun darcylee-programming/post-init-clojure-mode ()
   )
 
-(defun zilongshanren-programming/post-init-emacs-lisp ()
+(defun darcylee-programming/post-init-emacs-lisp ()
     (remove-hook 'emacs-lisp-mode-hook 'auto-compile-mode))
 
-(defun zilongshanren-programming/post-init-python ()
+(defun darcylee-programming/post-init-python ()
   (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   ;; if you use pyton3, then you could comment the following line
   (setq python-shell-interpreter "python"))
 
-(defun zilongshanren-programming/post-init-js-doc ()
+(defun darcylee-programming/post-init-js-doc ()
   (setq js-doc-mail-address 'user-mail-address
         js-doc-author (format "Darcy Lee <%s>" js-doc-mail-address)
         js-doc-url 'user-home-page
@@ -171,7 +171,7 @@
           js-doc-bottom-line))))))
 
 
-(defun zilongshanren-programming/init-ctags-update ()
+(defun darcylee-programming/init-ctags-update ()
   (use-package ctags-update
     :init
     :defer t
@@ -179,7 +179,7 @@
     (spacemacs|hide-lighter ctags-auto-update-mode)))
 
 ;; nodejs-repl is much better now.
-;; (defun zilongshanren-programming/init-js-comint ()
+;; (defun darcylee-programming/init-js-comint ()
 ;;   (use-package js-comint
 ;;     :init
 ;;     (progn
@@ -195,7 +195,7 @@
 ;;                  (replace-regexp-in-string "\033\\[[0-9]+[GKJ]" "" output)))))
 ;;       (setq inferior-js-program-command "node"))))
 
-(defun zilongshanren-programming/post-init-web-mode ()
+(defun darcylee-programming/post-init-web-mode ()
   (with-eval-after-load "web-mode"
     (web-mode-toggle-current-element-highlight)
     (web-mode-dom-errors-show))
@@ -206,7 +206,7 @@
 
 
 
-(defun zilongshanren-programming/post-init-yasnippet ()
+(defun darcylee-programming/post-init-yasnippet ()
   (progn
     (set-face-background 'secondary-selection "gray")
     (setq-default yas-prompt-functions '(yas-ido-prompt yas-dropdown-prompt))
@@ -214,12 +214,12 @@
                                                                       org-mode-hook
                                                                       markdown-mode-hook))
 
-    (spacemacs/add-to-hooks 'zilongshanren/load-yasnippet '(prog-mode-hook
+    (spacemacs/add-to-hooks 'darcylee/load-yasnippet '(prog-mode-hook
                                                             markdown-mode-hook
                                                             org-mode-hook))
     ))
 
-(defun zilongshanren-programming/post-init-racket-mode ()
+(defun darcylee-programming/post-init-racket-mode ()
   (progn
     (eval-after-load 'racket-repl-mode
       '(progn
@@ -231,7 +231,7 @@
     ;; (add-hook 'racket-repl-mode-hook #'(lambda () (smartparens-mode t)))
     ))
 
-(defun zilongshanren-programming/post-init-json-mode ()
+(defun darcylee-programming/post-init-json-mode ()
   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.fire\\'" . json-mode))
   (add-to-list 'auto-mode-alist '("\\.fire.meta\\'" . json-mode))
@@ -239,15 +239,15 @@
     "ti" 'my-toggle-web-indent))
 
 
-(defun zilongshanren-programming/init-nodejs-repl ()
+(defun darcylee-programming/init-nodejs-repl ()
   (use-package nodejs-repl
     :init
     :defer t))
 
-(defun zilongshanren-programming/init-flycheck-package ()
+(defun darcylee-programming/init-flycheck-package ()
   (use-package flycheck-package))
 
-(defun zilongshanren-programming/init-lispy ()
+(defun darcylee-programming/init-lispy ()
   (use-package lispy
     :defer t
     :diminish (lispy-mode)
@@ -280,15 +280,15 @@
       (define-key lispy-mode-map (kbd "s-2") 'lispy-arglist-inline))))
 
 
-(defun zilongshanren-programming/init-cmake-font-lock ()
+(defun darcylee-programming/init-cmake-font-lock ()
   (use-package cmake-font-lock
     :defer t))
 
-(defun zilongshanren-programming/init-google-c-style ()
+(defun darcylee-programming/init-google-c-style ()
   (use-package google-c-style
     :init (add-hook 'c-mode-common-hook 'google-set-c-style)))
 
-(defun zilongshanren-programming/post-init-cmake-mode ()
+(defun darcylee-programming/post-init-cmake-mode ()
   (progn
     (spacemacs/declare-prefix-for-mode 'cmake-mode
                                        "mh" "docs")
@@ -297,23 +297,23 @@
     (add-hook 'cmake-mode-hook (function cmake-rename-buffer))))
 
 
-(defun zilongshanren-programming/post-init-flycheck ()
+(defun darcylee-programming/post-init-flycheck ()
   (with-eval-after-load 'flycheck
     (progn
       (setq flycheck-display-errors-delay 0.9)
       (setq flycheck-idle-change-delay 2.0)
       )))
 
-(defun zilongshanren-programming/post-init-eldoc ()
+(defun darcylee-programming/post-init-eldoc ()
   (setq eldoc-idle-delay 0.4))
 
 
-(defun zilongshanren-programming/init-impatient-mode ()
+(defun darcylee-programming/init-impatient-mode ()
   "Initialize impatient mode"
   (use-package impatient-mode
     :init
     (progn
-      (add-hook 'web-mode-hook 'zilongshanren/impatient-mode-hook)
+      (add-hook 'web-mode-hook 'darcylee/impatient-mode-hook)
       (spacemacs/set-leader-keys-for-major-mode 'web-mode
         "p" 'imp-visit-buffer)
       )))
@@ -321,13 +321,13 @@
 
 
 
-(defun zilongshanren-programming/post-init-js2-refactor ()
+(defun darcylee-programming/post-init-js2-refactor ()
   (progn
     (spacemacs/set-leader-keys-for-major-mode 'js2-mode
       "r>" 'js2r-forward-slurp
       "r<" 'js2r-forward-barf)))
 
-(defun zilongshanren-programming/post-init-js2-mode ()
+(defun darcylee-programming/post-init-js2-mode ()
   (progn
     (add-hook 'js2-mode-hook 'my-setup-develop-environment)
     (add-hook 'web-mode-hook 'my-setup-develop-environment)
@@ -338,7 +338,7 @@
     (setq company-backends-js2-mode '((company-dabbrev-code :with company-keywords company-etags)
                                       company-files company-dabbrev))
 
-    (zilongshanren|toggle-company-backends company-tern)
+    (darcylee|toggle-company-backends company-tern)
 
     (spacemacs/set-leader-keys-for-major-mode 'js2-mode
       "tb" 'zilong/company-toggle-company-tern)
@@ -403,7 +403,7 @@
 
     ))
 
-(defun zilongshanren-programming/post-init-css-mode ()
+(defun darcylee-programming/post-init-css-mode ()
   (progn
     (dolist (hook '(css-mode-hook sass-mode-hook less-mode-hook))
       (add-hook hook 'rainbow-mode))
@@ -416,12 +416,12 @@
               (lambda ()
                 (setq imenu-create-index-function 'css-imenu-make-index)))))
 
-(defun zilongshanren-programming/post-init-tagedit ()
+(defun darcylee-programming/post-init-tagedit ()
   (add-hook 'web-mode-hook (lambda () (tagedit-mode 1))))
 
-;; For each extension, define a function zilongshanren/init-<extension-name>
+;; For each extension, define a function darcylee/init-<extension-name>
 ;;
-(defun zilongshanren-programming/init-doxymacs ()
+(defun darcylee-programming/init-doxymacs ()
   "Initialize doxymacs"
   (use-package doxymacs
     :init
@@ -432,7 +432,7 @@
       (spacemacs|hide-lighter doxymacs-mode))))
 
 ;; https://atlanis.net/blog/posts/nodejs-repl-eval.html
-(defun zilongshanren-programming/init-nodejs-repl-eval ()
+(defun darcylee-programming/init-nodejs-repl-eval ()
   (use-package nodejs-repl-eval
     :commands (nodejs-repl-eval-buffer nodejs-repl-eval-dwim nodejs-repl-eval-function)
     :init
@@ -446,7 +446,7 @@
     :defer t
     ))
 
-(defun zilongshanren-programming/post-init-lua-mode ()
+(defun darcylee-programming/post-init-lua-mode ()
   (progn
     (add-hook 'lua-mode-hook 'evil-matchit-mode)
     ;; (add-hook 'lua-mode-hook 'smartparens-mode)
@@ -465,7 +465,7 @@
 
     ))
 
-(defun zilongshanren-programming/post-init-cc-mode ()
+(defun darcylee-programming/post-init-cc-mode ()
   (progn
     (setq company-backends-c-mode-common '((company-dabbrev-code :with company-keywords company-gtags company-etags)
                                            company-files company-dabbrev))
@@ -500,13 +500,13 @@
 
   )
 
-(defun zilongshanren-programming/init-flycheck-clojure ()
+(defun darcylee-programming/init-flycheck-clojure ()
   (use-package flycheck-clojure
     :defer t
     :init
     (eval-after-load 'flycheck '(flycheck-clojure-setup))))
 
-(defun zilongshanren-programming/post-init-ycmd ()
+(defun darcylee-programming/post-init-ycmd ()
   (progn
     (setq ycmd-tag-files 'auto)
     (setq ycmd-request-message-level -1)
@@ -517,7 +517,7 @@
                                             company-gtags :with company-yasnippet)
                                            company-files company-dabbrev ))
 
-    (zilongshanren|toggle-company-backends company-ycmd)
+    (darcylee|toggle-company-backends company-ycmd)
     (eval-after-load 'ycmd
       '(spacemacs|hide-lighter ycmd-mode))
 
@@ -527,7 +527,7 @@
       "tb" 'zilong/company-toggle-company-ycmd)))
 
 ;; when many project has the need to use tags, I will give etags-table and etags-update a try
-(defun zilongshanren-programming/init-etags-select ()
+(defun darcylee-programming/init-etags-select ()
   (use-package etags-select
     :init
     (progn
@@ -543,7 +543,7 @@
       (spacemacs/set-leader-keys-for-major-mode 'js2-mode
         "gd" 'etags-select-find-tag-at-point))))
 
-(defun zilongshanren-programming/init-gulpjs ()
+(defun darcylee-programming/init-gulpjs ()
   (use-package gulpjs
     :init
     (progn
@@ -556,7 +556,7 @@
       (spacemacs/set-leader-keys "agr" 'gulpjs-restart-task))))
 
 
-(defun zilongshanren-programming/init-paredit ()
+(defun darcylee-programming/init-paredit ()
   (use-package paredit
     :commands (paredit-wrap-round
                paredit-wrap-square
@@ -570,7 +570,7 @@
       (bind-key* "s-{" #'paredit-wrap-curly)
       )))
 
-(defun zilongshanren-programming/post-init-company ()
+(defun darcylee-programming/post-init-company ()
   (progn
     (setq company-minimum-prefix-length 1
           company-idle-delay 0.08)
@@ -578,7 +578,7 @@
     ;; (when (configuration-layer/package-usedp 'company)
     ;;   (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode go-mode))
     ))
-(defun zilongshanren-programming/post-init-company-c-headers ()
+(defun darcylee-programming/post-init-company-c-headers ()
   (progn
     (setq company-c-headers-path-system
           (quote
