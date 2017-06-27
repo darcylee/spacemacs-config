@@ -55,10 +55,27 @@
   (save-excursion
     (tabify (point-min) (point-max)) nil))
 
-(add-hook 'c++-mode-hook
-          #'(lambda ()
-             (add-hook 'write-contents-hooks
-                       'darcylee/tabify-buffer nil t)))
+;; (add-hook 'c++-mode-hook
+;;           #'(lambda ()
+;;              (add-hook 'write-contents-hooks
+;;                        'darcylee/untabify-buffer nil t)))
+
+(defun my-c++-mode-common-hook ()
+  ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
+  (c-set-offset 'substatement-open 8)
+  ;; other customizations can go here
+  (setq c-default-style "linux")           ;; set style to "linux"
+  (setq c++-tab-always-indent t)
+  (setq c-basic-offset 8)                  ;; Default is 2
+  (setq c-indent-level 8)                  ;; Default is 2
+
+  ;; (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
+  (setq tab-stop-list '(8 16 24 32 40 48 56 64 72 80 88 96 104 112 120))
+  (setq tab-width 8)
+  (setq indent-tabs-mode t)  ; use spaces only if nil
+  )
+
+(add-hook 'c++-mode-hook 'my-c++-mode-common-hook)
 
 (setq auto-mode-alist
       (append
@@ -66,7 +83,6 @@
        auto-mode-alist))
 
 (setq gofmt-command "goimports")
-
 
 (defmacro darcylee|toggle-company-backends (backend)
   "Push or delete the backend to company-backends"
