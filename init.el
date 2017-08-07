@@ -57,7 +57,15 @@ values."
      (auto-completion :variables auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup t
                       :disabled-for org markdown)
-     (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English")
+     (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English"
+          osx-use-dictionary-app t
+          osx-command-as		'super
+          osx-option-as			'meta
+          osx-function-as      	'none
+          osx-right-command-as 	'left
+          osx-right-option-as  	'left
+          osx-right-control-as 	'left
+          )
      restclient
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'eshell)
@@ -90,6 +98,8 @@ values."
      (chinese :packages youdao-dictionary fcitx
               :variables chinese-enable-fcitx nil
               chinese-enable-youdao-dict t)
+     auto-completion
+     ycmd
      darcylee
      )
    ;; List of additional packages that will be installed without being
@@ -435,6 +445,11 @@ values."
                                 (old-default-directory default-directory))
                             (projectile-switch-project-by-name project)
                             (setq default-directory old-default-directory))))))
+  ;; (require 'ycmd)
+  ;; (add-hook 'c++-mode-hook 'ycmd-mode)
+  ;; (require 'company-ycmd)
+  ;; (company-ycmd-setup)
+  ;; (set-variable 'ycmd-server-command `("python" ,(expand-file-name "/usr/bin/ycmd")))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))

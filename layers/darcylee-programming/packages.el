@@ -2,7 +2,7 @@
 ;;
 ;; Copyright (c) 2014-2016 darcylee
 ;;
-;; Author: darcylee <guanghui8827@gmail.com>
+;; Author: darcylee <darcylee1986@gmail.com>
 ;; URL: https://github.com/darcylee/spacemacs-config
 ;;
 ;; This file is not part of GNU Emacs.
@@ -20,7 +20,7 @@
         cmake-font-lock
         cmake-mode
         flycheck
-        impatient-mode
+        ;; impatient-mode
         nodejs-repl
         (nodejs-repl-eval :location local)
         js2-mode
@@ -31,7 +31,8 @@
         web-mode
         js-doc
         lua-mode
-        (cc-mode :location built-in)
+        ;; (cc-mode :location built-in)
+        cc-mode
         ;; flycheck-clojure
         etags-select
         (python :location built-in)
@@ -178,23 +179,6 @@
     :config
     (spacemacs|hide-lighter ctags-auto-update-mode)))
 
-;; nodejs-repl is much better now.
-;; (defun darcylee-programming/init-js-comint ()
-;;   (use-package js-comint
-;;     :init
-;;     (progn
-;;       ;; http://stackoverflow.com/questions/13862471/using-node-js-with-js-comint-in-emacs
-;;       (setq inferior-js-mode-hook
-;;             (lambda ()
-;;               ;; We like nice colors
-;;               (ansi-color-for-comint-mode-on)
-;;               ;; Deal with some prompt nonsense
-;;               (add-to-list
-;;                'comint-preoutput-filter-functions
-;;                (lambda (output)
-;;                  (replace-regexp-in-string "\033\\[[0-9]+[GKJ]" "" output)))))
-;;       (setq inferior-js-program-command "node"))))
-
 (defun darcylee-programming/post-init-web-mode ()
   (with-eval-after-load "web-mode"
     (web-mode-toggle-current-element-highlight)
@@ -203,8 +187,6 @@
                                      company-keywords
                                      company-etags)
                                     company-files company-dabbrev)))
-
-
 
 (defun darcylee-programming/post-init-yasnippet ()
   (progn
@@ -308,15 +290,15 @@
   (setq eldoc-idle-delay 0.4))
 
 
-(defun darcylee-programming/init-impatient-mode ()
-  "Initialize impatient mode"
-  (use-package impatient-mode
-    :init
-    (progn
-      (add-hook 'web-mode-hook 'darcylee/impatient-mode-hook)
-      (spacemacs/set-leader-keys-for-major-mode 'web-mode
-        "p" 'imp-visit-buffer)
-      )))
+;; (defun darcylee-programming/init-impatient-mode ()
+;;   "Initialize impatient mode"
+;;   (use-package impatient-mode
+;;     :init
+;;     (progn
+;;       (add-hook 'web-mode-hook 'darcylee/impatient-mode-hook)
+;;       (spacemacs/set-leader-keys-for-major-mode 'web-mode
+;;         "p" 'imp-visit-buffer)
+;;       )))
 
 
 
@@ -506,6 +488,7 @@
   (progn
     (setq ycmd-tag-files 'auto)
     (setq ycmd-request-message-level -1)
+    ;; (set-variable 'ycmd-server-command `("python" ,(expand-file-name "/usr/bin/ycmd")))
     (set-variable 'ycmd-server-command `("python" ,(expand-file-name "~/.ycmd/ycmd/__main__.py")))
     (setq company-backends-c-mode-common '((company-c-headers
                                             company-dabbrev-code

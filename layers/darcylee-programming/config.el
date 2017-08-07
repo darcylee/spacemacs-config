@@ -77,6 +77,8 @@
 
 (add-hook 'c++-mode-hook 'my-c++-mode-common-hook)
 
+(add-hook 'web-mode-hook 'darcylee/impatient-mode-hook)
+
 (setq auto-mode-alist
       (append
        '(("\\.mak\\'" . makefile-bsdmake-mode))
