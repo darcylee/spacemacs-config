@@ -77,7 +77,7 @@
 (spacemacs/set-leader-keys "sj" 'helm-imenu)
 
 (when (or (spacemacs/system-is-linux)
-           (spacemacs/system-is-mswindows))
+          (spacemacs/system-is-mswindows))
   (global-set-key(kbd "C-w") 'evil-delete-backward-word)
   (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
   (global-set-key (kbd "s--") 'spacemacs/scale-down-font)

@@ -445,11 +445,6 @@ values."
                                 (old-default-directory default-directory))
                             (projectile-switch-project-by-name project)
                             (setq default-directory old-default-directory))))))
-  ;; (require 'ycmd)
-  ;; (add-hook 'c++-mode-hook 'ycmd-mode)
-  ;; (require 'company-ycmd)
-  ;; (company-ycmd-setup)
-  ;; (set-variable 'ycmd-server-command `("python" ,(expand-file-name "/usr/bin/ycmd")))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
