@@ -76,7 +76,7 @@
       (evilified-state-evilify-map dired-mode-map
         :mode dired-mode
         :bindings
-        (kbd "C-k") 'zilongshanren/dired-up-directory
+        (kbd "C-k") 'darcylee/dired-up-directory
         "<RET>" 'dired-find-alternate-file
         "E" 'dired-toggle-read-only
         "C" 'dired-do-copy
