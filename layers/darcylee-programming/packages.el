@@ -488,8 +488,10 @@
   (progn
     (setq ycmd-tag-files 'auto)
     (setq ycmd-request-message-level -1)
-    ;; (set-variable 'ycmd-server-command `("python" ,(expand-file-name "/usr/bin/ycmd")))
-    (set-variable 'ycmd-server-command `("python" ,(expand-file-name "~/.ycmd/ycmd/__main__.py")))
+    (when (spacemacs/system-is-linux)
+      (set-variable 'ycmd-server-command `("python" ,(expand-file-name "/usr/bin/ycmd"))))
+    (when (spacemacs/system-is-mac)
+      (set-variable 'ycmd-server-command `("python" ,(expand-file-name "~/.ycmd/ycmd/__main__.py"))))
     (setq company-backends-c-mode-common '((company-c-headers
                                             company-dabbrev-code
                                             company-keywords
