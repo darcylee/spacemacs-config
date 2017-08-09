@@ -1,6 +1,6 @@
 ;;; funcs.el --- zilongshanren Layer packages File for Spacemacs
 ;;
-;; Copyright (c) 2015-2016 zilongshanren 
+;; Copyright (c) 2015-2016 zilongshanren
 ;;
 ;; Author: zilongshanren <guanghui8827@gmail.com>
 ;; URL: https://github.com/zilongshanren/spacemacs-private
@@ -159,6 +159,49 @@
     (insert "#+END_SRC\n")
     (previous-line 2)
     (org-edit-src-code)))
+
+(defun darcylee/org-insert-admonition-block (admonitions-type)
+  "Insert a `ADMONITIONS' type block in org-mode."
+  (interactive
+   (let ((admonitions-types
+          ;; "note" "warning" "tip" "caution" "important" "attention" "hit" "error"
+          ;; "danger" "info" "notice" "question" "summary" "success"
+          ;; we use common admonitions
+          '("note" "warning" "tip" "caution" "important" "attention" "error" "danger")))
+     (list (ido-completing-read "Source code type: " admonitions-types))))
+  (progn
+    (newline-and-indent)
+    (insert (format "#+begin_%s\n" admonitions-type))
+    (newline-and-indent)
+    (insert (format "#+end_%s\n" admonitions-type))
+    (previous-line 2)
+    (evil-insert-state)))
+
+(defun darcylee/org-format-region-as-code-block (beg end)
+  "Formate as code block"
+  (interactive "*r")
+  (let ((lang (read-string "Language: "))
+        (ind (save-excursion
+               (goto-char beg)
+               (back-to-indentation)
+               (buffer-substring (line-beginning-position) (point))))
+        (code (delete-and-extract-region beg end)))
+    (insert ind "#+BEGIN_SRC " lang "\n"
+            code (if (string-suffix-p "\n" code) "" "\n")
+            ind "#+END_SRC\n")))
+
+(defun darcylee/org-format-region-as-admonition-block (beg end)
+  "Formate as code block"
+  (interactive "*r")
+  (let ((type (read-string "which admonition type(\"note\" \"warning\" \"tip\" \"caution\" \"important\" \"attention\" \"error\" \"danger\"): "))
+        (code (delete-and-extract-region beg end)))
+    (progn
+      (newline)
+      (insert (format "#+begin_%s\n" type)
+              code (if (string-suffix-p "\n" code) "" "\n")
+              (format "#+end_%s\n" type))
+      (newline)
+      )))
 
 (defun org-reset-subtask-state-subtree ()
   "Reset all subtasks in an entry subtree."

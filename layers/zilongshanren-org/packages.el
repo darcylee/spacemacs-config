@@ -40,7 +40,6 @@
   (add-hook 'org-mode-hook (lambda () (spacemacs/toggle-line-numbers-off)) 'append)
   (with-eval-after-load 'org
     (progn
-      
       (spacemacs|disable-company org-mode)
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "," 'org-priority)
@@ -105,8 +104,8 @@
       (add-hook 'org-mode-hook '(lambda ()
                                   ;; keybinding for editing source code blocks
                                   ;; keybinding for inserting code blocks
-                                  (local-set-key (kbd "C-c i s")
-                                                 'zilongshanren/org-insert-src-block)))
+                                  (local-set-key (kbd "C-c i s") 'zilongshanren/org-insert-src-block)
+                                  (local-set-key (kbd "C-c i a") 'darcylee/org-insert-admonition-block)))
       (require 'ox-publish)
       (add-to-list 'org-latex-classes '("ctexart" "\\documentclass[11pt]{ctexart}
                                         [NO-DEFAULT-PACKAGES]
