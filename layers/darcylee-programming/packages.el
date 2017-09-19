@@ -553,7 +553,7 @@
 
 (defun darcylee-programming/post-init-company ()
   (progn
-    (setq company-minimum-prefix-length 1
+    (setq company-minimum-prefix-length 2
           company-idle-delay 0.08)
 
     ;; (when (configuration-layer/package-usedp 'company)
