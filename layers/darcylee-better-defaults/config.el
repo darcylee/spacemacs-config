@@ -178,3 +178,4 @@ Single Capitals as you type."
 ;; spcify config
 (setq-default indent-tabs-mode nil
               tab-width 4)
+;; (set-language-environment "Chinese-GBK")

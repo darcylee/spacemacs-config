@@ -63,16 +63,33 @@
 (defun my-c++-mode-common-hook ()
   ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
   (c-set-offset 'substatement-open 8)
-  ;; other customizations can go here
-  (setq c-default-style "linux")           ;; set style to "linux"
-  (setq c++-tab-always-indent t)
-  (setq c-basic-offset 8)                  ;; Default is 2
-  (setq c-indent-level 8)                  ;; Default is 2
+  (c-set-offset 'case-label 0)
+  (c-set-offset 'statement-case-open 0)
 
-  ;; (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
+  ;; other customizations can go here
+  (setq c-default-style "linux") ;; set style to "linux"
+  (setq c++-tab-always-indent t)
+  (setq c-basic-offset 4) ;; Default is 2
+  (setq c-indent-level 4) ;; Default is 2
+  (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60))
+  (setq tab-width 4)
+  (setq indent-tabs-mode nil)           ; use spaces only if nil
+  )
+
+(defun my-c++-mode-common-hook-tab-is-8 ()
+  ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
+  (c-set-offset 'substatement-open 8)
+  (c-set-offset 'case-label 0)
+  (c-set-offset 'statement-case-open 0)
+
+  ;; other customizations can go here
+  (setq c-default-style "linux") ;; set style to "linux"
+  (setq c++-tab-always-indent t)
+  (setq c-basic-offset 8) ;; Default is 2
+  (setq c-indent-level 8) ;; Default is 2
   (setq tab-stop-list '(8 16 24 32 40 48 56 64 72 80 88 96 104 112 120))
   (setq tab-width 8)
-  (setq indent-tabs-mode t)  ; use spaces only if nil
+  (setq indent-tabs-mode t)           ; use spaces only if nil
   )
 
 (add-hook 'c++-mode-hook 'my-c++-mode-common-hook)
