@@ -33,6 +33,7 @@
   (progn
     (bb/define-key company-active-map
                    (kbd "C-w") 'evil-delete-backward-word)
+    ;; (bb/define-key company-active-map (kbd "C-f") nil)
 
     (bb/define-key company-active-map
                    (kbd "s-w") 'company-show-location)))
