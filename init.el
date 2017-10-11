@@ -32,7 +32,7 @@ values."
    dotspacemacs-configuration-layers
    '(
      helm
-     ivy
+     ;; ivy
      better-defaults
      github
      ranger
@@ -101,13 +101,12 @@ values."
      ;; auto-completion
      ;; ycmd
      darcylee
-
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(sicp dts-mode)
+   dotspacemacs-additional-packages '(dts-mode counsel)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
@@ -159,7 +158,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner nil ;; 'official
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
    ;; Possible values for list-type are:
@@ -336,8 +335,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup 'changed
-   ))
+   dotspacemacs-whitespace-cleanup 'changed))
 
 (defun dotspacemacs/user-init ()
   (setq configuration-layer--elpa-archives
