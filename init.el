@@ -110,9 +110,23 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
-   '(
-     ac-ispell 2048-game
-     )
+   '(magit-gh-pulls magit-gitflow org-projectile evil-mc realgud
+                    evil-args evil-ediff evil-exchange evil-unimpaired
+                    evil-indent-plus volatile-highlights smartparens
+                    holy-mode skewer-mode rainbow-delimiters
+                    highlight-indentation vi-tilde-fringe eyebrowse
+                    org-bullets org-repo-todo org-download org-timer
+                    livid-mode git-gutter git-gutter-fringe  evil-escape
+                    leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
+                    ac-ispell ace-jump-mode auto-complete auto-dictionary
+                    clang-format define-word google-translate disaster epic
+                    fancy-battery org-present orgit orglue helm-swoop
+                    helm-flyspell flyspell-correct-helm clean-aindent-mode
+                    helm-c-yasnippet ace-jump-helm-line helm-make magithub
+                    helm-spacemacs-help smeargle
+                    ido-vertical-mode flx-ido company-quickhelp counsel-projectile
+                    window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+                    )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
 
