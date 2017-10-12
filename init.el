@@ -34,11 +34,11 @@ values."
      (ivy :can-shadow nil)
      (helm :can-shadow nil)
      better-defaults
-     github
+     ;; github
      ranger
      colors
      prodigy
-     search-engine
+     ;; search-engine
      graphviz
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
@@ -66,7 +66,7 @@ values."
           osx-right-option-as  	'left
           osx-right-control-as 	'left
           )
-     restclient
+     ;; restclient
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'term)
      ;; (shell :variables shell-default-term-shell "/bin/zsh")
@@ -79,8 +79,8 @@ values."
      react
      (python :variables
              python-test-runner '(nose pytest))
-     (ruby :variables ruby-version-manager 'chruby)
-     ruby-on-rails
+     ;;(ruby :variables ruby-version-manager 'chruby)
+     ;;ruby-on-rails
      lua
      html
      javascript
