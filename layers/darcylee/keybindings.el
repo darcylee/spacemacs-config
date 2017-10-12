@@ -12,6 +12,7 @@
 (define-key global-map (kbd "C-c y") 'youdao-dictionary-search-at-point+)
 (global-set-key (kbd "s-l") 'goto-line)
 (global-set-key (kbd "s-/") 'evilnc-comment-or-uncomment-lines)
+(global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-s-h") 'mark-defun)
 ;; Utility functions
 (defun bb/define-key (keymap &rest bindings)
