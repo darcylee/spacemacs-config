@@ -68,8 +68,9 @@ values."
           )
      restclient
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
-     (shell :variables shell-default-shell 'eshell)
-     docker
+     (shell :variables shell-default-shell 'term)
+     ;; (shell :variables shell-default-term-shell "/bin/zsh")
+     ;; docker
      ;; latex
      deft
      markdown
