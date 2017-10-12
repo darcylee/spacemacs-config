@@ -31,8 +31,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     helm
-     ;; ivy
+     (ivy :can-shadow nil)
+     (helm :can-shadow nil)
      better-defaults
      github
      ranger
@@ -98,7 +98,6 @@ values."
      (chinese :packages youdao-dictionary fcitx
               :variables chinese-enable-fcitx nil
               chinese-enable-youdao-dict t)
-     ;; auto-completion
      ;; ycmd
      darcylee
      )
