@@ -175,6 +175,12 @@ Single Capitals as you type."
 
 (csetq ediff-diff-options "-w")
 
+;; set mouse scrolling slower and smoother
+;; https://stackoverflow.com/questions/445873/how-can-i-make-emacs-mouse-scrolling-slower-and-smoother
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
+(setq ring-bell-function 'ignore)
+
 ;; spcify config
 (setq-default indent-tabs-mode nil
               tab-width 4)
