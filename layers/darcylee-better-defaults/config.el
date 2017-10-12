@@ -181,7 +181,7 @@ Single Capitals as you type."
 (setq mouse-wheel-progressive-speed nil)
 (setq ring-bell-function 'ignore)
 
-;; spcify config
+;; specify config
 (setq-default indent-tabs-mode nil
               tab-width 4)
 ;; (set-language-environment "Chinese-GBK")
