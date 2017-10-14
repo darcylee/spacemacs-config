@@ -39,7 +39,7 @@
         hydra
         wrap-region
         ;; helm-ag
-        ranger
+        ;; ranger
         golden-ratio
         (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
         ))
@@ -63,32 +63,32 @@
     (dolist (n '("COMMIT_EDITMSG"))
       (add-to-list 'golden-ratio-exclude-buffer-names n))))
 
-(defun zilongshanren-misc/post-init-ranger ()
-  ;; https://emacs-china.org/t/ranger-golden-ratio/964/2
-  (defun my-ranger ()
-    (interactive)
-    (if golden-ratio-mode
-        (progn
-          (golden-ratio-mode -1)
-          (ranger)
-          (setq golden-ratio-previous-enable t))
-      (progn
-        (ranger)
-        (setq golden-ratio-previous-enable nil))))
+;; (defun zilongshanren-misc/post-init-ranger ()
+;;   ;; https://emacs-china.org/t/ranger-golden-ratio/964/2
+;;   (defun my-ranger ()
+;;     (interactive)
+;;     (if golden-ratio-mode
+;;         (progn
+;;           (golden-ratio-mode -1)
+;;           (ranger)
+;;           (setq golden-ratio-previous-enable t))
+;;       (progn
+;;         (ranger)
+;;         (setq golden-ratio-previous-enable nil))))
 
-  (defun my-quit-ranger ()
-    (interactive)
-    (if golden-ratio-previous-enable
-        (progn
-          (ranger-close)
-          (golden-ratio-mode 1))
-      (ranger-close)))
+;;   (defun my-quit-ranger ()
+;;     (interactive)
+;;     (if golden-ratio-previous-enable
+;;         (progn
+;;           (ranger-close)
+;;           (golden-ratio-mode 1))
+;;       (ranger-close)))
 
-  (with-eval-after-load 'ranger
-    (progn
-      (define-key ranger-normal-mode-map (kbd "q") 'my-quit-ranger)))
+  ;; (with-eval-after-load 'ranger
+  ;;   (progn
+  ;;     (define-key ranger-normal-mode-map (kbd "q") 'my-quit-ranger)))
 
-  (spacemacs/set-leader-keys "ar" 'my-ranger))
+  ;; (spacemacs/set-leader-keys "ar" 'my-ranger))
 
 ;; copy from spacemacs helm layer
 (defun zilongshanren-misc/init-helm-ag ()

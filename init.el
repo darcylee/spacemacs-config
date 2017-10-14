@@ -35,7 +35,7 @@ values."
      (helm :can-shadow nil)
      better-defaults
      ;; github
-     ranger
+     ;; ranger
      colors
      prodigy
      ;; search-engine
