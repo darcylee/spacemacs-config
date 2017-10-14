@@ -197,8 +197,8 @@
                                                                       markdown-mode-hook))
 
     (spacemacs/add-to-hooks 'darcylee/load-yasnippet '(prog-mode-hook
-                                                            markdown-mode-hook
-                                                            org-mode-hook))
+                                                       markdown-mode-hook
+                                                       org-mode-hook))
     ))
 
 (defun darcylee-programming/post-init-racket-mode ()

@@ -723,7 +723,7 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
     (define-key evil-emacs-state-map (kbd "s-b") 'backward-word)
     (define-key evil-insert-state-map (kbd "s-b") 'backward-word)
 
-    (spacemacs/set-leader-keys "bi" 'ibuffer)
+    ;; (spacemacs/set-leader-keys "bi" 'ibuffer)
     (define-key evil-ex-completion-map "\C-a" 'move-beginning-of-line)
     (define-key evil-ex-completion-map "\C-b" 'backward-char)
     (define-key evil-ex-completion-map "\C-k" 'kill-line)
