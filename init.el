@@ -31,7 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     (ivy :can-shadow nil)
+     ;; (ivy :can-shadow nil)
      (helm :can-shadow nil)
      better-defaults
      ;; github
@@ -123,7 +123,7 @@ values."
                     fancy-battery org-present orgit orglue helm-swoop
                     helm-flyspell flyspell-correct-helm clean-aindent-mode
                     helm-c-yasnippet ace-jump-helm-line helm-make magithub
-                    helm-spacemacs-help smeargle
+                    helm-spacemacs-help smeargle helm-themes
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                     window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
                     )
