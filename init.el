@@ -126,7 +126,7 @@ values."
                     helm-c-yasnippet ace-jump-helm-line helm-make magithub
                     helm-spacemacs-help smeargle helm-themes
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
-                    window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+                    ivy-purpose helm-purpose
                     )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
