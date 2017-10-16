@@ -38,7 +38,7 @@ values."
      ;; ranger
      colors
      prodigy
-     ;; search-engine
+     search-engine
      graphviz
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
@@ -389,7 +389,6 @@ values."
     (when (and (spacemacs/system-is-linux) window-system)
       (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Serif SC" 14 16)))
 
-
   ;; Setting Chinese Font
   (when (and (spacemacs/system-is-mswindows) window-system)
     (setq ispell-program-name "aspell")
@@ -406,6 +405,11 @@ values."
   (setq split-width-threshold 120)
 
   ;; (spacemacs|add-company-backends :modes text-mode)
+
+  (push '(baidu
+          :name "Baidu"
+          :url "https://www.baidu.com/s?wd=%s")
+        search-engine-alist)
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
