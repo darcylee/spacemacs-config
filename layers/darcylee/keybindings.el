@@ -58,6 +58,8 @@
 (spacemacs/set-leader-keys "bmr" 'bookmark-rename)
 (spacemacs/set-leader-keys "bmd" 'bookmark-delete)
 (spacemacs/set-leader-keys "bmj" 'counsel-bookmark)
+;; temp fix for ivy-switch-buffer
+;; (spacemacs/set-leader-keys "bb" 'ivy-switch-buffer)
 
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "ox" 'org-open-at-point)
