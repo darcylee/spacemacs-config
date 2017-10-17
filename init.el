@@ -406,6 +406,10 @@ values."
 
   ;; (spacemacs|add-company-backends :modes text-mode)
 
+  (push '(google-translate
+          :name "Google Translate"
+          :url "http://translate.google.cn/?source=osdd#auto|auto|%s")
+        search-engine-alist)
   (push '(baidu
           :name "Baidu"
           :url "https://www.baidu.com/s?wd=%s")
