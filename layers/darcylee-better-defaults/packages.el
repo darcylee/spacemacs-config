@@ -14,6 +14,7 @@
     (dired-mode :location built-in)
     (profiler :location built-in)
     (recentf :location built-in)
+    highlight-symbol
     )
 )
 
@@ -95,4 +96,13 @@
     :init
     (evilified-state-evilify profiler-report-mode profiler-report-mode-map)))
 
+(defun darcylee-better-defaults/init-highlight-symbol ()
+  "highlight-symbol init"
+  (use-package highlight-symbol
+    :init
+    (progn
+      (spacemacs/set-leader-keys "hs" 'highlight-symbol)
+      )
+    )
+  )
 ;;; packages.el ends here
