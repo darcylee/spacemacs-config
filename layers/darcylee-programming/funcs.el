@@ -120,7 +120,7 @@ version 2015-08-21"
   (unless yas-global-mode
     (progn
       (yas-global-mode 1)
-      (setq my-snippet-dir (expand-file-name "~/.spacemacs.d/snippets"))
+      (setq my-snippet-dir (expand-file-name "~/.spacemacs.d/snippets/rucle"))
       (setq yas-snippet-dirs  my-snippet-dir)
       (yas-load-directory my-snippet-dir)
       (setq yas-wrap-around-region t)))
