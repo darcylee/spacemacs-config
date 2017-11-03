@@ -116,7 +116,7 @@ values."
                     evil-indent-plus volatile-highlights smartparens
                     holy-mode skewer-mode rainbow-delimiters
                     highlight-indentation vi-tilde-fringe eyebrowse
-                    org-bullets org-repo-todo org-download org-timer
+                    org-bullets smooth-scrolling org-repo-todo org-download org-timer
                     livid-mode git-gutter git-gutter-fringe  evil-escape
                     leuven-theme gh-md evil-lisp-state spray lorem-ipsum symon
                     ac-ispell ace-jump-mode auto-complete auto-dictionary
@@ -315,7 +315,7 @@ values."
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
@@ -404,7 +404,7 @@ values."
   ;; force horizontal split window
   (setq split-width-threshold 120)
 
-  ;; (spacemacs|add-company-backends :modes text-mode)
+  (spacemacs|add-company-backends :modes text-mode)
 
   (push '(google-translate
           :name "Google Translate"

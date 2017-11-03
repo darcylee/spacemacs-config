@@ -181,6 +181,10 @@ Single Capitals as you type."
 (setq mouse-wheel-progressive-speed nil)
 (setq ring-bell-function 'ignore)
 
+(setq backup-by-copying t
+      make-backup-files nil
+      create-lockfiles nil)
+
 ;; specify config
 (setq-default indent-tabs-mode nil
               tab-width 4)
