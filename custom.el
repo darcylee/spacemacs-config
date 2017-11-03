@@ -7,7 +7,7 @@
  ;; If there is more than one, they won't work right.
  '(ahs-case-fold-search nil t)
  '(command-log-mode-window-size 50)
- '(company-dabbrev-minimum-length 3)
+ '(company-dabbrev-minimum-length 2)
  '(company-dabbrev-other-buffers nil)
  '(company-show-numbers t)
  '(company-statistics-auto-restore nil)
@@ -22,7 +22,7 @@
  '(expand-region-reset-fast-key "r")
  '(global-command-log-mode nil)
  '(helm-buffer-max-length 56)
- '(helm-move-to-line-cycle-in-source t)
+ ;; '(helm-move-to-line-cycle-in-source t)
  '(ivy-height 18)
  '(lua-documentation-url "http://www.lua.org/manual/5.3/manual.html")
  '(magit-use-overlays nil)
