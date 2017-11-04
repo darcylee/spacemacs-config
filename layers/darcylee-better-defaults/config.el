@@ -199,6 +199,6 @@ Single Capitals as you type."
 ;; more useful frame title, that show either a file or a
 ;; buffer name (if the buffer isn't visiting a file)
 (setq frame-title-format
-      '("" " Emacs - "
+      '("GNU/Emacs - " user-login-name "@" system-name ":"
         (:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name)) "%b"))))
