@@ -190,8 +190,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
-                         solarized-light
-                         solarized-dark)
+                         spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -404,6 +403,9 @@ values."
 
   ;; force horizontal split window
   (setq split-width-threshold 120)
+
+  ;; set simple separator
+  (setq powerline-default-separator 'box)
 
   (spacemacs|add-company-backends :modes text-mode)
 
