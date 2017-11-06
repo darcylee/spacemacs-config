@@ -406,9 +406,9 @@ It should only modify the values of Spacemacs settings."
 
 (defun dotspacemacs/user-init ()
   (setq configuration-layer-elpa-archives
-        '(("melpa"    . "melpa.org/packages/")
-          ("org"      . "orgmode.org/elpa/")
-          ("gnu"      . "elpa.gnu.org/packages/")))
+        '(("melpa-cn" . "elpa.emacs-china.org/melpa/")
+          ("org-cn"   . "elpa.emacs-china.org/org/")
+          ("gnu-cn"   . "elpa.emacs-china.org/gnu/")))
 
   ;; https://github.com/syl20bnr/spacemacs/issues/2705
   ;; (setq tramp-mode nil)
