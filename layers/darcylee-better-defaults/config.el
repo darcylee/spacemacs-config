@@ -191,6 +191,20 @@ Single Capitals as you type."
 ;; (set-language-environment "Chinese-GBK")
 
 (which-function-mode)
+(setq which-func-modes '(emacs-lisp-mode
+                         lisp-mode
+                         clojure-mode
+                         scheme-mode
+                         haskell-mode
+                         ruby-mode
+                         rspec-mode
+                         python-mode
+                         c-mode
+                         c++-mode
+                         objc-mode
+                         latex-mode
+                         js-mode))
+
 (setq which-func-unknown "n/a")
 ;; when editing js file, this feature is very useful
 ;; (setq-default header-line-format
