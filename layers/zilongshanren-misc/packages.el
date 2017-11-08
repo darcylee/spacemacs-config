@@ -866,12 +866,10 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
   (setq persp-kill-foreign-buffer-action 'kill)
   (setq persp-lighter nil)
   (when (fboundp 'spacemacs|define-custom-layout)
-    (spacemacs|define-custom-layout "@Cocos2D-X"
-      :binding "c"
+    (spacemacs|define-custom-layout "@Work"
+      :binding "w"
       :body
-      (find-file "~/cocos2d-x/cocos/ui/UIWidget.cpp")
-      (split-window-right)
-      (find-file "~/cocos2d-x/cocos/cocos2d.cpp"))))
+      (find-file "/work"))))
 
 (defun zilongshanren-misc/post-init-chinese-wbim ()
   (progn
