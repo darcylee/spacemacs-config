@@ -14,8 +14,8 @@
   "http://www.gitlee.com")
 
 (setq-default
- org-agenda-dir "~/org-notes"
- deft-dir "~/org-notes"
+ org-agenda-dir "~/Documents/org-notes"
+ deft-dir "~/Documents/org-notes"
  blog-admin-dir "~/4gamers.cn")
 
 ;;load sensitive data
