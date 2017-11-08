@@ -48,6 +48,8 @@
  '(paradox-github-token t)
  '(ring-bell-function (quote ignore))
  '(sp-show-pair-from-inside t)
+ '(spacemacs-theme-comment-bg nil)
+ '(spacemacs-theme-comment-italic t)
  '(tab-width 4)
  '(tags-revert-without-query t)
  '(vc-follow-symlinks t)
