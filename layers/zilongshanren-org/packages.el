@@ -64,21 +64,20 @@
 
       ;; 加密文章
       ;; "http://coldnew.github.io/blog/2013/07/13_5b094.html"
-      ;; org-mode 設定
+      ;; org-mode 设置
       (require 'org-crypt)
 
-      ;; 當被加密的部份要存入硬碟時，自動加密回去
+      ;; 当被加密的部分存入硬盘时，自动加密回去
       (org-crypt-use-before-save-magic)
 
-      ;; 設定要加密的 tag 標籤為 secret
-      (setq org-crypt-tag-matcher "secret")
+      ;; 设定要加密的 tag 为 crypt
+      (setq org-crypt-tag-matcher "crypt")
 
-      ;; 避免 secret 這個 tag 被子項目繼承 造成重複加密
-      ;; (但是子項目還是會被加密喔)
-      (setq org-tags-exclude-from-inheritance (quote ("secret")))
+      ;; 避免 crypt 这个 tag 被子项目继承， 造成重复加密（但是子项目还是会被加密）
+      (setq org-tags-exclude-from-inheritance (quote ("crypt")))
 
       ;; 用於加密的 GPG 金鑰
-      ;; 可以設定任何 ID 或是設成 nil 來使用對稱式加密 (symmetric encryption)
+      ;; 可以设定任何 ID 或是设成 nil 来使用对称式加密（symmetric encryption）
       (setq org-crypt-key nil)
 
       ;; (add-to-list 'auto-mode-alist '("\.org\\'" . org-mode))
@@ -261,12 +260,37 @@ unwanted space when exporting org-mode to html."
               ("wc" "不重要且紧急的任务" tags-todo "+PRIORITY=\"C\"")
               ("b" "Blog" tags-todo "BLOG")
               ("p" . "项目安排")
-              ("pw" tags-todo "PROJECT+WORK+CATEGORY=\"Work\"")
+              ("pw" tags-todo "CATEGORY=\"Work\"")
+              ("pt" tags-todo "PROJECT+WORK+CATEGORY=\"Work\"")
               ("pl" tags-todo "PROJECT+DREAM+CATEGORY=\"darcylee\"")
               ("W" "Weekly Review"
                ((stuck "") ;; review stuck projects as designated by org-stuck-projects
                 (tags-todo "PROJECT") ;; review all projects (assuming you use todo keywords to designate projects)
                 ))))
+
+      ;; http://doc.norang.ca/org-mode.html
+      ;; Tags with fast selection keys
+      (setq org-tag-alist (quote ((:startgroup)
+                                  ("@home" . ?h)
+                                  ("@office" . ?o)
+                                  ("@errand" . ?e)
+                                  (:endgroup)
+                                  ("WAITING" . ?w)
+                                  ("HOLD" . ?H)
+                                  ("PERSONAL" . ?P)
+                                  ("WORK" . ?W)
+                                  ("ORG" . ?O)
+                                  ("NORANG" . ?N)
+                                  ("crypt" . ?E)
+                                  ("NOTE" . ?n)
+                                  ("CANCELLED" . ?C)
+                                  ("FLAGGED" . ??))))
+
+      ;; Allow setting single tags without the menu
+      (setq org-fast-tag-selection-single-key (quote expert))
+
+      ;; For tag searches ignore tasks with scheduled and deadline dates
+      (setq org-agenda-tags-todo-honor-ignore-options t)
 
       (defvar zilongshanren-website-html-preamble
         "<div class='nav'>

@@ -255,6 +255,14 @@ version 2015-08-21"
 
 (defun my-setup-develop-environment ()
   (interactive)
+  ;; Please note `file-truename' must be used!
+  (setenv "GTAGSLIBPATH" (concat "/usr/include"
+                                 ":"
+                                 "/opt/gtags/includes"))
+  (setenv "MAKEOBJDIRPREFIX" (file-truename "/opt/gtags/obj/"))
+
+  (setq company-backends '((company-dabbrev-code company-gtags)))
+
   (when (my-project-name-contains-substring "guanghui")
     (cond
      ((my-project-name-contains-substring "cocos2d-x")
