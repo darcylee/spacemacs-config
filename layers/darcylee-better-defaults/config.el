@@ -216,6 +216,3 @@ Single Capitals as you type."
       '("GNU/Emacs - " user-login-name "@" system-name ":"
         (:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name)) "%b"))))
-(setq linum-delay t)
-(defadvice linum-schedule (around my-linum-schedule () activate)
-  (run-with-idle-timer 0.1 nil #'linum-update-current))
