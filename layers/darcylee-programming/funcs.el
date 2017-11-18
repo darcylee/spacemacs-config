@@ -261,7 +261,7 @@ version 2015-08-21"
                                  "/opt/gtags/includes"))
   (setenv "MAKEOBJDIRPREFIX" (file-truename "/opt/gtags/obj/"))
 
-  (setq company-backends '((company-dabbrev-code company-gtags)))
+  ;; (setq company-backends '((company-dabbrev-code company-gtags)))
 
   (when (my-project-name-contains-substring "guanghui")
     (cond
