@@ -51,10 +51,13 @@
       (spacemacs/set-leader-keys "hh" 'highlight-frame-toggle)
       (spacemacs/set-leader-keys "hc" 'clear-highlight-frame)
       (setq-default highlight-faces
-        '(('hi-red-b . 0)
-          ('hi-yellow . 0)
-          ('hi-pink . 0)
-          ('hi-blue-b . 0))))))
+                    '(('hi-blue . 0)
+                      ('hi-pink . 0)
+                      ('hi-yellow . 0)
+                      ('hi-red-b . 0)
+                      ('hi-green-b . 0)
+                      ('hi-blue-b . 0)
+                      ('hi-green . 0))))))
 
 (defun zilongshanren-misc/post-init-golden-ratio ()
   (with-eval-after-load 'golden-ratio
