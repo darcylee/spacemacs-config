@@ -42,8 +42,7 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
-(add-to-list 'auto-mode-alist '("\\.cc\\' \\.cpp\\'" . c++-mode))
-(add-to-list 'auto-mode-alist '("\\.c\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.c\\'" . c++-mode))
 
 ;; return nil to write content to file
 (defun darcylee/untabify-buffer ()
@@ -61,7 +60,7 @@
 ;;              (add-hook 'write-contents-hooks
 ;;                        'darcylee/untabify-buffer nil t)))
 
-(defun my-c-c++-mode-common-hook ()
+(defun my-c-mode-common-hook ()
   ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
   (c-set-offset 'substatement-open 8)
   (c-set-offset 'case-label 0)
@@ -77,7 +76,7 @@
   (setq indent-tabs-mode nil)           ; use spaces only if nil
   )
 
-(defun my-c-c++-mode-common-hook-tab-is-8 ()
+(defun my-c-mode-common-hook-tab-is-8 ()
   ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
   (c-set-offset 'substatement-open 8)
   (c-set-offset 'case-label 0)
@@ -93,8 +92,7 @@
   (setq indent-tabs-mode t)           ; use spaces only if nil
   )
 
-(add-hook 'c++-mode-hook 'my-c-c++-mode-common-hook)
-(add-hook 'c-mode-hook 'my-c-c++-mode-common-hook)
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 (add-hook 'web-mode-hook 'darcylee/impatient-mode-hook)
 

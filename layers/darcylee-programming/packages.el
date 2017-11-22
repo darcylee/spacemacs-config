@@ -23,6 +23,7 @@
         ;; impatient-mode
         nodejs-repl
         (nodejs-repl-eval :location local)
+        (doxymacs :location local)
         js2-mode
         js2-refactor
         json-mode
