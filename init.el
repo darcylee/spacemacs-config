@@ -87,7 +87,7 @@ This function should only modify configuration layer settings."
                  typescript-fmt-tool 'typescript-formatter)
      emacs-lisp
      (clojure :variables clojure-enable-fancify-symbols t)
-     racket
+     ;; racket
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
      (go :variables
