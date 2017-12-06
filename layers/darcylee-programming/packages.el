@@ -47,6 +47,7 @@
         ;; editorconfig
         robe
         ycmd
+        (kconfig :location local)
         ))
 
 (defun darcylee-programming/post-init-robe ()
@@ -569,3 +570,5 @@
     (setq company-c-headers-path-user
           (quote
            ("/Users/guanghui/cocos2d-x/cocos/platform" "/Users/guanghui/cocos2d-x/cocos" "." "/Users/guanghui/cocos2d-x/cocos/audio/include/")))))
+(defun darcylee-programming/init-kconfig ()
+  (use-package kconfig))
