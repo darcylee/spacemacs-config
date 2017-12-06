@@ -558,7 +558,8 @@
           company-idle-delay 0.08)
 
     (when (configuration-layer/package-usedp 'company)
-      (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode conf-unix-mode json-mode graphviz-dot-mode go-mode))
+      (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode
+                                      conf-unix-mode json-mode graphviz-dot-mode go-mode makefile-gmake-mode))
     ))
 (defun darcylee-programming/post-init-company-c-headers ()
   (progn
