@@ -57,7 +57,7 @@
 (spacemacs/set-leader-keys "bms" 'bookmark-set)
 (spacemacs/set-leader-keys "bmr" 'bookmark-rename)
 (spacemacs/set-leader-keys "bmd" 'bookmark-delete)
-(spacemacs/set-leader-keys "bmj" 'counsel-bookmark)
+(spacemacs/set-leader-keys "bmj" 'bookmark-jump)
 ;; temp fix for ivy-switch-buffer
 ;; (spacemacs/set-leader-keys "bb" 'ivy-switch-buffer)
 
