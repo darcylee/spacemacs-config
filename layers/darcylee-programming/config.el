@@ -62,7 +62,7 @@
 
 (defun my-c-mode-common-hook ()
   ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
-  (c-set-offset 'substatement-open 8)
+  (c-set-offset 'substatement-open 0)
   (c-set-offset 'case-label 0)
   (c-set-offset 'statement-case-open 0)
 
@@ -78,7 +78,7 @@
 
 (defun my-c-mode-common-hook-tab-is-8 ()
   ;; my customizations for all of c-mode, c++-mode, objc-mode, java-mode
-  (c-set-offset 'substatement-open 8)
+  (c-set-offset 'substatement-open 0)
   (c-set-offset 'case-label 0)
   (c-set-offset 'statement-case-open 0)
 
