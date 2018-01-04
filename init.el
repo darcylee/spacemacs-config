@@ -89,7 +89,8 @@ This function should only modify configuration layer settings."
      (clojure :variables clojure-enable-fancify-symbols t)
      ;; racket
      (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode)
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-enable-cmake-ide-support nil)
      (go :variables
          go-use-gometalinter t
          gofmt-command "goimports"
