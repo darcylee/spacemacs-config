@@ -541,8 +541,9 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
       (setq helm-candidate-number-limit 100)
       ;; ignore boring files like .o and .a
       (setq helm-ff-skip-boring-files t)
-      ;; replace locate with spotlight on Mac
-      (setq helm-locate-command "mdfind -name %s %s")
+      (when (spacemacs/system-is-mac)
+        ;; replace locate with spotlight on Mac
+        (setq helm-locate-command "mdfind -name %s %s"))
       (push "\\.emlx$" helm-boring-file-regexp-list)
       )
     ))
