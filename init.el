@@ -85,7 +85,7 @@ This function should only modify configuration layer settings."
      (typescript :variables
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)
-     emacs-lisp
+     (emacs-lisp :variables emacs-lisp-hide-namespace-prefix nil)
      (clojure :variables clojure-enable-fancify-symbols t)
      ;; racket
      (c-c++ :variables
