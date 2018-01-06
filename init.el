@@ -126,6 +126,8 @@ This function should only modify configuration layer settings."
                     helm-spacemacs-help smeargle helm-themes
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                     ivy-purpose helm-purpose
+                    helm-rtags flycheck-rtags company-rtags rtags
+                    company-ycm flycheck-ycmd company-ycmd
                     )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
