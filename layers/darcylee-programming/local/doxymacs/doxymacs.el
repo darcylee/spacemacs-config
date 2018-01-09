@@ -494,7 +494,7 @@ Key bindings:
       ;; add tokens to filladapt to match doxygen markup
       (let ((bullet-regexp (concat "[@\\]"
                                    "\\(param\\(?:\\s-*"
-                                   "\\[\\(?:in\\|out\\|in,out\\)\\]\\)?"
+                                   "\\[\\(?:in\\|out\\|in,out\\|IN\\|OUT\\|IN,OUT\\)\\]\\)?"
                                    "\\s-+\\sw+"
                                    "\\|tparam\\s-+\\sw+"
                                    "\\|return\\|attention\\|note"
@@ -571,7 +571,7 @@ Key bindings:
     '(0 font-lock-warning-face prepend))
    ;; keywords that take a variable name as an argument
    (list
-    (concat "\\([@\\\\]\\(param\\(?:\\s-*\\[\\(?:in\\|out\\|in,out\\)\\]\\)?"
+    (concat "\\([@\\\\]\\(param\\(?:\\s-*\\[\\(?:in\\|out\\|in,out\\|IN\\|OUT\\|IN,OUT\\)\\]\\)?"
             "\\|tparam\\|a\\|namespace\\|relates\\(also\\)?"
             "\\|var\\|def\\)\\)\\s-+\\(\\sw+\\)")
     '(1 font-lock-keyword-face prepend)
