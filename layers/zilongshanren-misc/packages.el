@@ -811,7 +811,6 @@
     (setq magit-ediff-dwim-show-on-hunks t)
 
     (setq magit-repository-directories '("~/cocos2d-x/"))
-    (setq magit-push-always-verify nil)
 
     (eval-after-load 'magit
       '(define-key magit-mode-map (kbd "C-c g")
