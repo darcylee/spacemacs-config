@@ -199,16 +199,23 @@ It should only modify the values of Spacemacs settings."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
                          spacemacs-light)
+   ;; "Set the theme for the Spaceline. Supported themes are `spacemacs',
+   ;; `all-the-icons', `custom', `vim-powerline' and `vanilla'. The first three
+   ;; are spaceline themes. `vanilla' is default Emacs mode-line. `custom' is a
+   ;; user defined themes, refer to the DOCUMENTATION.org for more info on how
+   ;; to create your own spaceline theme. Value can be a symbol or a list with
+   ;; additional properties like '(all-the-icons :separator-scale 1.5).")
+   ;; (default '(spacemacs :separator wave :separator-scale 1.5))
+   dotspacemacs-mode-line-theme '(spacemacs :separator box :separator-scale 1)
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
-   ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
-   ;; quickly tweak the mode-line size to make separators look not too crappy.
+   ;; Default font, or prioritized list of fonts. This setting has no effect when
+   ;; running Emacs in terminal
    dotspacemacs-default-font '("Source Code Pro"
                                :size 14
                                :weight normal
-                               :width normal
-                               :powerline-scale 1)
+                               :width normal)
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands `M-x' (after pressing on the leader key).
@@ -460,9 +467,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; force horizontal split window
   (setq split-width-threshold 120)
-
-  ;; set simple separator
-  (setq powerline-default-separator 'box)
 
   (spacemacs|add-company-backends :modes text-mode)
 
