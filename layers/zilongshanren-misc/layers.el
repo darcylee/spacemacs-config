@@ -10,3 +10,7 @@
 ;;; License: GPLv3
 
 ;; (configuration-layer/remove-layer 'chinese)
+(when (or (spacemacs/system-is-linux)
+          (spacemacs/system-is-mswindows))
+  (configuration-layer/remove-layer 'osx)
+  )
