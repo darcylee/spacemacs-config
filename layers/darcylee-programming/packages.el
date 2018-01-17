@@ -46,7 +46,7 @@
         cider
         ;; editorconfig
         robe
-        ycmd
+        ;; ycmd
         (kconfig :location local)
         ))
 
