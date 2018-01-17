@@ -128,6 +128,7 @@ This function should only modify configuration layer settings."
                     ivy-purpose helm-purpose
                     helm-rtags flycheck-rtags company-rtags rtags
                     company-ycm flycheck-ycmd company-ycmd
+                    spaceline-all-the-icons all-the-icons memoize font-lock+
                     )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
