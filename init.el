@@ -90,7 +90,9 @@ This function should only modify configuration layer settings."
      ;; racket
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
-            c-c++-enable-cmake-ide-support nil)
+            c-c++-enable-cmake-ide-support nil
+            c-c++-enable-google-style t
+            c-c++-enable-google-newline t)
      (go :variables
          go-use-gometalinter t
          gofmt-command "goimports"

@@ -268,9 +268,9 @@
   (use-package cmake-font-lock
     :defer t))
 
-(defun darcylee-programming/init-google-c-style ()
-  (use-package google-c-style
-    :init (add-hook 'c-mode-common-hook 'google-set-c-style)))
+;; (defun darcylee-programming/init-google-c-style ()
+;;   (use-package google-c-style
+;;     :init (add-hook 'c-mode-common-hook 'google-set-c-style)))
 
 (defun darcylee-programming/post-init-cmake-mode ()
   (progn
