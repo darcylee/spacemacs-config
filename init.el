@@ -449,7 +449,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
 (defun dotspacemacs/user-config ()
   ;;for macOS
-  (setq ns-use-srgb-colorspace nil)
+  (setq ns-use-srgb-colorspace t)
   ;;解决org表格里面中英文对齐的问题
   (when (configuration-layer/layer-usedp 'chinese)
     (when (and (spacemacs/system-is-mac) window-system)
