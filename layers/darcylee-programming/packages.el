@@ -408,6 +408,7 @@
 (defun darcylee-programming/init-doxymacs ()
   "Initialize doxymacs"
   (use-package doxymacs
+    :demand t
     :init
     (add-hook 'c-mode-common-hook 'doxymacs-mode)
     :config
