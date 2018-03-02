@@ -35,7 +35,7 @@
         ;; (cc-mode :location built-in)
         cc-mode
         ;; flycheck-clojure
-        etags-select
+        ;; etags-select
         (python :location built-in)
         (emacs-lisp :location built-in)
         ;; clojure-mode
@@ -317,7 +317,7 @@
     (add-hook 'web-mode-hook 'my-setup-develop-environment)
 
     (spacemacs|define-jump-handlers js2-mode)
-    (add-hook 'spacemacs-jump-handlers-js2-mode 'etags-select-find-tag-at-point)
+    ;; (add-hook 'spacemacs-jump-handlers-js2-mode 'etags-select-find-tag-at-point)
 
     (setq company-backends-js2-mode '((company-dabbrev-code :with company-keywords company-etags)
                                       company-files company-dabbrev))
@@ -453,8 +453,8 @@
   (progn
     (setq company-backends-c-mode-common '((company-dabbrev-code :with company-keywords company-gtags company-etags)
                                            company-files company-dabbrev))
-    (spacemacs/set-leader-keys-for-major-mode 'c++-mode
-      "gd" 'etags-select-find-tag-at-point)
+    ;; (spacemacs/set-leader-keys-for-major-mode 'c++-mode
+    ;;   "gd" 'etags-select-find-tag-at-point)
 
 
     (add-hook 'c++-mode-hook 'my-setup-develop-environment)
@@ -510,21 +510,21 @@
       "tb" 'zilong/company-toggle-company-ycmd)))
 
 ;; when many project has the need to use tags, I will give etags-table and etags-update a try
-(defun darcylee-programming/init-etags-select ()
-  (use-package etags-select
-    :init
-    (progn
-      (define-key evil-normal-state-map (kbd "gf")
-        (lambda () (interactive) (find-tag (find-tag-default-as-regexp))))
+;; (defun darcylee-programming/init-etags-select ()
+;;   (use-package etags-select
+;;     :init
+;;     (progn
+;;       (define-key evil-normal-state-map (kbd "gf")
+;;         (lambda () (interactive) (find-tag (find-tag-default-as-regexp))))
 
-      (define-key evil-normal-state-map (kbd "gb") 'pop-tag-mark)
+;;       (define-key evil-normal-state-map (kbd "gb") 'pop-tag-mark)
 
-      (define-key evil-normal-state-map (kbd "gn")
-        (lambda () (interactive) (find-tag last-tag t)))
+;;       (define-key evil-normal-state-map (kbd "gn")
+;;         (lambda () (interactive) (find-tag last-tag t)))
 
-      (evilified-state-evilify etags-select-mode etags-select-mode-map)
-      (spacemacs/set-leader-keys-for-major-mode 'js2-mode
-        "gd" 'etags-select-find-tag-at-point))))
+;;       (evilified-state-evilify etags-select-mode etags-select-mode-map)
+;;       (spacemacs/set-leader-keys-for-major-mode 'js2-mode
+;;         "gd" 'etags-select-find-tag-at-point))))
 
 (defun darcylee-programming/init-gulpjs ()
   (use-package gulpjs
