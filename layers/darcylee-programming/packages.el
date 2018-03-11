@@ -48,6 +48,7 @@
         robe
         ;; ycmd
         (kconfig :location local)
+        plantuml-mode
         ))
 
 (defun darcylee-programming/post-init-robe ()
@@ -448,6 +449,20 @@
                         "rep" "reverse" "sub" "upper" "concat" "pack" "insert" "remove" "unpack" "sort"
                         "lower") company-keywords-alist))
 
+    ))
+
+(defun darcylee-programming/post-init-plantuml-mode ()
+  (progn
+    (with-eval-after-load 'plantuml-mode
+      (require 'company-keywords)
+      (push '(plantuml-mode "participant" "actor" "boundary" "control" "entity" "database" "collections"
+                            "autonumber" "resume" "newpage" "alt" "else" "opt" "loop" "par" "break" "critical"
+                            "group" "title" "start" "end" "note" "hnote" "rnote" "ref" "activate" "deactivate"
+                            "destroy" "create" "skinparam" "guillenmet" "box" "hide" "footbox" "handwritten"
+                            "sequence" "BoxPadding" "ParticipantPadding" "usecace" "static" "abstract" "show"
+                            "empty" "fields" "attributes" "class" "enum" "interface" "packageStyle" "rectangle"
+                            "package" "node" "folder" "frame" "cloud"
+                            ) company-keywords-alist))
     ))
 
 (defun darcylee-programming/post-init-cc-mode ()
