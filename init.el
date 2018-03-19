@@ -38,8 +38,8 @@ This function should only modify configuration layer settings."
      colors
      prodigy
      search-engine
-     (plantuml :variables org-plantuml-jar-path "~/.spacemacs.d/plantUml.jar"
-               plantuml-jar-path "~/.spacemacs.d/plantUml.jar"
+     (plantuml :variables org-plantuml-jar-path "~/.spacemacs.d/plantuml.jar"
+               plantuml-jar-path "~/.spacemacs.d/plantuml.jar"
                plantuml-output-type "png")
      graphviz
      (syntax-checking :variables syntax-checking-enable-by-default nil

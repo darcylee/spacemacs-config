@@ -461,7 +461,7 @@
                             "destroy" "create" "skinparam" "guillenmet" "box" "hide" "footbox" "handwritten"
                             "sequence" "BoxPadding" "ParticipantPadding" "usecace" "static" "abstract" "show"
                             "empty" "fields" "attributes" "class" "enum" "interface" "packageStyle" "rectangle"
-                            "package" "node" "folder" "frame" "cloud"
+                            "package" "node" "folder" "frame" "cloud" "repeat"
                             ) company-keywords-alist))
     ))
 
