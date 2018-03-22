@@ -258,8 +258,9 @@ version 2015-08-21"
   ;; Please note `file-truename' must be used!
   (setenv "GTAGSLIBPATH" (concat "/usr/include"
                                  ":"
-                                 "/opt/gtags/includes"))
-  (setenv "MAKEOBJDIRPREFIX" (file-truename "/opt/gtags/obj/"))
+                                 (file-truename "/work/tmp/gtags-ext")))
+
+  (setenv "MAKEOBJDIRPREFIX" (file-truename "/opt/gtags"))
 
   ;; (setq company-backends '((company-dabbrev-code company-gtags)))
 
