@@ -1,20 +1,17 @@
-* Darcylee's spacesmacs config
+* Darcylee's spacemacs config
 
 ** HowTo
-- Download ~spacemacs~
+- Clone =spacemacs= repo and use develop branch
 #+BEGIN_SRC sh
-  #clone spacemacs repo and use develop branch
   git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d -b develop
 #+END_SRC
 
-- Get this configuration
-
+- Clone this configuration and checkout master branch
 #+BEGIN_SRC sh
-  #clone darcyee layer and checkout master branch
   git clone https://github.com/darcylee/spacemacs-config.git ~/.spacemacs.d/
 #+END_SRC
 
-- Starting emacs
+- Start emacs, it will automatically start installing the required packages.
 
 ** Install =SourceCodePro= font
 Download [[https://github.com/adobe-fonts/source-code-pro/releases][=SourceCodePro=]] and install it on your system.
