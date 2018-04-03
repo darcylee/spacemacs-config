@@ -1,16 +1,26 @@
-* Darcylee's Emacs config
+* Darcylee's spacesmacs config
 
-** 使用方法
-
+** HowTo
+- Download ~spacemacs~
 #+BEGIN_SRC sh
   #clone spacemacs repo and use develop branch
   git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d -b develop
+#+END_SRC
 
-  #clone darcyee layer and checkout develop branch
+- Get this configuration
+
+#+BEGIN_SRC sh
+  #clone darcyee layer and checkout master branch
   git clone https://github.com/darcylee/spacemacs-config.git ~/.spacemacs.d/
 #+END_SRC
-** 安装 SourceCodePro 字体
-下载地址：https://github.com/adobe-fonts/source-code-pro/releases
 
-** 说明
-本配置里面包含的几个layer，部分来自别子龙山人https://github.com/zilongshanren/spacemacs-private
+- Starting emacs
+
+** Install =SourceCodePro= font
+Download [[https://github.com/adobe-fonts/source-code-pro/releases][=SourceCodePro=]] and install it on your system.
+
+** Note
++ The following layers in this configuration are import from the[[https://github.com/zilongshanren/spacemacs-private][子龙山人]] 's private config.
+    - layers/zilongshanren-misc
+    - layers/zilongshanren-org
++ This configuration requires Emacs version 25.1 or above. This is requied by spacemacs.
