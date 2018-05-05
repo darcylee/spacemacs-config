@@ -10,9 +10,9 @@
 (defvar user-home-page
   "http://www.gitlee.com")
 
-;; (setq-default
-;;  user-full-name "darcylee"
-;;  user-mail-address "darcylee1986@gmail.com")
+(setq-default
+ user-full-name "darcylee"
+ user-mail-address "darcylee1986@gmail.com")
 
 (setq-default
  org-agenda-dir "~/Documents/org-notes"
@@ -36,3 +36,11 @@
 ;;   :subscribed-channels '(xxxxxxxxx))
 ;; (setq paradox-github-token "")
 ;; (load "~/Dropbox/Apps/emacs/.emacs.secrets.el" t)
+
+;;load sensitive data
+(setq config-secrets (expand-file-name ".secrets.el" dotspacemacs-directory))
+(load config-secrets 'no-error 'no-messge t)
+
+;;load local configs
+(setq config-local (expand-file-name ".config-local.el" dotspacemacs-directory))
+(load config-local 'no-error 'no-messge t)

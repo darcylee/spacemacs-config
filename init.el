@@ -552,8 +552,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)
-(setq config-local (expand-file-name "config-local.el" dotspacemacs-directory))
-(load config-local 'no-error 'no-messge)
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use

@@ -1,4 +1,5 @@
 snippets/
 !/snippets/README.md
 .#*
-/config-local.el
+/.secrets.el
+/.config-local.el
