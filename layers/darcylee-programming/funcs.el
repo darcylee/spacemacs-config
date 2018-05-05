@@ -252,6 +252,11 @@ version 2015-08-21"
         (my-update-tags)
         (message "updated tags after %d seconds." (- (float-time (current-time)) (float-time my-tags-updated-time))))))
 
+(defun doxymacs-insert-file-all-comment ()
+  "Inserts Doxygen documentation and copyright for the current file at current point."
+  (interactive "*")
+  (doxymacs-call-template "file-all-comment"))
+
 
 (defun my-setup-develop-environment ()
   (interactive)

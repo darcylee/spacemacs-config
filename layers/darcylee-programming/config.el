@@ -111,3 +111,70 @@
        (if (eq (car company-backends) ',backend)
            (setq-local company-backends (delete ',backend company-backends))
          (push ',backend company-backends)))))
+
+;; user template of doxymacs
+(defconst doxymacs-file-all-comment-template
+  '("/*" > n
+    " * " "Copyright (c) 2017-" (format-time-string "%Y" (current-time)) "  Ruijie Network Inc." > n
+    " * " "All rights reserved." > n
+    " */" > n
+    "/**" > n
+    " *   " (doxymacs-doxygen-command-char) "file   "
+    (if (buffer-file-name)
+        (file-name-nondirectory (buffer-file-name))
+      "") > n
+      " *   " (doxymacs-doxygen-command-char) "author " (user-full-name)
+      (doxymacs-user-mail-address)
+      > n
+      " *   " (doxymacs-doxygen-command-char) "date   " (current-time-string) > n
+      " *"> n
+      " *   " (doxymacs-doxygen-command-char) "brief  " (p "Brief description of this file: ") > n
+      " * " p > n
+      " *   " (doxymacs-doxygen-command-char) "version 1.0" > n
+      " *" > n
+      " */"> n)
+  "Default JavaDoc-style template for file documentation.")
+(defconst doxymacs-file-comment-template
+  '("/**" > n
+    " *   " (doxymacs-doxygen-command-char) "file   "
+    (if (buffer-file-name)
+        (file-name-nondirectory (buffer-file-name))
+      "") > n
+      " *   " (doxymacs-doxygen-command-char) "author " (user-full-name)
+      (doxymacs-user-mail-address)
+      > n
+      " *   " (doxymacs-doxygen-command-char) "date   " (current-time-string) > n
+      " *"> n
+      " *   " (doxymacs-doxygen-command-char) "brief  " (p "Brief description of this file: ") > n
+      " * " p > n
+      " *   " (doxymacs-doxygen-command-char) "version 1.0" > n
+      " *" > n
+      " */"> n)
+  "Default JavaDoc-style template for file documentation.")
+
+(defconst doxymacs-function-comment-template
+  '((let ((next-func (doxymacs-find-next-func)))
+      (if next-func
+          (list
+           'l
+           "/**" '> 'n
+           " * " (doxymacs-doxygen-command-char) "brief " 'p '> 'n
+           " *" '> 'n
+           (doxymacs-parm-tempo-element (cdr (assoc 'args next-func)))
+           (unless (string-match
+                    (regexp-quote (cdr (assoc 'return next-func)))
+                    doxymacs-void-types)
+             '(l " *" > n " * " (doxymacs-doxygen-command-char)
+                 "return " (p "Returns: ") > n))
+           " */" '>)
+        (progn
+          (error "Can't find next function declaration.")
+          nil))))
+  "Default JavaDoc-style template for function documentation.")
+
+(defconst doxymacs-blank-singleline-comment-template
+  '("/* " > p " */")
+  "Default JavaDoc-style template for a blank single line doxygen comment.")
+
+;; set doxymacs default style
+(setq doxymacs-doxygen-style "JavaDoc")

@@ -411,10 +411,12 @@
   (use-package doxymacs
     :demand t
     :init
-    (add-hook 'c-mode-common-hook 'doxymacs-mode)
     :config
     (progn
       (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
+      (add-hook 'c-mode-common-hook 'doxymacs-mode)
+      (define-key doxymacs-mode-map "\C-cdF"
+        'doxymacs-insert-file-all-comment)
       (spacemacs|hide-lighter doxymacs-mode))))
 
 ;; https://atlanis.net/blog/posts/nodejs-repl-eval.html
