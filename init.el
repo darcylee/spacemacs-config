@@ -548,6 +548,9 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
                                 (old-default-directory default-directory))
                             (projectile-switch-project-by-name project)
                             (setq default-directory old-default-directory))))))
+  ;;load local configs
+  (setq config-local (expand-file-name ".config-local.el" dotspacemacs-directory))
+  (load config-local 'no-error 'no-messge t)
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
