@@ -213,7 +213,7 @@ It should only modify the values of Spacemacs settings."
    ;; to create your own spaceline theme. Value can be a symbol or a list with
    ;; additional properties like '(all-the-icons :separator-scale 1.5).")
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator box :separator-scale 1)
+   dotspacemacs-mode-line-theme '(spacemacs :separator nil :separator-scale 1)
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
@@ -373,6 +373,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-highlight-delimiters 'all
    ;; If non-nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
+   dotspacemacs-enable-server t
    dotspacemacs-persistent-server nil
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `rg', `ag', `pt', `ack' and `grep'.
@@ -484,6 +485,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   (global-hungry-delete-mode t)
   (spacemacs|diminish helm-gtags-mode)
+  (spacemacs|diminish helm-mode)
   (spacemacs|diminish ggtags-mode)
   (spacemacs|diminish which-key-mode)
   (spacemacs|diminish spacemacs-whitespace-cleanup-mode)
