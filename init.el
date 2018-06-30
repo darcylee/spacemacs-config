@@ -103,7 +103,6 @@ This function should only modify configuration layer settings."
      (chinese :packages youdao-dictionary fcitx
               :variables chinese-enable-fcitx nil
               chinese-enable-youdao-dict t)
-     treemacs
      ;; ycmd
      darcylee
      )
@@ -130,7 +129,7 @@ This function should only modify configuration layer settings."
                     helm-c-yasnippet ace-jump-helm-line helm-make magithub
                     helm-spacemacs-help smeargle helm-themes
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
-                    ivy-purpose helm-purpose
+                    ivy-purpose helm-purpose neotree
                     helm-rtags flycheck-rtags company-rtags rtags
                     company-ycm flycheck-ycmd company-ycmd
                     spaceline-all-the-icons all-the-icons memoize font-lock+
