@@ -41,6 +41,8 @@
 
 
 
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+
 (add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
 (add-to-list 'auto-mode-alist '("\\.c\\'" . c++-mode))
 
