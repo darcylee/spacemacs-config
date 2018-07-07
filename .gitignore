@@ -4,3 +4,4 @@ snippets/
 /.secrets.el
 /.config-local.el
 /spacemacs.env
+/.spacemacs.env
