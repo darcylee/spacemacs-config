@@ -117,8 +117,7 @@
 ;; user template of doxymacs
 (defconst doxymacs-file-all-comment-template
   '("/*" > n
-    " * " "Copyright (c) 2017-" (format-time-string "%Y" (current-time)) "  Ruijie Network Inc." > n
-    " * " "All rights reserved." > n
+    " * " "Copyright (c) " (format-time-string "%Y" (current-time)) " Ruijie Network Inc. All rights reserved." > n
     " */" > n
     "/**" > n
     " *   " (doxymacs-doxygen-command-char) "file   "
