@@ -179,3 +179,6 @@
 
 ;; set doxymacs default style
 (setq doxymacs-doxygen-style "JavaDoc")
+
+(defvar custom-gtags-lib-path nil
+  "my extra gtags lib path")

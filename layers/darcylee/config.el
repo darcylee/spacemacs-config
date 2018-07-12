@@ -8,7 +8,7 @@
   "blog-admin files location")
 
 (defvar user-home-page
-  "http://www.gitlee.com")
+  "https://www.gitlee.com")
 
 (setq-default
  user-full-name "darcylee"

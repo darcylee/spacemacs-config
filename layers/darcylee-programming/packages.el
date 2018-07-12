@@ -569,8 +569,7 @@
 
       (bind-key* "s-(" #'paredit-wrap-round)
       (bind-key* "s-[" #'paredit-wrap-square)
-      (bind-key* "s-{" #'paredit-wrap-curly)
-      )))
+      (bind-key* "s-{" #'paredit-wrap-curly))))
 
 (defun darcylee-programming/post-init-company ()
   (progn
@@ -580,8 +579,8 @@
     (when (configuration-layer/package-usedp 'company)
       (spacemacs|add-company-backends :modes shell-script-mode makefile-bsdmake-mode sh-mode lua-mode nxml-mode
                                       conf-unix-mode json-mode graphviz-dot-mode go-mode makefile-gmake-mode
-                                      plantuml-mode))
-    ))
+                                      plantuml-mode))))
+
 (defun darcylee-programming/post-init-company-c-headers ()
   (progn
     (setq company-c-headers-path-system
@@ -589,6 +588,7 @@
            ("/usr/include/" "/usr/local/include/" "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1")))
     (setq company-c-headers-path-user
           (quote
-           ("/Users/guanghui/cocos2d-x/cocos/platform" "/Users/guanghui/cocos2d-x/cocos" "." "/Users/guanghui/cocos2d-x/cocos/audio/include/")))))
+           ("." "/private/work/tmp/include")))))
+
 (defun darcylee-programming/init-kconfig ()
   (use-package kconfig))

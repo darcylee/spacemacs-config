@@ -263,18 +263,20 @@ version 2015-08-21"
   ;; Please note `file-truename' must be used!
   (setenv "GTAGSLIBPATH" (concat "/usr/include"
                                  ":"
-                                 (file-truename "/work/tmp/gtags-ext")))
-
+                                 "/usr/local/include"
+                                 (if custom-gtags-lib-path
+                                     (concat ":"
+                                             custom-gtags-lib-path))))
   (setenv "MAKEOBJDIRPREFIX" (file-truename "/opt/gtags"))
-
-  ;; (setq company-backends '((company-dabbrev-code company-gtags)))
-
-  (when (my-project-name-contains-substring "guanghui")
-    (cond
-     ((my-project-name-contains-substring "cocos2d-x")
-      ;; C++ project don't need html tags
-      (setq tags-table-list (list (my-create-tags-if-needed "~/cocos2d-x/cocos"))))
-     ((my-project-name-contains-substring "Github/fireball")
-      (message "load tags for fireball engine repo...")
-      ;; html project donot need C++ tags
-      (setq tags-table-list (list (my-create-tags-if-needed "~/Github/fireball/engine/cocos2d")))))))
+  (setq fill-column 100)
+  (setq company-backends '((company-dabbrev-code company-gtags)))
+  ;; (when (my-project-name-contains-substring "ppf")
+  ;;   (cond
+  ;;    ((my-project-name-contains-substring "vsd")
+  ;;     ;; C++ project don't need html tags
+  ;;     (setq tags-table-list (list (my-create-tags-if-needed "/work/rgos/build-12.x/ppf/ppf_dev/vsd/develop/code"))))
+  ;;    ((my-project-name-contains-substring "Github/fireball")
+  ;;     (message "load tags for fireball engine repo...")
+  ;;     ;; html project donot need C++ tags
+  ;;     (setq tags-table-list (list (my-create-tags-if-needed "~/Github/fireball/engine/cocos2d"))))))
+  )
