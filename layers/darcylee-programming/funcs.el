@@ -269,7 +269,7 @@ version 2015-08-21"
                                              custom-gtags-lib-path))))
   (setenv "MAKEOBJDIRPREFIX" (file-truename "/opt/gtags"))
   (setq fill-column 100)
-  (setq company-backends '((company-dabbrev-code company-gtags)))
+  ;; (setq company-backends '((company-dabbrev-code company-gtags)))
   ;; (when (my-project-name-contains-substring "ppf")
   ;;   (cond
   ;;    ((my-project-name-contains-substring "vsd")
