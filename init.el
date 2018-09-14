@@ -529,6 +529,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (spacemacs/set-leader-keys "otm" 'darcylee/toggle-major-mode)
 
   ;; (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
+  (add-hook 'text-mode-hook 'bug-reference-mode)
 
   ;;load local configs
   (setq config-local (expand-file-name ".config-local.el" dotspacemacs-directory))
