@@ -834,6 +834,8 @@
         ;; (when (configuration-layer/package-usedp 'company)
         ;;   (spacemacs|add-company-hook markdown-mode))
 
+        (add-hook 'markdown-mode-hook 'bug-reference-mode)
+
         (spacemacs/set-leader-keys-for-major-mode 'gfm-mode-map
           "p" 'zilongshanren/markdown-to-html)
         (spacemacs/set-leader-keys-for-major-mode 'markdown-mode

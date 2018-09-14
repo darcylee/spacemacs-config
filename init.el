@@ -70,7 +70,7 @@ This function should only modify configuration layer settings."
           )
      ;; restclient
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
-     (shell :variables shell-default-shell 'term)
+     (shell :variables shell-default-shell 'multi-term)
      ;; docker
      ;; latex
      deft
