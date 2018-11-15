@@ -39,6 +39,7 @@
         wrap-region
         ;; helm-ag
         ;; ranger
+        mu4e
         golden-ratio
         (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
         ))
@@ -846,3 +847,50 @@
         (evil-define-key 'normal markdown-mode-map (kbd "TAB") 'markdown-cycle)
         ))
     ))
+
+(defun zilongshanren-misc/post-init-mu4e ()
+  (use-package mu4e
+    :init
+    (progn
+      (require 'smtpmail-async)
+
+      ;; Set up some common mu4e variables
+      (setq mu4e-maildir "~/.mail"
+            mu4e-drafts-folder "/Drafts"
+            mu4e-sent-folder   "/Sent Messages"
+            mu4e-refile-folder "/Archive"
+            mu4e-trash-folder "/Deleted Messages"
+            mu4e-attachment-dir "~/Downloads"
+            ;; mu4e-compose-signature-auto-include nil
+             )
+
+      ;; Mail directory shortcuts
+      (setq mu4e-maildir-shortcuts
+            '(("/INBOX" . ?i)
+              ("/Sent Messages" . ?s)
+              ("/Junk" . ?j)
+              ("/Deleted Messages" . ?d)
+              ))
+
+
+      ;; sync email from imap server
+      (setq mu4e-get-mail-command "offlineimap"
+            mu4e-update-interval 1800)
+
+      ;;send mail
+      (setq message-send-mail-function 'async-smtpmail-send-it)
+      ;; (setq message-send-mail-function (quote smtpmail-send-it))
+
+      (setq smtpmail-stream-type 'starttls
+            smtpmail-default-smtp-server "smtp.qq.com"
+            smtpmail-smtp-server "smtp.qq.com"
+            smtpmail-smtp-service 587
+            smtpmail-queue-dir "~/.mail/queued-mail"
+            )
+
+      (setq mu4e-view-show-images t
+            mu4e-view-show-addresses t)
+      ;; notifcation
+      (mu4e-alert-enable-mode-line-display)
+      ))
+  )

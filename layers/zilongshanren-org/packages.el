@@ -458,6 +458,6 @@ holding contextual information."
     (setq deft-use-filter-string-for-filename t)
     (spacemacs/set-leader-keys-for-major-mode 'deft-mode "q" 'quit-window)
     (setq deft-recursive t)
-    (setq deft-extension "org")
+    (setq deft-extension '("org" "md" "txt"))
     (setq deft-directory deft-dir)))
 ;;; packages.el ends here

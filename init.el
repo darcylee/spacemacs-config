@@ -104,7 +104,7 @@ This function should only modify configuration layer settings."
               :variables chinese-enable-fcitx nil
               chinese-enable-youdao-dict t)
      (mu4e :variables
-           mu4e-enable-async-operations nil
+           mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
            mu4e-use-maildirs-extension t
            mu4e-enable-notifications t)
      ;; ycmd
@@ -451,44 +451,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   )
 
 (defun dotspacemacs/user-config ()
-  ;; Set up some common mu4e variables
-  (setq mu4e-maildir "~/.mail"
-        mu4e-drafts-folder "/Drafts"
-        mu4e-sent-folder   "/Sent Messages"
-        mu4e-refile-folder "/Archive"
-        mu4e-trash-folder "/Deleted Messages"
-        mu4e-attachment-dir "~/Downloads"
-
-        ;; mu4e-update-interval nil
-        ;; mu4e-compose-signature-auto-include nil
-
-        mu4e-view-show-images t
-        mu4e-view-show-addresses t)
-
-;;; Mail directory shortcuts
-  (setq mu4e-maildir-shortcuts
-        '(("/INBOX" . ?i)
-          ("/Sent Messages" . ?s)
-          ("/Junk" . ?j)
-          ("/Deleted Messages" . ?d)
-          ))
-
-  ;; sync email from imap server
-  (setq mu4e-get-mail-command "offlineimap"
-        mu4e-update-interval 60)
-
-  ;;send mail
-  (setq mu4e-view-show-images t)
-  ;; (setq message-send-mail-function 'message-send-mail-with-sendmail
-        ;; smtpmail-stream-type 'starttls
-        ;; smtpmail-default-smtp-server "smtp.qq.com"
-        ;; smtpmail-smtp-server "smtp.qq.com"
-        ;; smtpmail-smtp-service 587
-        ;; )
-  ;; notifcation
-  (mu4e-alert-enable-mode-line-display)
-
-
   ;;for macOS
   (setq ns-use-srgb-colorspace t)
   ;;解决org表格里面中英文对齐的问题

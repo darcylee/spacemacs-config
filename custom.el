@@ -49,7 +49,6 @@
  '(paradox-github-token t)
  '(ring-bell-function (quote ignore))
  '(send-mail-function (quote sendmail-send-it))
- '(message-send-mail-function (quote message-send-mail-with-sendmail))
  '(sp-show-pair-from-inside t)
  '(spacemacs-theme-comment-bg nil)
  '(spacemacs-theme-comment-italic t)
