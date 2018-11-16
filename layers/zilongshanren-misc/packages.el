@@ -852,7 +852,7 @@
   (use-package mu4e
     :init
     (progn
-      (require 'smtpmail-async)
+      ;; (require 'smtpmail-async)
 
       ;; Set up some common mu4e variables
       (setq mu4e-maildir "~/.mail"
@@ -878,18 +878,21 @@
             mu4e-update-interval 1800)
 
       ;;send mail
-      (setq message-send-mail-function 'async-smtpmail-send-it)
+      ;; (setq message-send-mail-function 'async-smtpmail-send-it)
+      (setq message-send-mail-function 'message-send-mail-with-sendmail)
       ;; (setq message-send-mail-function (quote smtpmail-send-it))
+
+      (setq mu4e-view-show-images t
+            mu4e-view-show-addresses t)
 
       (setq smtpmail-stream-type 'starttls
             smtpmail-default-smtp-server "smtp.qq.com"
             smtpmail-smtp-server "smtp.qq.com"
             smtpmail-smtp-service 587
+            smtpmail-local-domain "gitlee.com"
+            smtpmail-sendto-domain "gitlee.com"
             smtpmail-queue-dir "~/.mail/queued-mail"
             )
-
-      (setq mu4e-view-show-images t
-            mu4e-view-show-addresses t)
       ;; notifcation
       (mu4e-alert-enable-mode-line-display)
       ))
