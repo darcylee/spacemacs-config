@@ -848,6 +848,16 @@
         ))
     ))
 
+(defun my-mu4e-html2text (msg)
+  "My html2text function; shows short message inline, show
+long messages in some external browser (see `browse-url-generic-program')."
+  (let ((html (or (mu4e-message-field msg :body-html) "")))
+    (if (> (length html) 20000)
+        (progn
+          (mu4e-action-view-in-browser msg)
+          "[Viewing message in external browser]")
+      (mu4e-shr2text msg))))
+
 (defun zilongshanren-misc/post-init-mu4e ()
   (use-package mu4e
     :init
@@ -862,7 +872,13 @@
             mu4e-trash-folder "/Deleted Messages"
             mu4e-attachment-dir "~/Downloads"
             ;; mu4e-compose-signature-auto-include nil
-             )
+            )
+
+      (setq mu4e-html2text-command 'my-mu4e-html2text)
+
+      ;; (when (and (spacemacs/system-is-mac) window-system)
+      ;;   (setq mu4e-html2text-command
+      ;;         "textutil -stdin -format html -convert txt -stdout"))
 
       ;; Mail directory shortcuts
       (setq mu4e-maildir-shortcuts
