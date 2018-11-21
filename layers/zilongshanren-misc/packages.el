@@ -901,14 +901,15 @@ long messages in some external browser (see `browse-url-generic-program')."
       (setq mu4e-view-show-images t
             mu4e-view-show-addresses t)
 
-      (setq smtpmail-stream-type 'starttls
-            smtpmail-default-smtp-server "smtp.qq.com"
-            smtpmail-smtp-server "smtp.qq.com"
-            smtpmail-smtp-service 587
-            smtpmail-local-domain "gitlee.com"
-            smtpmail-sendto-domain "gitlee.com"
-            smtpmail-queue-dir "~/.mail/queued-mail"
-            )
+      ;; (setq smtpmail-stream-type 'starttls
+      ;;       smtpmail-default-smtp-server "smtp.qq.com"
+      ;;       smtpmail-smtp-server "smtp.qq.com"
+      ;;       smtpmail-smtp-service 587
+      ;;       smtpmail-local-domain "gitlee.com"
+      ;;       smtpmail-sendto-domain "gitlee.com"
+      ;;       smtpmail-queue-dir "~/.mail/queued-mail"
+      ;;       )
+
       ;; notifcation
       (mu4e-alert-enable-mode-line-display)
       ))
