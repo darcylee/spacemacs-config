@@ -848,17 +848,6 @@
         ))
     ))
 
-(defun mu4e-compose-org-mail ()
-  (interactive)
-  (mu4e-compose-new)
-  (org-mu4e-compose-org-mode))
-
-(defun htmlize-and-send ()
-  "When in an org-mu4e-compose-org-mode message, htmlize and send it."
-  (interactive)
-  (when (member 'org~mu4e-mime-switch-headers-or-body post-command-hook)
-    (org-mime-htmlize)
-    (message-send-and-exit)))
 
 (defun zilongshanren-misc/post-init-mu4e ()
   (use-package mu4e
@@ -867,6 +856,7 @@
       ;; (require 'smtpmail-async)
       ;; convert org content in mu4e to html and send
       (require 'org-mime)
+      (require 'org-mu4e)
 
       ;; Set up some common mu4e variables
       (setq mu4e-maildir "~/.mail"
@@ -877,8 +867,8 @@
             mu4e-attachment-dir "~/Downloads"
             ;; mu4e-compose-signature-auto-include nil
             )
-
-      (add-hook 'org-ctrl-c-ctrl-c-hook 'htmlize-and-send t)
+      (setq org-mu4e-convert-to-html t)
+      (add-hook 'org-ctrl-c-ctrl-c-hook 'zilongshanren/htmlize-and-send t)
 
       ;; (when (and (spacemacs/system-is-mac) window-system)
       ;;   (setq mu4e-html2text-command
@@ -914,7 +904,6 @@
       ;;       smtpmail-queue-dir "~/.mail/queued-mail"
       ;;       )
 
+      (define-key mu4e-main-mode-map (kbd "c") 'zilongshanren/mu4e-compose-org-mail)
       ;; notifcation
-      (mu4e-alert-enable-mode-line-display)
-      ))
-  )
+      (mu4e-alert-enable-mode-line-display))))

@@ -591,3 +591,15 @@ With PREFIX, cd to project root."
   (interactive)
   (counsel-imenu)
   (evil-set-jump))
+
+(defun zilongshanren/mu4e-compose-org-mail ()
+  (interactive)
+  (mu4e-compose-new)
+  (org-mu4e-compose-org-mode))
+
+(defun zilongshanren/htmlize-and-send ()
+  "When in an org-mu4e-compose-org-mode message, htmlize and send it."
+  (interactive)
+  (when (member 'org~mu4e-mime-switch-headers-or-body post-command-hook)
+    (org-mime-htmlize)
+    (message-send-and-exit)))
