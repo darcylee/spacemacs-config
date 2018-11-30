@@ -47,6 +47,9 @@
       (add-to-list 'org-modules 'org-habit)
       (require 'org-habit)
 
+      ;; Non-nil means interpret "_" and "^" for export
+      (setq org-export-with-sub-superscripts nil)
+
       (setq org-refile-use-outline-path 'file)
       (setq org-outline-path-complete-in-steps nil)
       (setq org-refile-targets
@@ -61,7 +64,6 @@
       (setq org-agenda-use-tag-inheritance nil) ;; 3-4x speedup
       (setq org-agenda-window-setup 'current-window)
       (setq org-log-done t)
-
       ;; 加密文章
       ;; "http://coldnew.github.io/blog/2013/07/13_5b094.html"
       ;; org-mode 设置
@@ -344,6 +346,12 @@ unwanted space when exporting org-mode to html."
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "tl" 'org-toggle-link-display)
       (define-key evil-normal-state-map (kbd "C-c C-w") 'org-refile)
+
+      ;; hook default org-html theme
+      ;; (setq org-html-head-extra "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://www.i3s.unice.fr/~malapert/css/worg.min.css\"/>" )
+      ;; (setq org-html-head-extra "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://gongzhitaao.org/orgcss/org.css\"/>" )
+      ;; (setq org-html-head-extra "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://thomasf.github.io/solarized-css/solarized-light.min.css\"/>" )
+      (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://www.gitlee.com/css/worg.css\"/>")
 
       ;; hack for org headline toc
       (defun org-html-headline (headline contents info)

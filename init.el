@@ -532,6 +532,25 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
       (fundamental-mode)))
   (spacemacs/set-leader-keys "otm" 'darcylee/toggle-major-mode)
 
+  (add-hook 'org-mime-html-hook
+            (lambda ()
+              (while (re-search-forward "@\\([^@]*\\)@" nil t)
+                (replace-match "<span style=\"color:red\">\\1</span>"))))
+
+  (add-hook 'org-mime-html-hook
+            (lambda ()
+              (org-mime-change-element-style
+               "blockquote" "border-left: 2px solid gray; padding-left: 4px;")))
+
+  (add-hook 'org-mime-html-hook
+            (lambda () (insert (concat "<head>\n<style>\n"
+                                  (with-temp-buffer
+                                    (insert-file-contents
+                                     (expand-file-name "/private/work/blog/darcylee.github.io/css/solarized-light.min.css")
+                                     ;; (expand-file-name "/work/worg.css")
+                                     )
+                                    (buffer-string)) "</style>\n</head>\n"))))
+
   ;; (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
   (add-hook 'text-mode-hook 'bug-reference-mode)
 
