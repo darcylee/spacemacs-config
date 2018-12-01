@@ -261,12 +261,9 @@ version 2015-08-21"
 (defun my-setup-develop-environment ()
   (interactive)
   ;; Please note `file-truename' must be used!
-  (setenv "GTAGSLIBPATH" (concat "/usr/include"
-                                 ":"
-                                 "/usr/local/include"
+  (setenv "GTAGSLIBPATH" (concat "/usr/include:/usr/local/include"
                                  (if custom-gtags-lib-path
-                                     (concat ":"
-                                             custom-gtags-lib-path))))
+                                     (concat ":" custom-gtags-lib-path))))
   (setenv "MAKEOBJDIRPREFIX" (file-truename "/opt/gtags"))
   (setq fill-column 100)
   ;; (setq company-backends '((company-dabbrev-code company-gtags)))
