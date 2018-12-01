@@ -906,4 +906,21 @@
 
       (define-key mu4e-main-mode-map (kbd "c") 'zilongshanren/mu4e-compose-org-mail)
       ;; notifcation
-      (mu4e-alert-enable-mode-line-display))))
+      (mu4e-alert-enable-mode-line-display)
+
+      ;; org-mime-setting
+      (add-hook 'org-mime-html-hook
+                (lambda ()
+                  (while (re-search-forward "@\\([^@]*\\)@" nil t)
+                    (replace-match "<span style=\"color:red\">\\1</span>"))
+                  (org-mime-change-element-style
+                   "blockquote" "border-left: 2px solid gray; padding-left: 4px;")
+                  (insert (concat "<head>\n<style>\n"
+                                  (with-temp-buffer
+                                    (insert-file-contents
+                                     (expand-file-name "extra/css/worg.css" dotspacemacs-directory)
+                                     )
+                                    (buffer-string)) "</style>\n</head>\n"))
+                  ))
+
+      )))

@@ -38,9 +38,10 @@ This function should only modify configuration layer settings."
      colors
      prodigy
      search-engine
-     (plantuml :variables org-plantuml-jar-path "~/.spacemacs.d/plantuml.jar"
-               plantuml-jar-path "~/.spacemacs.d/plantuml.jar"
-               plantuml-output-type "png")
+     (plantuml :variables plantuml-output-type "png"
+               plantuml-jar-path (expand-file-name "extra/plantuml.jar" dotspacemacs-directory)
+               org-plantuml-jar-path plantuml-jar-path
+               )
      graphviz
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
@@ -531,25 +532,6 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
         (set-auto-mode)
       (fundamental-mode)))
   (spacemacs/set-leader-keys "otm" 'darcylee/toggle-major-mode)
-
-  (add-hook 'org-mime-html-hook
-            (lambda ()
-              (while (re-search-forward "@\\([^@]*\\)@" nil t)
-                (replace-match "<span style=\"color:red\">\\1</span>"))))
-
-  (add-hook 'org-mime-html-hook
-            (lambda ()
-              (org-mime-change-element-style
-               "blockquote" "border-left: 2px solid gray; padding-left: 4px;")))
-
-  (add-hook 'org-mime-html-hook
-            (lambda () (insert (concat "<head>\n<style>\n"
-                                  (with-temp-buffer
-                                    (insert-file-contents
-                                     (expand-file-name "/private/work/blog/darcylee.github.io/css/solarized-light.min.css")
-                                     ;; (expand-file-name "/work/worg.css")
-                                     )
-                                    (buffer-string)) "</style>\n</head>\n"))))
 
   ;; (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
   (add-hook 'text-mode-hook 'bug-reference-mode)
