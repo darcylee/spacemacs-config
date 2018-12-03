@@ -853,7 +853,7 @@
   (use-package mu4e
     :init
     (progn
-      ;; (require 'smtpmail-async)
+      (require 'smtpmail-async)
       ;; convert org content in mu4e to html and send
       (require 'org-mime)
       (require 'org-mu4e)
@@ -885,7 +885,7 @@
 
       ;; sync email from imap server
       (setq mu4e-get-mail-command "offlineimap"
-            mu4e-update-interval 1800)
+            mu4e-update-interval 300)
 
       ;;send mail
       ;; (setq message-send-mail-function 'async-smtpmail-send-it)
