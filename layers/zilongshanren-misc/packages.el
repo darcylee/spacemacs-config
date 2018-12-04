@@ -856,7 +856,8 @@
       ;; set notify style
       ;; more style see https://github.com/jwiegley/alert#builtin-alert-styles
       (cond
-       ((spacemacs/system-is-linux) (mu4e-alert-set-default-style 'notifications))
+       ;; apt install libnotify-bin
+       ((spacemacs/system-is-linux) (mu4e-alert-set-default-style 'libnotify))
        ((spacemacs/system-is-mac) (mu4e-alert-set-default-style 'notifier)))
 
       ;; Enable Desktop notification
@@ -938,6 +939,5 @@
                                     (insert-file-contents
                                      (expand-file-name "extra/css/worg.css" dotspacemacs-directory)
                                      )
-                                    (buffer-string)) "</style>\n</head>\n"))
-                  ))
+                                    (buffer-string)) "</style>\n</head>\n"))))
       )))
