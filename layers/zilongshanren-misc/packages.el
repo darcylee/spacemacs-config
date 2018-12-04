@@ -857,7 +857,10 @@
       ;; more style see https://github.com/jwiegley/alert#builtin-alert-styles
       (cond
        ;; apt install libnotify-bin
-       ((spacemacs/system-is-linux) (mu4e-alert-set-default-style 'libnotify))
+       ((spacemacs/system-is-linux)
+        (if (executable-find "notify-send")
+            (mu4e-alert-set-default-style 'libnotify)
+          (mu4e-alert-set-default-style 'notifications)))
        ((spacemacs/system-is-mac) (mu4e-alert-set-default-style 'notifier)))
 
       ;; Enable Desktop notification
