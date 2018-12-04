@@ -40,6 +40,7 @@
         ;; helm-ag
         ;; ranger
         mu4e
+        mu4e-alert
         golden-ratio
         (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
         ))
@@ -848,6 +849,22 @@
         ))
     ))
 
+(defun zilongshanren-misc/post-init-mu4e-alert ()
+  (use-package mu4e-alert
+    :init
+    (progn
+      ;; set notify style
+      ;; more style see https://github.com/jwiegley/alert#builtin-alert-styles
+      (cond
+       ((spacemacs/system-is-linux) (mu4e-alert-set-default-style 'notifications))
+       ((spacemacs/system-is-mac) (mu4e-alert-set-default-style 'notifier)))
+
+      ;; Enable Desktop notification
+      (mu4e-alert-enable-notifications)
+
+      ;; Enable mode-line notifcation
+      (mu4e-alert-enable-mode-line-display)
+      )))
 
 (defun zilongshanren-misc/post-init-mu4e ()
   (use-package mu4e
@@ -905,8 +922,6 @@
       ;;       )
 
       (define-key mu4e-main-mode-map (kbd "c") 'zilongshanren/mu4e-compose-org-mail)
-      ;; notifcation
-      (mu4e-alert-enable-mode-line-display)
 
       ;; org-mime-setting
       (add-hook 'org-mime-html-hook
@@ -922,5 +937,4 @@
                                      )
                                     (buffer-string)) "</style>\n</head>\n"))
                   ))
-
       )))
