@@ -901,7 +901,7 @@
 
 
       ;; sync email from imap server
-      (setq mu4e-get-mail-command "offlineimap"
+      (setq mu4e-get-mail-command "offlineimap -q"
             mu4e-update-interval 300)
 
       ;;send mail
@@ -911,6 +911,9 @@
 
       (setq mu4e-view-show-images t
             mu4e-view-show-addresses t)
+      (setq
+       mu4e-index-cleanup nil      ;; don't do a full cleanup check
+       mu4e-index-lazy-check t)    ;; don't consider up-to-date dirs
 
       ;; (setq smtpmail-stream-type 'starttls
       ;;       smtpmail-default-smtp-server "smtp.qq.com"
