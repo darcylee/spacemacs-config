@@ -863,6 +863,9 @@
           (mu4e-alert-set-default-style 'notifications)))
        ((spacemacs/system-is-mac) (mu4e-alert-set-default-style 'notifier)))
 
+      ;; only notify subjects
+      (setq mu4e-alert-email-notification-types '(subjects))
+
       ;; Enable Desktop notification
       (mu4e-alert-enable-notifications)
 
@@ -940,7 +943,6 @@
                   (insert (concat "<head>\n<style>\n"
                                   (with-temp-buffer
                                     (insert-file-contents
-                                     (expand-file-name "extra/css/worg.css" dotspacemacs-directory)
-                                     )
+                                     (expand-file-name "extra/css/org.css" dotspacemacs-directory))
                                     (buffer-string)) "</style>\n</head>\n"))))
       )))

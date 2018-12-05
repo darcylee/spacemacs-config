@@ -351,7 +351,7 @@ unwanted space when exporting org-mode to html."
       ;; (setq org-html-head-extra "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://www.i3s.unice.fr/~malapert/css/worg.min.css\"/>" )
       ;; (setq org-html-head-extra "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://gongzhitaao.org/orgcss/org.css\"/>" )
       ;; (setq org-html-head-extra "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://thomasf.github.io/solarized-css/solarized-light.min.css\"/>" )
-      (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://www.gitlee.com/css/worg.css\"/>")
+      (setq org-html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"https://www.gitlee.com/css/org.css\"/>")
 
       ;; hack for org headline toc
       (defun org-html-headline (headline contents info)
