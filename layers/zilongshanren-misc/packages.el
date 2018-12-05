@@ -943,6 +943,6 @@
                   (insert (concat "<head>\n<style>\n"
                                   (with-temp-buffer
                                     (insert-file-contents
-                                     (expand-file-name "extra/css/org.css" dotspacemacs-directory))
+                                     (expand-file-name "extra/css/org-wide.css" dotspacemacs-directory))
                                     (buffer-string)) "</style>\n</head>\n"))))
       )))
