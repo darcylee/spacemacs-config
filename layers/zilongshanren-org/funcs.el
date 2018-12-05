@@ -167,7 +167,7 @@
           ;; "note" "warning" "tip" "caution" "important" "attention" "hit" "error"
           ;; "danger" "info" "notice" "question" "summary" "success"
           ;; we use common admonitions
-          '("note" "warning" "tip" "caution" "important" "attention" "error" "danger")))
+          '("note" "warning" "tip" "caution" "important" "attention" "error" "danger" "abstract")))
      (list (ido-completing-read "Source code type: " admonitions-types))))
   (progn
     (newline-and-indent)
