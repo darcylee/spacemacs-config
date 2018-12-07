@@ -918,9 +918,8 @@
 
       (setq mu4e-view-show-images t
             mu4e-view-show-addresses t)
-      (setq
-       mu4e-index-cleanup nil      ;; don't do a full cleanup check
-       mu4e-index-lazy-check t)    ;; don't consider up-to-date dirs
+      (setq mu4e-index-cleanup nil   ;; don't do a full cleanup check
+            mu4e-index-lazy-check t) ;; don't consider up-to-date dirs
 
       ;; (setq smtpmail-stream-type 'starttls
       ;;       smtpmail-default-smtp-server "smtp.qq.com"
@@ -932,6 +931,8 @@
       ;;       )
 
       (define-key mu4e-main-mode-map (kbd "c") 'zilongshanren/mu4e-compose-org-mail)
+      (define-key mu4e-main-mode-map (kbd "q") 'kill-this-buffer)
+      (define-key mu4e-main-mode-map (kbd "Q") 'mu4e-quit)
 
       ;; org-mime-setting
       (add-hook 'org-mime-html-hook
