@@ -906,6 +906,10 @@
               ("/Deleted Messages" . ?d)
               ))
 
+      ;; hide index messsage
+      (setq mu4e-hide-index-messages t)
+      ;; indicate update status in modeline
+      (setq mu4e-display-update-status-in-modeline t)
 
       ;; sync email from imap server
       (setq mu4e-get-mail-command "offlineimap -q"
