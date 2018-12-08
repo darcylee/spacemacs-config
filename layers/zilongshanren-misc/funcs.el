@@ -455,10 +455,10 @@ With PREFIX, cd to project root."
   (backward-char)
   (sp-forward-slurp-sexp))
 
-(defun evil-paste-after-from-0 ()
-  (interactive)
-  (let ((evil-this-register ?0))
-    (call-interactively 'evil-paste-after)))
+;; (defun evil-paste-after-from-0 ()
+;;   (interactive)
+;;   (let ((evil-this-register ?0))
+;;     (call-interactively 'evil-paste-after)))
 
 (defun my-erc-hook (match-type nick message)
   "Shows a growl notification, when user's nick was mentioned. If the buffer is currently not visible, makes it sticky."

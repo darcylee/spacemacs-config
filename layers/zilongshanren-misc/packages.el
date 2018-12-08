@@ -369,9 +369,6 @@
     (adjust-major-mode-keymap-with-evil "edebug")
     (adjust-major-mode-keymap-with-evil "tabulated-list")
 
-    (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
-    (define-key evil-insert-state-map (kbd "C-r") 'evil-paste-from-register)
-
     ;; ;; change evil initial mode state
     (loop for (mode . state) in
           '((shell-mode . normal))
@@ -386,13 +383,15 @@
 
     (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 
-    (defun my-evil-yank ()
-      (interactive)
-      (save-excursion
-        (call-interactively 'evil-yank))
-      (backward-char))
+    ;; (defun my-evil-yank ()
+    ;;   (interactive)
+    ;;   (save-excursion
+    ;;     (call-interactively 'evil-yank))
+    ;;   (backward-char))
 
-    (define-key evil-visual-state-map (kbd "y") 'my-evil-yank)
+    ;; (define-key evil-visual-state-map (kbd "y") 'my-evil-yank)
+    ;; (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
+    (define-key evil-insert-state-map (kbd "C-r") 'evil-paste-from-register)
 
     (define-key evil-normal-state-map
       (kbd "Y") 'zilongshanren/yank-to-end-of-line)
@@ -435,7 +434,7 @@
 
 
     ;; in spacemacs, we always use evilify miscro state
-    (evil-add-hjkl-bindings package-menu-mode-map 'emacs)
+    ;; (evil-add-hjkl-bindings package-menu-mode-map 'emacs)
     ;; Don't move back the cursor one position when exiting insert mode
     (setq evil-move-cursor-back nil)
 
