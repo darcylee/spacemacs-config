@@ -108,6 +108,7 @@ This function should only modify configuration layer settings."
            mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
            mu4e-use-maildirs-extension t
            mu4e-enable-notifications t)
+     (notmuch :variables notmuch-message-deleted-tags '("+deleted" "-inbox" "-unread"))
      ;; ycmd
      darcylee
      )
