@@ -81,6 +81,9 @@
 
 (spacemacs/set-leader-keys "sj" 'helm-imenu)
 
+(spacemacs/set-leader-keys "if" 'spacemacs/insert-file)
+(spacemacs/set-leader-keys "ib" 'insert-buffer)
+
 (when (or (spacemacs/system-is-linux)
           (spacemacs/system-is-mswindows))
   (global-set-key(kbd "C-w") 'evil-delete-backward-word)
