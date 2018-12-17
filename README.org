@@ -14,10 +14,14 @@
 - Start emacs, it will automatically start installing the required packages.
 
 ** Install =SourceCodePro= font
-Download [[https://github.com/adobe-fonts/source-code-pro/releases][=SourceCodePro=]] and install it on your system.
+   [[https://github.com/adobe-fonts/source-code-pro/releases][Download]] =SourceCodePro= and install it on your system.
+
+** Other recommended packages
+   - *fd* =fd=, A simple, fast and user-friendly alternative to 'find'. see the install [[https://github.com/sharkdp/fd#installation][guide]].
+   - *libnotify-bin* an alternative notify style in linux os. [[https://github.com/jwiegley/alert#builtin-alert-styles][more info]]
 
 ** Note
-+ The following layers in this configuration are import from the[[https://github.com/zilongshanren/spacemacs-private][子龙山人]] 's private config.
-    - layers/zilongshanren-misc
-    - layers/zilongshanren-org
-+ This configuration requires Emacs version 25.1 or above. This is requied by spacemacs.
+   + The following layers in this configuration are import from the [[https://github.com/zilongshanren/spacemacs-private][子龙山人]] 's private config.
+     - layers/zilongshanren-misc
+     - layers/zilongshanren-org
+   + This configuration requires Emacs version 25.1 or above. This is requied by spacemacs.

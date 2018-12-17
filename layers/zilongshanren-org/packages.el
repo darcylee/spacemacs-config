@@ -212,8 +212,11 @@ unwanted space when exporting org-mode to html."
       (setq org-agenda-file-journal (expand-file-name "journal.org" org-agenda-dir))
       (setq org-agenda-file-code-snippet (expand-file-name "snippet.org" org-agenda-dir))
       (setq org-default-notes-file (expand-file-name "gtd.org" org-agenda-dir))
+
+      ;; recursive load all org file in org-agenda-dir.
       (load-library "find-lisp")
-      (setq org-agenda-files (find-lisp-find-files org-agenda-dir "\.org$"))
+      (if (file-exists-p org-agenda-dir)
+            (setq org-agenda-files (find-lisp-find-files org-agenda-dir "\.org$")))
 
       (with-eval-after-load 'org-agenda
         (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)

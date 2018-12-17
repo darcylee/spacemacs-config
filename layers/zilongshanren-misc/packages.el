@@ -590,32 +590,36 @@
     :config
     (progn
       ;; If you use other VCS (subversion, for example), enable the following option
-      ;;(setq ffip-project-file ".svn")
+      (setq ffip-project-file '("GTAGS" ".svn" ".hg" ".git"))
       ;; Use 'fd' instead of 'find'. fd project https://github.com/sharkdp/fd
-      (setq ffip-use-rust-fd t)
+      (if (executable-find "fd")
+          (setq ffip-use-rust-fd t))
       ;; in MacOS X, the search file command is CMD+p
       ;; for this project, I'm only interested certain types of files
       ;; (setq-default ffip-patterns '("*.html" "*.js" "*.css" "*.java" "*.xml" "*.cpp" "*.h" "*.c" "*.mm" "*.m" "*.el"))
       ;; if the full path of current file is under SUBPROJECT1 or SUBPROJECT2
       ;; OR if I'm reading my personal issue track document,
-      (defadvice find-file-in-project (before my-find-file-in-project activate compile)
-        (when (ffip-current-full-filename-match-pattern-p "\\(/fireball\\)")
-          ;; set the root directory into "~/projs/PROJECT_DIR"
-          (setq-local ffip-project-root "~/Github/fireball")
-          ;; well, I'm not interested in concatenated BIG js file or file in dist/
-          (setq-local ffip-find-options "-not -size +64k -not -iwholename '*/bin/*'")
-          ;; do NOT search files in below directories, the default value is better.
-          (dolist (item '("*/docs/html/*" "*.meta" "*/cocos2d-x/*" "*.asset" "*/visual-tests/res/*"))
-            (push item  ffip-prune-patterns)))
-        (when (ffip-current-full-filename-match-pattern-p "\\(/cocos2d-x\\)")
-          ;; set the root directory into "~/projs/PROJECT_DIR"
-          (setq-local ffip-project-root "~/cocos2d-x")
-          ;; well, I'm not interested in concatenated BIG js file or file in dist/
-          (setq-local ffip-find-options "-not -size +64k -not -iwholename '*/bin/*'")
-          ;; do NOT search files in below directories, the default value is better.
-          ;; (setq-default ffip-prune-patterns '(".git" ".hg" "*.svn" "node_modules" "bower_components" "obj"))
-          ))
-      (ad-activate 'find-file-in-project))))
+
+      ;; this is unused for me.
+      ;; (defadvice find-file-in-project (before my-find-file-in-project activate compile)
+      ;;   (when (ffip-current-full-filename-match-pattern-p "\\(/fireball\\)")
+      ;;     ;; set the root directory into "~/projs/PROJECT_DIR"
+      ;;     (setq-local ffip-project-root "~/Github/fireball")
+      ;;     ;; well, I'm not interested in concatenated BIG js file or file in dist/
+      ;;     (setq-local ffip-find-options "-not -size +64k -not -iwholename '*/bin/*'")
+      ;;     ;; do NOT search files in below directories, the default value is better.
+      ;;     (dolist (item '("*/docs/html/*" "*.meta" "*/cocos2d-x/*" "*.asset" "*/visual-tests/res/*"))
+      ;;       (push item  ffip-prune-patterns)))
+      ;;   (when (ffip-current-full-filename-match-pattern-p "\\(/cocos2d-x\\)")
+      ;;     ;; set the root directory into "~/projs/PROJECT_DIR"
+      ;;     (setq-local ffip-project-root "~/cocos2d-x")
+      ;;     ;; well, I'm not interested in concatenated BIG js file or file in dist/
+      ;;     (setq-local ffip-find-options "-not -size +64k -not -iwholename '*/bin/*'")
+      ;;     ;; do NOT search files in below directories, the default value is better.
+      ;;     ;; (setq-default ffip-prune-patterns '(".git" ".hg" "*.svn" "node_modules" "bower_components" "obj"))
+      ;;     ))
+      ;; (ad-activate 'find-file-in-project)
+      )))
 
 
 
