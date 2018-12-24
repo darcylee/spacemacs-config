@@ -114,6 +114,7 @@
            (setq-local company-backends (delete ',backend company-backends))
          (push ',backend company-backends)))))
 
+
 ;; user template of doxymacs
 (defconst doxymacs-file-all-comment-template
   '("/*" > n
@@ -124,13 +125,11 @@
     (if (buffer-file-name)
         (file-name-nondirectory (buffer-file-name))
       "") > n
-      " *   " (doxymacs-doxygen-command-char) "author " (user-full-name)
-      (doxymacs-user-mail-address)
-      > n
+      " *   " (doxymacs-doxygen-command-char) "author " (user-full-name) (doxymacs-user-mail-address) > n
       " *   " (doxymacs-doxygen-command-char) "date   " (current-time-string) > n
       " *"> n
       " *   " (doxymacs-doxygen-command-char) "brief  " (p "Brief description of this file: ") > n
-      " * " p > n
+      " *" p > n
       " *   " (doxymacs-doxygen-command-char) "version 1.0" > n
       " *" > n
       " */"> n)
@@ -141,13 +140,11 @@
     (if (buffer-file-name)
         (file-name-nondirectory (buffer-file-name))
       "") > n
-      " *   " (doxymacs-doxygen-command-char) "author " (user-full-name)
-      (doxymacs-user-mail-address)
-      > n
+      " *   " (doxymacs-doxygen-command-char) "author " (user-full-name) (doxymacs-user-mail-address) > n
       " *   " (doxymacs-doxygen-command-char) "date   " (current-time-string) > n
       " *"> n
       " *   " (doxymacs-doxygen-command-char) "brief  " (p "Brief description of this file: ") > n
-      " * " p > n
+      " *" p > n
       " *   " (doxymacs-doxygen-command-char) "version 1.0" > n
       " *" > n
       " */"> n)
@@ -180,5 +177,6 @@
 ;; set doxymacs default style
 (setq doxymacs-doxygen-style "JavaDoc")
 
+
 (defvar custom-gtags-lib-path nil
   "my extra gtags lib path")
