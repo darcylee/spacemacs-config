@@ -945,7 +945,7 @@
       (add-hook 'org-mime-html-hook
                 (lambda ()
                   (while (re-search-forward "@\\([^@]*\\)@" nil t)
-                    (replace-match "<span style=\"color:red\">\\1</span>"))
+                    (replace-match "<span style=\"background-color:red;color:yellow\">\\1</span>"))
                   (org-mime-change-element-style
                    "blockquote" "border-left: 2px solid gray; padding-left: 4px;")
                   (insert (concat "<head>\n<style>\n"

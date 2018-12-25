@@ -956,7 +956,7 @@
     }
 
     table {
-        margin: 1em auto;
+        margin: 1em;
         /* border-top: 2px solid; */
         border-collapse: collapse;
         border: 1px solid;
@@ -980,7 +980,7 @@
     }
 
     td, th {
-        padding: .5em .5em;
+        /* padding: .5em .5em; */
         vertical-align: middle
     }
 
