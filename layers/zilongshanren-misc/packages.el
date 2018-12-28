@@ -37,6 +37,7 @@
         gist
         hydra
         wrap-region
+        helm
         ;; helm-ag
         ;; ranger
         mu4e
@@ -231,6 +232,8 @@
 (defun zilongshanren-misc/post-init-helm ()
   (with-eval-after-load 'helm
     (progn
+      (setq helm-buffer-max-length 56)
+      (setq helm-move-to-line-cycle-in-source t)
       ;; limit max number of matches displayed for speed
       (setq helm-candidate-number-limit 100)
       ;; ignore boring files like .o and .a
@@ -784,7 +787,7 @@
         ;;   (spacemacs/set-leader-keys "sp" 'counsel-git-grep)
         ;;   (spacemacs/set-leader-keys "sP" 'spacemacs/counsel-git-grep-region-or-symbol))
         (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
-        (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-call)
+        (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-alt-done)
         (define-key ivy-minibuffer-map (kbd "C-s-m") 'ivy-partial-or-done)
         (define-key ivy-minibuffer-map (kbd "C-c s") 'ivy-ff-checksum)
         (define-key ivy-minibuffer-map (kbd "s-o") 'ivy-dispatching-done)
@@ -792,7 +795,8 @@
         (define-key ivy-minibuffer-map (kbd "<f3>") 'ivy-occur)
         (define-key ivy-minibuffer-map (kbd "C-s-j") 'ivy-immediate-done)
         (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
-        (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)))
+        (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
+        (define-key ivy-minibuffer-map (kbd "<C-h") 'counsel-up-directory)))
 
     (define-key global-map (kbd "C-s") 'my-swiper-search)))
 

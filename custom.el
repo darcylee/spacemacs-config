@@ -23,8 +23,6 @@
  '(expand-region-reset-fast-key "r")
  '(fill-column 100)
  '(global-command-log-mode nil)
- '(helm-buffer-max-length 56)
- '(helm-move-to-line-cycle-in-source t)
  '(ivy-height 18)
  '(lua-documentation-url "http://www.lua.org/manual/5.3/manual.html")
  '(magit-use-overlays nil)
