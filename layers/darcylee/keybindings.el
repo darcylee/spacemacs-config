@@ -32,12 +32,14 @@
 
 (with-eval-after-load 'company
   (progn
-    (bb/define-key company-active-map
-                   (kbd "C-w") 'evil-delete-backward-word)
+    (bb/define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
     ;; (bb/define-key company-active-map (kbd "C-f") nil)
 
-    (bb/define-key company-active-map
-                   (kbd "s-w") 'company-show-location)))
+    (bb/define-key company-active-map (kbd "C-n") 'company-select-next)
+    (bb/define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort)
+    (bb/define-key company-active-map (kbd "C-b") 'company-previous-page)
+    (bb/define-key company-active-map (kbd "C-f") 'company-next-page)
+    (bb/define-key company-active-map (kbd "s-w") 'company-show-location)))
 
 (spacemacs/declare-prefix "ot" "Toggle")
 

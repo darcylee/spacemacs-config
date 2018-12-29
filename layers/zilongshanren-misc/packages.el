@@ -396,8 +396,7 @@
     ;; (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
     (define-key evil-insert-state-map (kbd "C-r") 'evil-paste-from-register)
 
-    (define-key evil-normal-state-map
-      (kbd "Y") 'zilongshanren/yank-to-end-of-line)
+    (define-key evil-normal-state-map (kbd "Y") 'darcylee/yank-to-end-of-line)
 
     ;; rebind g,k to gj and gk
     ;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
@@ -410,6 +409,8 @@
     (define-key evil-normal-state-map (kbd "[ b") 'previous-buffer)
     (define-key evil-normal-state-map (kbd "] b") 'next-buffer)
     (define-key evil-normal-state-map (kbd "M-y") 'counsel-yank-pop)
+    (define-key evil-normal-state-map (kbd "K") 'move-text-up)
+    (define-key evil-normal-state-map (kbd "J") 'move-text-down)
 
     ;; (define-key evil-insert-state-map "\C-e" 'end-of-line)
     ;; (define-key evil-insert-state-map "\C-n" 'next-line)
@@ -450,17 +451,9 @@
     ;; for emacs shell mode
     ;; (define-key evil-emacs-state-map (kbd "s-b") 'ido-switch-buffer)
     ;; (define-key evil-emacs-state-map (kbd "s-f") 'ido-find-file)
-    (evil-define-key 'emacs term-raw-map (kbd "C-w")
-      'evil-delete-backward-word)
+    (evil-define-key 'emacs term-raw-map (kbd "C-w") 'evil-delete-backward-word)
 
-
-    (setq evil-normal-state-tag   (propertize "[N]" 'face '((:background "DarkGoldenrod2" :foreground "black")))
-          evil-emacs-state-tag    (propertize "[E]" 'face '((:background "SkyBlue2" :foreground "black")))
-          evil-insert-state-tag   (propertize "[I]" 'face '((:background "chartreuse3") :foreground "white"))
-          evil-motion-state-tag   (propertize "[M]" 'face '((:background "plum3") :foreground "white"))
-          evil-visual-state-tag   (propertize "[V]" 'face '((:background "gray" :foreground "black")))
-          evil-operator-state-tag (propertize "[O]" 'face '((:background "purple"))))
-    (setq evil-insert-state-cursor '("chartreuse3" box))
+    ;; (setq evil-insert-state-cursor '("chartreuse3" box))
     (define-key evil-insert-state-map (kbd "C-z") 'evil-emacs-state)
     ;; This will break visual column edit
     ;; enable hybrid editing style
@@ -623,9 +616,6 @@
       ;;     ))
       ;; (ad-activate 'find-file-in-project)
       )))
-
-
-
 
 (defun zilongshanren-misc/post-init-projectile ()
   (progn
