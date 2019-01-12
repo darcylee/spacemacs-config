@@ -105,3 +105,9 @@
   (global-set-key (kbd "s-s") 'save-buffer)
   (global-set-key (kbd "C-s-n") 'move-text-down)
   (global-set-key (kbd "C-s-p") 'move-text-up))
+
+;; ido specific keybindings
+(define-key ido-common-completion-map (kbd "C-p") 'ido-prev-match)
+(define-key ido-common-completion-map (kbd "C-n") 'ido-next-match)
+(define-key ido-common-completion-map (kbd "C-k") 'ido-prev-match)
+(define-key ido-common-completion-map (kbd "C-j") 'ido-next-match)
