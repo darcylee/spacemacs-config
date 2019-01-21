@@ -135,7 +135,7 @@ This function should only modify configuration layer settings."
                     helm-c-yasnippet ace-jump-helm-line helm-make magithub
                     helm-spacemacs-help smeargle helm-themes
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
-                    ivy-purpose helm-purpose neotree
+                    ivy-purpose helm-purpose neotree treemacs-projectile treemacs-evil treemacs
                     helm-rtags flycheck-rtags company-rtags rtags
                     company-ycm flycheck-ycmd company-ycmd
                     spaceline-all-the-icons all-the-icons memoize font-lock+
