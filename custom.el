@@ -14,7 +14,7 @@
  '(ctags-update-delay-seconds 1024)
  '(erc-nick "darcylee")
  '(erc-port 6666)
- '(evil-want-C-i-jump nil)
+ '(evil-want-C-i-jump t)
  '(evil-want-Y-yank-to-eol t)
  '(exec-path-from-shell-arguments (quote ("-i")))
  '(exec-path-from-shell-check-startup-files nil)
