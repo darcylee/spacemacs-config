@@ -52,6 +52,7 @@
 (spacemacs/set-leader-keys "oc" 'my-auto-update-tags-when-save)
 (spacemacs/set-leader-keys "op" 'zilongshanren/org-save-and-export)
 (spacemacs/set-leader-keys "fR" 'spacemacs/rename-current-buffer-file)
+(spacemacs/set-leader-keys "oag" 'helm-github-stars)
 
 ;;Must set key to nil to prevent error: Key sequence b m s starts with non-prefix key b m
 (spacemacs/set-leader-keys "bm" nil)
