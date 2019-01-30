@@ -553,7 +553,8 @@
     ))
 
 (defun zilongshanren-misc/post-init-persp-mode ()
-  (setq persp-kill-foreign-buffer-action 'kill)
+  (setq persp-autokill-buffer-on-remove 'kill-weak)
+  (setq persp-kill-foreign-buffer-behaviour 'kill)
   (setq persp-lighter nil)
   (when (fboundp 'spacemacs|define-custom-layout)
     (spacemacs|define-custom-layout "@Work"
