@@ -49,6 +49,7 @@
         ;; ycmd
         (kconfig :location local)
         plantuml-mode
+        (ediff :location built-in)
         ))
 
 (defun darcylee-programming/post-init-robe ()
@@ -592,3 +593,30 @@
 
 (defun darcylee-programming/init-kconfig ()
   (use-package kconfig))
+
+(defun darcylee-programming/post-init-ediff ()
+  (progn
+    (add-hook 'ediff-keymap-setup-hook
+              (lambda ()
+                ;; modify help message
+                (dolist (msg '(ediff-long-help-message-compare2
+                               ediff-long-help-message-compare3
+                               ediff-long-help-message-narrow2
+                               ediff-long-help-message-word-mode
+                               ediff-long-help-message-merge
+                               ediff-long-help-message-head
+                               ediff-long-help-message-tail))
+                  (dolist (chng '(;;("^" . "  ")
+                                  ("p,DEL -previous diff " . "  k,p -previous diff ")
+                                  ("n,SPC -next diff     " . "  j,n -next diff     ")
+                                  ("    j -jump to diff  " . "    d -jump to diff  ")
+                                  ))
+                    (setf (symbol-value msg)
+                          (replace-regexp-in-string (car chng) (cdr chng) (symbol-value msg)))))
+
+                ;; modify some kbd.
+                (define-key ediff-mode-map "d" 'ediff-jump-to-difference)
+                (define-key ediff-mode-map "j" 'ediff-next-difference)
+                (define-key ediff-mode-map "k" 'ediff-previous-difference)))
+    (setq ediff-diff-options "-ra")
+    (setq ediff-custom-diff-options "-ra")))
