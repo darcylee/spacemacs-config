@@ -168,12 +168,11 @@ Single Capitals as you type."
 (show-paren-mode t)
 
 ;; http://oremacs.com/2015/01/17/setting-up-ediff/
-(defmacro csetq (variable value)
-  `(funcall (or (get ',variable 'custom-set)
-                'set-default)
-            ',variable ,value))
-
-(csetq ediff-diff-options "-w")
+;; (defmacro csetq (variable value)
+;;   `(funcall (or (get ',variable 'custom-set)
+;;                 'set-default)
+;;             ',variable ,value))
+;; (csetq ediff-diff-options "-w")
 
 ;; set mouse scrolling slower and smoother
 ;; https://stackoverflow.com/questions/445873/how-can-i-make-emacs-mouse-scrolling-slower-and-smoother
