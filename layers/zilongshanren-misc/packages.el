@@ -590,7 +590,11 @@
       (setq ffip-project-file '("GTAGS" ".svn" ".hg" ".git"))
       ;; Use 'fd' instead of 'find'. fd project https://github.com/sharkdp/fd
       (if (executable-find "fd")
-          (setq ffip-use-rust-fd t))
+          (progn
+            (setq ffip-use-rust-fd t)
+            (setq ffip-rust-fd-extra-opts
+                  (concat "--ignore-file="
+                          (expand-file-name ".gitignore_global" user-home-directory)))))
       ;; in MacOS X, the search file command is CMD+p
       ;; for this project, I'm only interested certain types of files
       ;; (setq-default ffip-patterns '("*.html" "*.js" "*.css" "*.java" "*.xml" "*.cpp" "*.h" "*.c" "*.mm" "*.m" "*.el"))
