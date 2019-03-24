@@ -50,6 +50,8 @@
         (kconfig :location local)
         plantuml-mode
         (ediff :location built-in)
+        (magit-gerrit2 :location (recipe :fetcher github :repo "darcylee/magit-gerrit2"))
+        magit-popup
         ))
 
 (defun darcylee-programming/post-init-robe ()
@@ -620,3 +622,16 @@
                 (define-key ediff-mode-map "k" 'ediff-previous-difference)))
     (setq ediff-diff-options "-ra")
     (setq ediff-custom-diff-options "-ra")))
+
+(defun darcylee-programming/init-magit-popup ()
+  (use-package magit-popup)
+  )
+
+(defun darcylee-programming/init-magit-gerrit2 ()
+  (use-package magit-gerrit2
+    :init
+    (require 'magit-popup)
+    :config
+    (progn
+      (setq-default magit-gerrit2-ssh-creds "lijiaquan@gerrit.ruijie.work")
+      )))
