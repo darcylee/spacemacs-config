@@ -807,6 +807,7 @@
         (define-key magit-status-mode-map (kbd "s-2") 'magit-jump-to-untracked)
         (define-key magit-status-mode-map (kbd "s-3") 'magit-jump-to-staged)
         (define-key magit-status-mode-map (kbd "s-4") 'magit-jump-to-stashes)
+        (define-key magit-status-mode-map (kbd "R") 'magit-gerrit-dispatch)
         (setq magit-completing-read-function 'magit-builtin-completing-read)
 
         (magit-define-popup-switch 'magit-push-popup ?u
