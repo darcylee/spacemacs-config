@@ -12,6 +12,7 @@
  '(company-show-numbers t)
  '(company-statistics-auto-restore nil)
  '(ctags-update-delay-seconds 1024)
+ '(diff-default-read-only t)
  '(erc-nick "darcylee")
  '(erc-port 6666)
  '(evil-want-C-i-jump t)

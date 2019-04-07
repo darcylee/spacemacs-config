@@ -374,7 +374,8 @@
 
     ;; ;; change evil initial mode state
     (loop for (mode . state) in
-          '((shell-mode . normal))
+          '((shell-mode . normal)
+            (diff-mode . emacs))
           do (evil-set-initial-state mode state))
 
     ;;mimic "nzz" behaviou in vim
