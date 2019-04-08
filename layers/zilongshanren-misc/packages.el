@@ -374,8 +374,7 @@
 
     ;; ;; change evil initial mode state
     (loop for (mode . state) in
-          '((shell-mode . normal)
-            (diff-mode . emacs))
+          '((shell-mode . normal))
           do (evil-set-initial-state mode state))
 
     ;;mimic "nzz" behaviou in vim
@@ -466,6 +465,23 @@
     ;; (bind-keys ("<C-[>" . evil-normal-state))
     ;; (setq evil-emacs-state-cursor '("chartreuse3" (bar . 2)))
     ;; (define-key evil-emacs-state-map [escape] 'evil-normal-state)
+
+    ;; diff-mode
+    (evil-define-key 'normal diff-mode-map
+      (kbd "a") 'diff-apply-hunk
+      (kbd "d") 'diff-hunk-kill
+      (kbd "D") 'diff-file-kill
+      (kbd "t") 'diff-test-hunk
+      (kbd "n") 'diff-hunk-next
+      (kbd "N") 'diff-file-next
+      (kbd "p") 'diff-hunk-prev
+      (kbd "P") 'diff-file-prev
+      (kbd "o") 'diff-goto-source
+      (kbd "s") 'diff-split-hunk
+      (kbd "e") 'diff-ediff-patch
+      (kbd "u") 'diff-undo
+      (kbd "q") 'delete-window
+      (kbd "Q") 'kill-current-buffer)
     ))
 
 (defun zilongshanren-misc/init-visual-regexp ()
