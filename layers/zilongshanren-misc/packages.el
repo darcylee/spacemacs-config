@@ -828,8 +828,16 @@
         (setq magit-completing-read-function 'magit-builtin-completing-read)
 
         (magit-define-popup-switch 'magit-push-popup ?u
-          "Set upstream" "--set-upstream")
+                                   "Set upstream" "--set-upstream")
         ))
+
+    (evil-define-key 'normal magit-diff-mode-map
+      (kbd "n") 'magit-section-forward
+      (kbd "p") 'magit-section-backward)
+
+    (evil-define-key 'normal magit-status-mode-map
+      (kbd "n") 'magit-section-forward
+      (kbd "p") 'magit-section-backward)
 
     ;; prefer two way ediff
     (setq magit-ediff-dwim-show-on-hunks t)
