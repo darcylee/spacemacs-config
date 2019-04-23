@@ -603,3 +603,8 @@ With PREFIX, cd to project root."
   (when (member 'org~mu4e-mime-switch-headers-or-body post-command-hook)
     (org-mime-htmlize)
     (message-send-and-exit)))
+
+;; copy from spacemacs/version-control layer
+(defun zilongshanren/diff-mode-revert-hunk ()
+  (interactive)
+  (diff-apply-hunk t))

@@ -478,6 +478,7 @@
       (kbd "P") 'diff-file-prev
       (kbd "o") 'diff-goto-source
       (kbd "s") 'diff-split-hunk
+      (kbd "r") 'zilongshanren/diff-mode-revert-hunk
       (kbd "e") 'diff-ediff-patch
       (kbd "u") 'diff-undo
       (kbd "q") 'delete-window
