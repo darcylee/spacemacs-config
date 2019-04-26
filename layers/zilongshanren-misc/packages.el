@@ -481,8 +481,8 @@
       (kbd "r") 'zilongshanren/diff-mode-revert-hunk
       (kbd "e") 'diff-ediff-patch
       (kbd "u") 'diff-undo
-      (kbd "q") 'delete-window
-      (kbd "Q") 'kill-current-buffer)
+      (kbd "q") 'quit-window
+      (kbd "Q") 'kill-this-buffer)
     ))
 
 (defun zilongshanren-misc/init-visual-regexp ()
