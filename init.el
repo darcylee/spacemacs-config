@@ -77,7 +77,7 @@ This function should only modify configuration layer settings."
           osx-right-option-as  	'left
           osx-right-control-as 	'left
           )
-     restclient
+     ;; restclient
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'multi-term)
      ;; docker
@@ -86,17 +86,18 @@ This function should only modify configuration layer settings."
      markdown
      org
      yaml
+     yang
      react
-     (python :variables
-             python-test-runner '(nose pytest))
+     ;; (python :variables
+     ;;         python-test-runner '(nose pytest))
      ;;(ruby :variables ruby-version-manager 'chruby)
      ;;ruby-on-rails
      lua
-     html
-     javascript
-     (typescript :variables
-                 typescript-fmt-on-save nil
-                 typescript-fmt-tool 'typescript-formatter)
+     ;; html
+     ;; javascript
+     ;; (typescript :variables
+     ;;             typescript-fmt-on-save nil
+     ;;             typescript-fmt-tool 'typescript-formatter)
      (emacs-lisp :variables emacs-lisp-hide-namespace-prefix nil)
      ;; (clojure :variables clojure-enable-fancify-symbols t)
      ;; racket
@@ -105,10 +106,10 @@ This function should only modify configuration layer settings."
             c-c++-enable-cmake-ide-support nil
             c-c++-enable-google-style t
             c-c++-enable-google-newline t)
-     (go :variables
-         go-use-gometalinter t
-         gofmt-command "goimports"
-         go-tab-width 4)
+     ;; (go :variables
+     ;;     go-use-gometalinter t
+     ;;     gofmt-command "goimports"
+     ;;     go-tab-width 4)
      (chinese :packages youdao-dictionary fcitx
               :variables chinese-enable-fcitx nil
               chinese-enable-youdao-dict t)
@@ -128,7 +129,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(dts-mode protobuf-mode vala-mode yang-mode)
+   dotspacemacs-additional-packages '(dts-mode protobuf-mode vala-mode)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
