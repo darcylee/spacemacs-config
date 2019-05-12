@@ -110,9 +110,10 @@ This function should only modify configuration layer settings."
      ;;     go-use-gometalinter t
      ;;     gofmt-command "goimports"
      ;;     go-tab-width 4)
-     (chinese :packages youdao-dictionary fcitx
+     (chinese :packages youdao-dictionary fcitx pyim
               :variables chinese-enable-fcitx nil
-              chinese-enable-youdao-dict t)
+              chinese-enable-youdao-dict t
+              chinese-default-input-method 'pinyin)
      (mu4e :variables
            mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
            mu4e-use-maildirs-extension t

@@ -14,6 +14,7 @@
     (dired-mode :location built-in)
     (profiler :location built-in)
     (recentf :location built-in)
+    pyim
     ;; highlight-symbol
     )
 )
@@ -96,14 +97,71 @@
     :init
     (evilified-state-evilify profiler-report-mode profiler-report-mode-map)))
 
-;; (defun darcylee-better-defaults/init-highlight-symbol ()
-;;   "highlight-symbol init"
-;;   (use-package highlight-symbol
-;;     :init
-;;     (progn
-;;       (spacemacs/set-leader-keys "hs" 'highlight-symbol)
-;;       )
-;;     )
-;;   )
+(defun darcylee-better-defaults/post-init-pyim ()
+  (progn
+    (setq-default pyim-title "拼音")
+
+    ;; (setq pyim-dicts
+    ;;       '((:name "计算机词汇大全" :file "~/.spacemacs.d/extra/pyim-dict/jsjchdq.pyim")))
+
+    (setq-default pyim-punctuation-half-width-functions
+                  '(pyim-probe-punctuation-line-beginning
+                    pyim-probe-punctuation-after-punctuation))
+
+    (setq-default pyim-english-input-switch-functions
+                  '(pyim-probe-program-mode))
+
+    (setq pyim-fuzzy-pinyin-alist
+          '(("z" "zh")
+            ("c" "ch")
+            ("s" "sh")
+            ("an" "ang")
+            ("en" "eng")
+            ("in" "ing")
+            ("ian" "iang")
+            ("uan" "uang")))
+
+    (setq pyim-punctuation-dict
+          '(("'" "‘" "’")
+            ("\"" "“" "”")
+            ("\\" "、")
+            ("_" "_")
+            ("^" "…")
+            ("]" "】")
+            ("[" "【")
+            ("@" "@")
+            ("?" "？")
+            (">" "》")
+            ("=" "=")
+            ("<" "《")
+            (";" "；")
+            (":" "：")
+            ("/" "/")
+            ("." "。")
+            ("-" "-")
+            ("," "，")
+            ("+" "+")
+            ("*" "*")
+            (")" "）")
+            ("(" "（")
+            ("&" "&")
+            ("%" "%")
+            ("$" "￥")
+            ("#" "#")
+            ("!" "！")
+            ("`" "・")
+            ("~" "～")
+            ("}" "』")
+            ("|" "÷")
+            ("{" "『")
+            ))
+
+    (setq pyim-page-style 'two-line)
+    (setq pyim-dcache-prefer-emacs-thread t)
+    (setq pyim-page-tooltip 'popup)
+
+    ;; 使能基础字库
+    (pyim-basedict-enable)
+    ))
 
 ;;; packages.el ends here
