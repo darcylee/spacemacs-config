@@ -50,16 +50,58 @@
   (use-package highlight-global
     :init
     (progn
-      (spacemacs/set-leader-keys "hh" 'highlight-frame-toggle)
-      (spacemacs/set-leader-keys "hc" 'clear-highlight-frame)
+      (defface hl-global-face-1
+        '((t (:background "dodger blue" :foreground "black")))
+        "my highlight-global face default candidate 1"
+        :group 'highlight-global)
+
+      (defface hl-global-face-2
+        '((t (:background "hot pink" :foreground "black")))
+        "my highlight-global face default candidate 2"
+        :group 'highlight-global)
+
+      (defface hl-global-face-3
+        '((t (:background "yellow" :foreground "black")))
+        "my highlight-global face default candidate 3"
+        :group 'highlight-global)
+
+      (defface hl-global-face-4
+        '((t (:background "orchid" :foreground "black")))
+        "my highlight-global face default candidate 4"
+        :group 'highlight-global)
+
+      (defface hl-global-face-5
+        '((t (:background "red" :foreground "black")))
+        "my highlight-global face default candidate 5"
+        :group 'highlight-global)
+
+      (defface hl-global-face-6
+        '((t (:background "salmon" :foreground "black")))
+        "my highlight-global face default candidate 6"
+        :group 'highlight-global)
+
+      (defface hl-global-face-7
+        '((t (:background "spring green" :foreground "black")))
+        "my highlight-global face default candidate 7"
+        :group 'highlight-global)
+
+      (defface hl-global-face-8
+        '((t (:background "turquoise" :foreground "black")))
+        "my highlight-global face default candidate 8"
+        :group 'highlight-global)
+
       (setq-default highlight-faces
-                    '(('hi-blue . 0)
-                      ('hi-pink . 0)
-                      ('hi-yellow . 0)
-                      ('hi-red-b . 0)
-                      ('hi-green-b . 0)
-                      ('hi-blue-b . 0)
-                      ('hi-green . 0))))))
+                    '(('hl-global-face-1 . 0)
+                      ('hl-global-face-2 . 0)
+                      ('hl-global-face-3 . 0)
+                      ('hl-global-face-4 . 0)
+                      ('hl-global-face-5 . 0)
+                      ('hl-global-face-6 . 0)
+                      ('hl-global-face-7 . 0)
+                      ('hl-global-face-8 . 0)))
+      ;; set keys
+      (spacemacs/set-leader-keys "hh" 'highlight-frame-toggle)
+      (spacemacs/set-leader-keys "hc" 'clear-highlight-frame))))
 
 (defun zilongshanren-misc/post-init-golden-ratio ()
   (with-eval-after-load 'golden-ratio
