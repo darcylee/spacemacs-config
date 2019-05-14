@@ -15,7 +15,7 @@
     (profiler :location built-in)
     (recentf :location built-in)
     pyim
-    ;; highlight-symbol
+    (posframe :toggle (>= emacs-major-version 26))
     )
 )
 
@@ -168,10 +168,21 @@
 
     (setq pyim-page-style 'my-clear-type)
     (setq pyim-dcache-prefer-emacs-thread t)
-    (setq pyim-page-tooltip 'popup)
+    (setq pyim-auto-select nil)
+
+    ;; posframe 只在 26 以上的版本才支持
+    (when (>= emacs-major-version 26)
+      (require 'posframe)
+      (setq pyim-page-tooltip 'posframe)
+      (setq pyim-posframe-border-width 5)
+      (setq pyim-posframe-min-width (* pyim-page-length 5)))
 
     ;; 使能基础字库
-    (pyim-basedict-enable)
-    ))
+    (pyim-basedict-enable)))
+
+(defun darcylee-better-defaults/init-posframe ()
+  (use-package posframe
+    :init)
+  )
 
 ;;; packages.el ends here
