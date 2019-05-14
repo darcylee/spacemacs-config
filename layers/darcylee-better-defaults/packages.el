@@ -109,7 +109,8 @@
                     pyim-probe-punctuation-after-punctuation))
 
     (setq-default pyim-english-input-switch-functions
-                  '(pyim-probe-program-mode))
+                  '(pyim-probe-program-mode
+                    pyim-probe-auto-english))
 
     (setq pyim-fuzzy-pinyin-alist
           '(("z" "zh")
