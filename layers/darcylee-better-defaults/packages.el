@@ -98,7 +98,17 @@
     (evilified-state-evilify profiler-report-mode profiler-report-mode-map)))
 
 (defun darcylee-better-defaults/post-init-pyim ()
+  ;; 自定义候选框风格
+  (defun pyim-page-style:my-clear-type (page-info)
+    (format "%s [%s/%s]\n%s"
+            (pyim-page-preview-create)
+            (gethash :current-page page-info)
+            (gethash :total-page page-info)
+            (pyim-page-menu-create
+             (gethash :candidates page-info)
+             (gethash :position page-info))))
   (progn
+    ;; FIXME 这个在初始化的时候还是显示“灵通”
     (setq-default pyim-title "拼音")
 
     ;; (setq pyim-dicts
@@ -154,10 +164,9 @@
             ("~" "～")
             ("}" "』")
             ("|" "÷")
-            ("{" "『")
-            ))
+            ("{" "『")))
 
-    (setq pyim-page-style 'two-line)
+    (setq pyim-page-style 'my-clear-type)
     (setq pyim-dcache-prefer-emacs-thread t)
     (setq pyim-page-tooltip 'popup)
 
