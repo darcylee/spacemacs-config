@@ -226,3 +226,5 @@ Single Capitals as you type."
       '("GNU/Emacs - " user-login-name "@" system-name ":"
         (:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name)) "%b"))))
+
+(setq-default spaceline-helm-help-p nil)

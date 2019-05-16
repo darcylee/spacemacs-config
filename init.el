@@ -88,8 +88,8 @@ This function should only modify configuration layer settings."
      yaml
      yang
      react
-     ;; (python :variables
-     ;;         python-test-runner '(nose pytest))
+     (python :variables
+             python-test-runner '(nose pytest))
      ;;(ruby :variables ruby-version-manager 'chruby)
      ;;ruby-on-rails
      lua
@@ -156,7 +156,7 @@ This function should only modify configuration layer settings."
                     helm-rtags flycheck-rtags company-rtags rtags
                     company-ycm flycheck-ycmd company-ycmd
                     spaceline-all-the-icons all-the-icons memoize font-lock+
-                    xterm-color multiple-cursors
+                    xterm-color multiple-cursors blacken
                     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.

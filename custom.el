@@ -26,7 +26,6 @@
  '(global-command-log-mode nil)
  '(ivy-height 18)
  '(lua-documentation-url "http://www.lua.org/manual/5.3/manual.html")
- '(magit-use-overlays nil)
  '(only-global-abbrevs t)
  '(org-agenda-custom-commands nil)
  '(org-agenda-files nil)
