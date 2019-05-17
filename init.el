@@ -548,6 +548,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq warning-minimum-level :error)
   ;; hack for remove purpose mode
   (setq purpose-mode nil)
+
+  ;; spacemacs-theme
+  (setq spacemacs-theme-comment-bg nil)
+  (setq spacemacs-theme-comment-italic t)
   )
 
 (defun dotspacemacs/user-load ()

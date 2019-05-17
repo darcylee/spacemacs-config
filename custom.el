@@ -48,8 +48,6 @@
  '(ring-bell-function (quote ignore))
  '(send-mail-function (quote sendmail-send-it))
  '(sp-show-pair-from-inside t)
- '(spacemacs-theme-comment-bg nil)
- '(spacemacs-theme-comment-italic t)
  '(tab-width 4)
  '(tags-revert-without-query t)
  '(vc-follow-symlinks t)
