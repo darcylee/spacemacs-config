@@ -531,9 +531,9 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives
-        '(("melpa-cn" . "elpa.emacs-china.org/melpa/")
-          ("org-cn"   . "elpa.emacs-china.org/org/")
-          ("gnu-cn"   . "elpa.emacs-china.org/gnu/")))
+        '(("melpa-cn" . "mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+          ("org-cn"   . "mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+          ("gnu-cn"   . "mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; https://github.com/syl20bnr/spacemacs/issues/2705
   ;; (setq tramp-mode nil)
