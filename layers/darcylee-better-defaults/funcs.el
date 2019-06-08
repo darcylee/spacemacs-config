@@ -146,3 +146,10 @@ open and unsaved."
   "goto up directory and resue buffer"
   (interactive)
   (find-alternate-file ".."))
+
+(defun darcylee/youdao-dictionary-search ()
+  (interactive)
+  (if (display-graphic-p)
+      (youdao-dictionary-search-at-point-tooltip)
+    (youdao-dictionary-search-at-point+)
+    ))

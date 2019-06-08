@@ -9,7 +9,7 @@
 ;;
 ;;; License: GPLv3
 
-(define-key global-map (kbd "C-c y") 'youdao-dictionary-search-at-point+)
+(define-key global-map (kbd "C-c y") 'darcylee/youdao-dictionary-search)
 (global-set-key (kbd "s-l") 'goto-line)
 (global-set-key (kbd "s-/") 'evilnc-comment-or-uncomment-lines)
 (global-set-key (kbd "C-s") 'swiper)
