@@ -108,8 +108,9 @@
              (gethash :candidates page-info)
              (gethash :position page-info))))
   (progn
-    ;; FIXME 这个在初始化的时候还是显示“灵通”
-    (setq-default pyim-title "拼音")
+    (setq-default pyim-title "Pyim")
+    ;; 重新注册 Pyim 输入法，使自定义的title生效
+    (register-input-method "pyim" "euc-cn" 'pyim-start pyim-title)
 
     ;; (setq pyim-dicts
     ;;       '((:name "计算机词汇大全" :file "~/.spacemacs.d/extra/pyim-dict/jsjchdq.pyim")))
