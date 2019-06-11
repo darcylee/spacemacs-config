@@ -21,7 +21,6 @@
         cmake-mode
         flycheck
         ;; impatient-mode
-        nodejs-repl
         (nodejs-repl-eval :location local)
         (doxymacs :location local)
         js2-mode
@@ -225,12 +224,6 @@
   (add-to-list 'auto-mode-alist '("\\.fire.meta\\'" . json-mode))
   (spacemacs/set-leader-keys-for-major-mode 'json-mode
     "ti" 'my-toggle-web-indent))
-
-
-(defun darcylee-programming/init-nodejs-repl ()
-  (use-package nodejs-repl
-    :init
-    :defer t))
 
 (defun darcylee-programming/init-flycheck-package ()
   (use-package flycheck-package))
