@@ -173,7 +173,8 @@
     (setq pyim-auto-select nil)
 
     ;; posframe 只在 26 以上的版本才支持
-    (when (>= emacs-major-version 26)
+    (when (and (display-graphic-p)
+               (>= emacs-major-version 26))
       (require 'posframe)
       (setq pyim-page-tooltip 'posframe)
       (setq pyim-posframe-border-width 5)
@@ -184,6 +185,7 @@
 
 (defun darcylee-better-defaults/init-posframe ()
   (use-package posframe
+    :if (display-graphic-p)
     :init)
   )
 
