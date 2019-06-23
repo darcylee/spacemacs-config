@@ -111,7 +111,7 @@ This function should only modify configuration layer settings."
      ;;     gofmt-command "goimports"
      ;;     go-tab-width 4)
      (chinese :packages youdao-dictionary fcitx pyim
-              :variables chinese-enable-fcitx nil
+              :variables chinese-enable-fcitx t
               chinese-enable-youdao-dict t
               chinese-default-input-method 'pinyin)
      (mu4e :variables

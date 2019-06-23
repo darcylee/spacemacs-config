@@ -16,6 +16,7 @@
     (recentf :location built-in)
     pyim
     (posframe :toggle (>= emacs-major-version 26))
+    fcitx
     )
 )
 
@@ -188,5 +189,13 @@
     :if (display-graphic-p)
     :init)
   )
+
+(defun darcylee-better-defaults/post-init-fcitx ()
+  (progn
+    ;; disable fcitx in minibuffer
+    (fcitx-aggressive-minibuffer-turn-on)
+
+    (fcitx-prefix-keys-add "M-m" "C-M-m" "C-x" "C-c" "C-h" "M-s" "M-o")
+    (fcitx-prefix-keys-turn-on)))
 
 ;;; packages.el ends here
