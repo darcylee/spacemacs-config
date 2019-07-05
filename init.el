@@ -651,6 +651,9 @@ before packages are loaded."
   ;; (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
   (add-hook 'text-mode-hook 'bug-reference-mode)
 
+  (with-eval-after-load 'transient
+    (transient-bind-q-to-quit))
+
   ;;load local configs
   (setq config-local (expand-file-name ".config-local.el" dotspacemacs-directory))
   (load config-local 'no-error 'no-messge t))
