@@ -52,6 +52,7 @@
         (magit-gerrit :location (recipe :fetcher github :repo "darcylee/magit-gerrit"))
         ;; (magit-gerrit :location "/private/work/extra/magit-gerrit/")
         (smerge-mode :location built-in)
+        (robot-mode :location (recipe :fetcher github :repo "jstvz/robot-mode"))
         ))
 
 (defun darcylee-programming/post-init-robe ()
@@ -669,5 +670,11 @@
         ("C" smerge-combine-with-next)
         ("K" smerge-kill-current)
         ("u" undo-tree-undo)
-        ("q" nil :exit t))))
-  )
+        ("q" nil :exit t)))))
+
+(defun darcylee-programming/init-robot-mode ()
+  "robot framework mode init"
+  (use-package robot-mode
+    :config
+    (progn
+      (define-key robot-mode-map [remap evil-indent] 'robot-mode-indent-region))))
