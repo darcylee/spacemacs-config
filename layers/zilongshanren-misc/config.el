@@ -42,4 +42,6 @@
                                             ("8str" "\\([^\"]+?\\)\"")))
 
 
+(add-hook 'term-mode-hook 'zilongshanren/ash-term-hooks)
+
 ;; (setq user-mail-address "darcylee1986@gmail.com")

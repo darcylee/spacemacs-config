@@ -16,9 +16,6 @@
   :documentation "Enable iimage mode"
   :evil-leader "oti")
 
-(add-hook 'term-mode-hook 'zilongshanren/ash-term-hooks)
-
-
 ;; reformat your json file, it requires python
 (defun beautify-json ()
   (interactive)
