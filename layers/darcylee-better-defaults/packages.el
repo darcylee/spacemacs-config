@@ -172,6 +172,7 @@
     (setq pyim-page-style 'my-clear-type)
     (setq pyim-dcache-prefer-emacs-thread t)
     (setq pyim-auto-select nil)
+    (setq pyim-dcache-backend 'pyim-dregcache)
 
     ;; posframe 只在 26 以上的版本才支持
     (when (and (display-graphic-p)
