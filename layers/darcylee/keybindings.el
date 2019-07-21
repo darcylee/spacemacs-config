@@ -49,8 +49,9 @@
            (spacemacs/set-leader-keys "oo" 'zilongshanren/helm-hotspots)))
 
 (spacemacs/set-leader-keys "fF" 'find-file-in-project)
-(spacemacs/set-leader-keys "oc" 'my-auto-update-tags-when-save)
-(spacemacs/set-leader-keys "oC" 'zilongshanren/capture-screenshot)
+(spacemacs/set-leader-keys "oC" 'my-auto-update-tags-when-save)
+(spacemacs/set-leader-keys "ocs" 'zilongshanren/capture-selection)
+(spacemacs/set-leader-keys "ocw" 'zilongshanren/capture-window)
 (spacemacs/set-leader-keys "op" 'zilongshanren/org-save-and-export)
 (spacemacs/set-leader-keys "fR" 'spacemacs/rename-current-buffer-file)
 (spacemacs/set-leader-keys "oag" 'helm-github-stars)

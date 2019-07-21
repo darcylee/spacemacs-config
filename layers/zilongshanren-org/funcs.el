@@ -65,41 +65,41 @@
     (sit-for 4)
     (browse-url "http://localhost:4000")))
 
-
+
 ;; Screenshot
 (defun zilongshanren//insert-org-or-md-img-link (prefix imagename)
-  (if (file-exists-p imagename)
-      (if (equal (file-name-extension (buffer-file-name)) "org")
-          (insert (format "[[%s%s]]\n" prefix imagename))
-        (insert (format "![%s](%s%s)\n" imagename prefix imagename)))
-    (message "File: %s is not exists." imagename)))
+  (if (equal (file-name-extension (buffer-file-name)) "org")
+      (insert (format "[[%s%s]]\n" prefix imagename))
+    (insert (format "![%s](%s%s)\n" imagename prefix imagename))))
 
-(defun zilongshanren//do-screenshot (img)
-  "caputure screen"
-  (shell-command (format "mkdir -p %s" (file-name-directory img)))
+(defun zilongshanren//take-screenshot (image window)
+  "Grab a window instead of the entire screen"
+  (shell-command (format "mkdir -p %s" (file-name-directory image)))
   (when (spacemacs/system-is-linux)
     (lower-frame)
     (cond
      ((executable-find "gnome-screenshot")
-      (shell-command (format "gnome-screenshot -a -f %s" img)))
+      (if window (setq opt "-w -b --border-effect=shadow --delay=3 -f") (setq opt "-a -f"))
+      (shell-command (format "gnome-screenshot %s %s" opt image)))
 
      ((executable-find "scrot")
-      (shell-command (format "scrot -s %s" img)))
+      (if window (setq opt "-s -b") (setq opt "-s"))
+      (shell-command (format "scrot %s %s" opt image)))
 
      (t
       (message "no screenshot program")))
     (raise-frame))
 
   (when (spacemacs/system-is-mac)
-    (call-process "screencapture" nil nil nil "-s" img))
+    (if window (setq opt "-w") (setq opt "-s"))
+    (call-process "screencapture" nil nil nil opt image))
 
   (when (spacemacs/system-is-mswindows)
     (message "unsupport yet!!")))
 
-(defun zilongshanren/capture-screenshot (basename)
-  "Take a screenshot into a time stamped unique-named file in the
-  same directory as the org-buffer/markdown-buffer and insert a link to this file."
-  (interactive "sScreenshot name: ")
+(defun zilongshanren//insert-capture-screenshot (basename window)
+  "Take a screenshot into a time stamped unique-named file in the same directory
+as the org-buffer/markdown-buffer and insert a link to this file."
   (if (equal basename "")
       (setq basename (format-time-string "%Y%m%d_%H%M%S")))
   (setq fullpath
@@ -115,18 +115,30 @@
                 ".png"))
   (if (file-exists-p (file-name-directory fullpath))
       (progn
-        (setq final-image-full-path (concat fullpath ".png"))
-        (zilongshanren//do-screenshot final-image-full-path)
-        (if (executable-find "convert")
+        (setq fullpathname (concat fullpath ".png"))
+        (zilongshanren//take-screenshot fullpathname window)
+        (if (file-exists-p fullpathname)
             (progn
-              (setq resize-command-str (format "convert %s -resize 800x600 %s" final-image-full-path final-image-full-path))
-              (shell-command-to-string resize-command-str)))
-        (zilongshanren//insert-org-or-md-img-link "https://zilongshanren.com/img/" relativepath))
+              (if (executable-find "convert")
+                  (shell-command-to-string (format "convert %s -resize 800x600 %s" fullpathname fullpathname)))
+              (zilongshanren//insert-org-or-md-img-link "https://zilongshanren.com/img/" relativepath))
+          (message "File: %s is not exists." fullpathname)))
     (progn
       (setq relativepathname (concat "img/" basename ".png"))
-      (zilongshanren//do-screenshot relativepathname)
-      (zilongshanren//insert-org-or-md-img-link "./" relativepathname))))
+      (zilongshanren//take-screenshot relativepathname window)
+      (if (file-exists-p relativepathname)
+          (zilongshanren//insert-org-or-md-img-link "./" relativepathname)
+        (message "File: %s is not exists." relativepathname))))
+  )
 
+(defun zilongshanren/capture-selection (basename)
+  (interactive "sScreenshot Name: ")
+  (zilongshanren//insert-capture-screenshot basename nil))
+
+(defun zilongshanren/capture-window (basename)
+  (interactive "sScreenshot Name: ")
+  (zilongshanren//insert-capture-screenshot basename t))
+
 (defun zilongshanren/org-archive-done-tasks ()
   (interactive)
   (org-map-entries
