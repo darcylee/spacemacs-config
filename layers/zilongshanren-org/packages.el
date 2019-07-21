@@ -50,6 +50,7 @@
       ;; Non-nil means interpret "_" and "^" for export
       (setq org-export-with-sub-superscripts nil)
 
+      (setq org-startup-with-inline-images nil)
       (setq org-refile-use-outline-path 'file)
       (setq org-outline-path-complete-in-steps nil)
       (setq org-refile-targets
