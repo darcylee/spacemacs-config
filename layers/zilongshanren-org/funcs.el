@@ -72,6 +72,28 @@
       (insert (format "[[%s%s]]" prefix imagename))
     (insert (format "![%s](%s%s)" imagename prefix imagename))))
 
+(defun zilongshanren//do-screenshot (img)
+  "caputure screen"
+  (shell-command (format "mkdir -p %s" (file-name-directory img)))
+  (when (spacemacs/system-is-linux)
+    (lower-frame)
+    (cond
+     ((executable-find "gnome-screenshot")
+      (shell-command (format "gnome-screenshot -a -f %s" img)))
+
+     ((executable-find "scrot")
+      (shell-command (format "scrot -s %s" img)))
+
+     (t
+      (message "no screenshot program")))
+    (raise-frame))
+
+  (when (spacemacs/system-is-mac)
+    (call-process "screencapture" nil nil nil "-s" img))
+
+  (when (spacemacs/system-is-mswindows)
+    (message "unsupport yet!!")))
+
 (defun zilongshanren/capture-screenshot (basename)
   "Take a screenshot into a time stamped unique-named file in the
   same directory as the org-buffer/markdown-buffer and insert a link to this file."
@@ -92,15 +114,16 @@
   (if (file-exists-p (file-name-directory fullpath))
       (progn
         (setq final-image-full-path (concat fullpath ".png"))
-        (call-process "screencapture" nil nil nil "-s" final-image-full-path)
+        (zilongshanren//do-screenshot final-image-full-path)
         (if (executable-find "convert")
             (progn
               (setq resize-command-str (format "convert %s -resize 800x600 %s" final-image-full-path final-image-full-path))
               (shell-command-to-string resize-command-str)))
         (zilongshanren//insert-org-or-md-img-link "https://zilongshanren.com/img/" relativepath))
     (progn
-      (call-process "screencapture" nil nil nil "-s" (concat basename ".png"))
-      (zilongshanren//insert-org-or-md-img-link "./" (concat basename ".png"))))
+      (setq relativepathname (concat "img/" basename ".png"))
+      (zilongshanren//do-screenshot relativepathname)
+      (zilongshanren//insert-org-or-md-img-link "./" relativepathname)))
   (insert "\n"))
 
 (defun zilongshanren/org-archive-done-tasks ()
