@@ -68,9 +68,11 @@
 
 ;; Screenshot
 (defun zilongshanren//insert-org-or-md-img-link (prefix imagename)
-  (if (equal (file-name-extension (buffer-file-name)) "org")
-      (insert (format "[[%s%s]]" prefix imagename))
-    (insert (format "![%s](%s%s)" imagename prefix imagename))))
+  (if (file-exists-p imagename)
+      (if (equal (file-name-extension (buffer-file-name)) "org")
+          (insert (format "[[%s%s]]\n" prefix imagename))
+        (insert (format "![%s](%s%s)\n" imagename prefix imagename)))
+    (message "File: %s is not exists." imagename)))
 
 (defun zilongshanren//do-screenshot (img)
   "caputure screen"
@@ -123,8 +125,7 @@
     (progn
       (setq relativepathname (concat "img/" basename ".png"))
       (zilongshanren//do-screenshot relativepathname)
-      (zilongshanren//insert-org-or-md-img-link "./" relativepathname)))
-  (insert "\n"))
+      (zilongshanren//insert-org-or-md-img-link "./" relativepathname))))
 
 (defun zilongshanren/org-archive-done-tasks ()
   (interactive)
