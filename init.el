@@ -64,6 +64,7 @@ This function should only modify configuration layer settings."
      (spell-checking :variables spell-checking-enable-by-default nil)
      (vinegar :variables vinegar-reuse-dired-buffer t)
      (spacemacs-layouts :variables layouts-enable-autosave nil
+                        spacemacs-layouts-restrict-spc-tab t
                         layouts-autosave-delay 300)
      (git :variables
           git-magit-status-fullscreen t
