@@ -46,7 +46,15 @@ This function should only modify configuration layer settings."
      ;; ranger
      colors
      prodigy
-     search-engine
+     (search-engine :variables
+                    search-engine-config-list
+                    '((google-translate
+                       :name "Google Translate"
+                       :url "https://translate.google.cn/#view=home&op=translate&sl=auto&tl=auto&text=%s")
+                      (baidu
+                       :name "Baidu"
+                       :url "https://www.baidu.com/s?wd=%s")))
+
      (plantuml :variables plantuml-output-type "png"
                plantuml-jar-path (expand-file-name "extra/plantuml.jar" dotspacemacs-directory)
                org-plantuml-jar-path plantuml-jar-path)
@@ -592,15 +600,6 @@ before packages are loaded."
   (setq split-width-threshold 120)
 
   (spacemacs|add-company-backends :modes text-mode)
-
-  (push '(google-translate
-          :name "Google Translate"
-          :url "http://translate.google.cn/?source=osdd#auto|auto|%s")
-        search-engine-alist)
-  (push '(baidu
-          :name "Baidu"
-          :url "https://www.baidu.com/s?wd=%s")
-        search-engine-alist)
 
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
