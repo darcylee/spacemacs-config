@@ -102,29 +102,29 @@
 as the org-buffer/markdown-buffer and insert a link to this file."
   (if (equal basename "")
       (setq basename (format-time-string "%Y%m%d_%H%M%S")))
-  (setq fullpath
+  (setq blog_img_dir
         (concat (file-name-directory (buffer-file-name))
-                "../source/img/"
-                (file-name-base (buffer-file-name))
-                "_"
-                basename))
-  (setq relativepath
-        (concat (file-name-base (buffer-file-name))
-                "_"
-                basename
-                ".png"))
-  (if (file-exists-p (file-name-directory fullpath))
+                "../img/post/"))
+  (setq imagename (concat basename ".png"))
+  (if (file-exists-p blog_img_dir)
       (progn
-        (setq fullpathname (concat fullpath ".png"))
-        (zilongshanren//take-screenshot fullpathname window)
-        (if (file-exists-p fullpathname)
+        (setq relative_dir
+              (concat "/img/post/"
+                      (file-name-base (buffer-file-name))
+                      "/"))
+        (setq absolute_path (concat blog_img_dir
+                                    (file-name-base (buffer-file-name))
+                                    "/"
+                                    imagename))
+        (zilongshanren//take-screenshot absolute_path window)
+        (if (file-exists-p absolute_path)
             (progn
-              (if (executable-find "convert")
-                  (shell-command-to-string (format "convert %s -resize 800x600 %s" fullpathname fullpathname)))
-              (zilongshanren//insert-org-or-md-img-link "https://zilongshanren.com/img/" relativepath))
-          (message "File: %s is not exists." fullpathname)))
+              ;; (if (executable-find "convert")
+              ;;     (shell-command-to-string (format "convert %s -resize 800x600 %s" absolute_path absolute_path)))
+              (zilongshanren//insert-org-or-md-img-link relative_dir imagename))
+          (message "File: %s is not exists." absolute_path)))
     (progn
-      (setq relativepathname (concat "img/" basename ".png"))
+      (setq relativepathname (concat "img/" imagename))
       (zilongshanren//take-screenshot relativepathname window)
       (if (file-exists-p relativepathname)
           (zilongshanren//insert-org-or-md-img-link "./" relativepathname)
