@@ -61,6 +61,7 @@ This function should only modify configuration layer settings."
 
      (plantuml :variables plantuml-output-type "png"
                plantuml-jar-path (expand-file-name "extra/plantuml.jar" dotspacemacs-directory)
+               plantuml-default-exec-mode 'jar
                org-plantuml-jar-path plantuml-jar-path)
      graphviz
      (syntax-checking :variables syntax-checking-enable-by-default nil
@@ -133,8 +134,7 @@ This function should only modify configuration layer settings."
            mu4e-enable-notifications t)
      (notmuch :variables notmuch-message-deleted-tags '("+deleted" "-inbox" "-unread"))
      ;; ycmd
-     darcylee
-     )
+     darcylee)
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -169,8 +169,7 @@ This function should only modify configuration layer settings."
                     helm-rtags flycheck-rtags company-rtags rtags
                     company-ycm flycheck-ycmd company-ycmd
                     spaceline-all-the-icons all-the-icons memoize font-lock+
-                    xterm-color multiple-cursors blacken
-                    )
+                    xterm-color multiple-cursors blacken)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
