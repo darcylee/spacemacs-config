@@ -39,12 +39,7 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; (ivy :can-shadow nil)
-     (helm :can-shadow nil
-           :variables
-           helm-use-fuzzy 'always
-           helm-enable-auto-resize nil
-           helm-no-header t
-           helm-position 'bottom)
+     (helm :can-shadow nil)
      better-defaults
      ;; github
      ;; ranger

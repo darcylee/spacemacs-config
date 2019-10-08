@@ -272,20 +272,32 @@
     (spacemacs/set-leader-keys "oe" 'tiny-expand)))
 
 (defun zilongshanren-misc/post-init-helm ()
-  (with-eval-after-load 'helm
+  (use-package helm
+    :init
     (progn
-      (setq helm-buffer-max-length 56)
+      (setq helm-use-fuzzy 'always)
+      (setq helm-no-header t)
+      (setq helm-position 'bottom)
       (setq helm-move-to-line-cycle-in-source t)
+      ;; (setq helm-enable-auto-resize t)
+      ;; (setq helm-autoresize-max-height 20)
+      ;; (setq helm-autoresize-min-height 20)
+
       ;; limit max number of matches displayed for speed
       (setq helm-candidate-number-limit 100)
+
       ;; ignore boring files like .o and .a
-      (setq helm-ff-skip-boring-files t)
-      (when (spacemacs/system-is-mac)
-        ;; replace locate with spotlight on Mac
-        (setq helm-locate-command "mdfind -name %s %s"))
-      (push "\\.emlx$" helm-boring-file-regexp-list)
-      )
-    ))
+      (setq helm-ff-skip-boring-files t))
+    :config
+    (with-eval-after-load 'helm
+      (progn
+        ;; (setq helm-buffer-max-length 30)
+        (when (spacemacs/system-is-mac)
+          ;; replace locate with spotlight on Mac
+          (setq helm-locate-command "mdfind -name %s %s"))
+        (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
+        (define-key helm-find-files-map (kbd "DEL") 'helm-find-files-up-one-level)
+        (push "\\.emlx$" helm-boring-file-regexp-list)))))
 
 (defun zilongshanren-misc/init-helm-github-stars ()
   (use-package helm-github-stars
