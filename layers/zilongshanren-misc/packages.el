@@ -19,15 +19,12 @@
         visual-regexp-steroids
         command-log
         evil
-        ;; fcitx
         discover-my-major
         ace-window
         avy
-        ;; 4clojure
         persp-mode
         helm-github-stars
         tiny
-        ;; smartparens
         flyspell-correct
         peep-dired
         markdown-mode
@@ -38,8 +35,6 @@
         hydra
         wrap-region
         helm
-        ;; helm-ag
-        ;; ranger
         mu4e
         mu4e-alert
         golden-ratio
@@ -136,9 +131,6 @@
   ;;     (define-key ranger-normal-mode-map (kbd "q") 'my-quit-ranger)))
 
   ;; (spacemacs/set-leader-keys "ar" 'my-ranger))
-
-
-
 
 (defun zilongshanren-misc/post-init-hydra ()
   (progn
@@ -242,7 +234,6 @@
     :bind (:map dired-mode-map
                 ("P" . peep-dired))))
 
-
 (defun zilongshanren-misc/post-init-flyspell-correct ()
   (progn
     (with-eval-after-load 'flyspell
@@ -305,9 +296,6 @@
     :init
     (setq helm-github-stars-username "darcylee")))
 
-
-
-
 (defun zilongshanren-misc/post-init-fcitx ()
   (fcitx-aggressive-setup))
 
@@ -316,8 +304,6 @@
     (setq clm/log-command-exceptions* (append clm/log-command-exceptions*
                                               '(evil-next-visual-line
                                                 evil-previous-visual-line)))))
-
-
 
 (defun zilongshanren-misc/init-litable ()
   (use-package litable
@@ -333,7 +319,6 @@
       (global-set-key (kbd "C-c d") 'osx-dictionary-search-pointer)
       )))
 
-
 ;; (defun zilongshanren-misc/init-4clojure ()
 ;;   (use-package 4clojure
 ;;     :init
@@ -344,9 +329,6 @@
 ;;       (spacemacs/set-leader-keys "o4p" '4clojure-previous-question)
 ;;       (spacemacs/set-leader-keys "o4c" '4clojure-check-answers)
 ;;       )))
-
-
-
 
 (defun zilongshanren-misc/post-init-avy ()
   (progn
@@ -362,9 +344,7 @@
     :init
     (progn
       (spacemacs/set-leader-keys (kbd "mhm") 'discover-my-major)
-      (evilified-state-evilify makey-key-mode makey-key-mode-get-key-map)
-      )))
-
+      (evilified-state-evilify makey-key-mode makey-key-mode-get-key-map))))
 
 (defun zilongshanren-misc/post-init-elfeed ()
   (use-package elfeed
@@ -373,7 +353,6 @@
     :defer t
     :config
     (progn
-
       (setq elfeed-feeds
             '("http://nullprogram.com/feed/"
               "http://z.caudate.me/rss/"
@@ -536,8 +515,7 @@
       (kbd "e") 'diff-ediff-patch
       (kbd "u") 'diff-undo
       (kbd "q") 'quit-window
-      (kbd "Q") 'kill-this-buffer)
-    ))
+      (kbd "Q") 'kill-this-buffer)))
 
 (defun zilongshanren-misc/init-visual-regexp ()
   (use-package visual-regexp
@@ -555,7 +533,6 @@
   (use-package multiple-cursors
     :init
     (progn
-
       (bind-key* "C-s-l" 'mc/edit-lines)
       (bind-key* "C-s-f" 'mc/mark-all-dwim)
       (bind-key* "C-s-." 'mc/mark-next-like-this)
@@ -569,19 +546,19 @@
       ;; C-x m is usually `compose-mail'. Bind it to something
       ;; else if you use this command.
       (define-key ctl-x-map "m" 'endless/mc-map)
-;;; Really really nice!
+
+      ;; Really really nice!
       (define-key endless/mc-map "i" #'mc/insert-numbers)
       (define-key endless/mc-map "h" #'mc-hide-unmatched-lines-mode)
       (define-key endless/mc-map "a" #'mc/mark-all-like-this)
 
-;;; Occasionally useful
+      ;; Occasionally useful
       (define-key endless/mc-map "d" #'mc/mark-all-symbols-like-this-in-defun)
       (define-key endless/mc-map "r" #'mc/reverse-regions)
       (define-key endless/mc-map "s" #'mc/sort-regions)
       (define-key endless/mc-map "l" #'mc/edit-lines)
       (define-key endless/mc-map "\C-a" #'mc/edit-beginnings-of-lines)
-      (define-key endless/mc-map "\C-e" #'mc/edit-ends-of-lines)
-      )
+      (define-key endless/mc-map "\C-e" #'mc/edit-ends-of-lines))
     :config
     (setq mc/cmds-to-run-once
           '(
@@ -621,8 +598,7 @@
             sp-backward-delete-char
             sp-delete-char
             sp-remove-active-pair-overlay
-            orgtbl-hijacker-command-109))
-    ))
+            orgtbl-hijacker-command-109))))
 
 (defun zilongshanren-misc/post-init-persp-mode ()
   (setq persp-autokill-buffer-on-remove 'kill-weak)
@@ -633,22 +609,6 @@
       :binding "w"
       :body
       (find-file "/work"))))
-
-(defun zilongshanren-misc/post-init-chinese-wbim ()
-  (progn
-    (bind-key* ";" 'chinese-wbim-insert-ascii)
-    (setq chinese-wbim-punc-translate-p nil)
-    (spacemacs/declare-prefix "ot" "Toggle")
-    (spacemacs/set-leader-keys
-      "otp" 'chinese-wbim-punc-translate-toggle)
-    (setq chinese-wbim-wb-use-gbk t)
-    (add-hook 'chinese-wbim-wb-load-hook
-              (lambda ()
-                (let ((map (chinese-wbim-mode-map)))
-                  (define-key map "-" 'chinese-wbim-previous-page)
-                  (define-key map "=" 'chinese-wbim-next-page))))
-    ))
-
 
 (defun zilongshanren-misc/post-init-evil-escape ()
   (setq evil-escape-delay 0.2))
@@ -714,7 +674,6 @@
         (occur my-simple-todo-regex)))
     (spacemacs/set-leader-keys "pf" 'zilongshanren/open-file-with-projectile-or-counsel-git)
     (spacemacs/set-leader-keys "pt" 'my-simple-todo)))
-
 
 
 (defun zilongshanren-misc/post-init-prodigy ()
@@ -807,8 +766,7 @@
          ("/* " " */" "#" (java-mode javascript-mode css-mode js2-mode))
          ("`" "`" nil (markdown-mode ruby-mode))))
       (add-to-list 'wrap-region-except-modes 'dired-mode)
-      (add-to-list 'wrap-region-except-modes 'web-mode)
-      )
+      (add-to-list 'wrap-region-except-modes 'web-mode))
     :defer t
     :config
     (spacemacs|hide-lighter wrap-region-mode)))
@@ -872,7 +830,6 @@
   (progn
     (with-eval-after-load 'magit
       (progn
-
         (add-to-list 'magit-no-confirm 'stage-all-changes)
         (define-key magit-log-mode-map (kbd "W") 'magit-copy-section-value)
         (define-key magit-status-mode-map (kbd "s-1") 'magit-jump-to-unstaged)
@@ -924,9 +881,7 @@
         (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
           "p" 'zilongshanren/markdown-to-html)
 
-        (evil-define-key 'normal markdown-mode-map (kbd "TAB") 'markdown-cycle)
-        ))
-    ))
+        (evil-define-key 'normal markdown-mode-map (kbd "TAB") 'markdown-cycle)))))
 
 (defun zilongshanren-misc/post-init-mu4e-alert ()
   (use-package mu4e-alert
@@ -949,8 +904,7 @@
       (mu4e-alert-enable-notifications)
 
       ;; Enable mode-line notifcation
-      (mu4e-alert-enable-mode-line-display)
-      )))
+      (mu4e-alert-enable-mode-line-display))))
 
 (defun zilongshanren-misc/post-init-mu4e ()
   (use-package mu4e
