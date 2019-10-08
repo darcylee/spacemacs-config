@@ -166,6 +166,7 @@ This function should only modify configuration layer settings."
                     helm-rtags flycheck-rtags company-rtags rtags
                     company-ycm flycheck-ycmd company-ycmd
                     spaceline-all-the-icons all-the-icons memoize font-lock+
+                    doom-modeline anzu fancy-battery vim-powerline
                     xterm-color multiple-cursors blacken)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
@@ -287,7 +288,7 @@ It should only modify the values of Spacemacs settings."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
                          spacemacs-light
-                         zenburn doom-molokai monokai
+                         monokai
                          solarized-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
