@@ -56,16 +56,17 @@
 (spacemacs/set-leader-keys "fR" 'spacemacs/rename-current-buffer-file)
 (spacemacs/set-leader-keys "oag" 'helm-github-stars)
 
+(spacemacs/set-leader-keys "bD" 'spacemacs/kill-other-buffers)
+(spacemacs/set-leader-keys "b C-d" 'spacemacs/kill-matching-buffers-rudely)
+(spacemacs/set-leader-keys "b C-S-d" nil)
+
 ;;Must set key to nil to prevent error: Key sequence b m s starts with non-prefix key b m
 (spacemacs/set-leader-keys "bm" nil)
-(spacemacs/set-leader-keys "bD" 'spacemacs/kill-other-buffers)
 (spacemacs/declare-prefix "bm" "Bookmark")
 (spacemacs/set-leader-keys "bms" 'bookmark-set)
 (spacemacs/set-leader-keys "bmr" 'bookmark-rename)
 (spacemacs/set-leader-keys "bmd" 'bookmark-delete)
 (spacemacs/set-leader-keys "bmj" 'bookmark-jump)
-;; temp fix for ivy-switch-buffer
-;; (spacemacs/set-leader-keys "bb" 'ivy-switch-buffer)
 
 (spacemacs/set-leader-keys "od" 'occur-dwim)
 (spacemacs/set-leader-keys "ox" 'org-open-at-point)
