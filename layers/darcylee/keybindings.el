@@ -86,7 +86,7 @@
 (spacemacs/set-leader-keys "gL" 'magit-log-buffer-file)
 (spacemacs/set-leader-keys "og" 'my-git-timemachine)
 
-(spacemacs/set-leader-keys "sj" 'helm-imenu)
+;; (spacemacs/set-leader-keys "sj" 'helm-imenu)
 
 (spacemacs/set-leader-keys "if" 'spacemacs/insert-file)
 (spacemacs/set-leader-keys "ib" 'insert-buffer)

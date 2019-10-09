@@ -593,3 +593,13 @@ With PREFIX, cd to project root."
 (defun zilongshanren/diff-mode-revert-hunk ()
   (interactive)
   (diff-apply-hunk t))
+
+(defun darcylee/swiper-all-region-or-symbol ()
+  "Run `swiper-all' with the selected region or the symbol
+around point as the initial input."
+  (interactive)
+  (let ((input (if (region-active-p)
+                   (buffer-substring-no-properties (region-beginning) (region-end))
+                 (thing-at-point 'symbol t))))
+    (evil-normal-state)
+    (swiper-all input)))

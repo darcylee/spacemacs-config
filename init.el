@@ -38,11 +38,9 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     (helm :can-shadow nil
-           :variables
-           helm-use-fuzzy 'always
-           helm-no-header t
-           helm-position 'bottom)
+     (ivy :can-shadow nil
+          :variables
+          ivy-enable-advanced-buffer-information t)
      better-defaults
      ;; github
      ;; ranger
@@ -162,7 +160,7 @@ This function should only modify configuration layer settings."
                     helm-flyspell flyspell-correct-helm clean-aindent-mode
                     helm-c-yasnippet ace-jump-helm-line helm-make magithub
                     helm-spacemacs-help smeargle helm-themes helm-ls-git
-                    ido-vertical-mode flx-ido company-quickhelp counsel-projectile
+                    ido-vertical-mode flx-ido company-quickhelp
                     ivy-purpose helm-purpose neotree
                     treemacs-projectile treemacs-evil treemacs treemacs-magit treemacs-persp
                     helm-rtags flycheck-rtags company-rtags rtags

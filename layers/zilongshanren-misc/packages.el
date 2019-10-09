@@ -23,8 +23,8 @@
         ;; ace-window
         avy
         persp-mode
-        helm-github-stars
         tiny
+        expand-region
         flyspell-correct
         ;; peep-dired
         markdown-mode
@@ -33,12 +33,43 @@
         ;; gist
         hydra
         wrap-region
-        helm
+        counsel
+        ivy
+        ivy-rich
         mu4e
         mu4e-alert
         golden-ratio
         (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
         ))
+
+(defun zilongshanren-misc/post-init-expand-region ()
+  (with-eval-after-load 'expand-region
+    (defadvice er/prepare-for-more-expansions-internal
+        (around helm-ag/prepare-for-more-expansions-internal activate)
+      ad-do-it
+      (let ((new-msg (concat (car ad-return-value)
+                             ", / to search in project, "
+                             "f to search in files, "
+                             "b to search in opened buffers"))
+            (new-bindings (cdr ad-return-value)))
+        (cl-pushnew
+         '("/" (lambda ()
+                 (call-interactively
+                  'spacemacs/search-project-auto-region-or-symbol)
+                 (evil-normal-state)))
+         new-bindings)
+        (cl-pushnew
+         '("f" (lambda ()
+                 (call-interactively
+                  'spacemacs/search-auto-region-or-symbol)
+                 (evil-normal-state)))
+         new-bindings)
+        (cl-pushnew
+         '("b" (lambda ()
+                 (call-interactively
+                  'darcylee/swiper-all-region-or-symbol)))
+         new-bindings)
+        (setq ad-return-value (cons new-msg new-bindings))))))
 
 (defun zilongshanren-misc/init-highlight-global ()
   (use-package highlight-global
@@ -761,50 +792,70 @@
       (keyfreq-autosave-mode 1))))
 
 (defun zilongshanren-misc/post-init-swiper ()
-  "Initialize my package"
   (progn
-    (setq ivy-use-virtual-buffers t)
-    (setq ivy-display-style 'fancy)
+    (define-key global-map (kbd "C-s") 'my-swiper-search)))
 
+(defun zilongshanren-misc/post-init-counsel ()
+  (progn
+    (define-key counsel-find-file-map (kbd "TAB") 'ivy-alt-done)))
+
+(defun zilongshanren-misc/post-init-ivy ()
+  (progn
+    (spacemacs|hide-lighter ivy-mode)
 
     (evilified-state-evilify ivy-occur-mode ivy-occur-mode-map)
 
-    (use-package ivy
-      :defer t
-      :config
-      (progn
-        (spacemacs|hide-lighter ivy-mode)
+    (ivy-set-actions
+     t
+     '(("f" my-find-file-in-git-repo "find files")
+       ("!" my-open-file-in-external-app "Open file in external app")
+       ("I" ivy-insert-action "insert")))
 
-        (ivy-set-actions
-         t
-         '(("f" my-find-file-in-git-repo "find files")
-           ("!" my-open-file-in-external-app "Open file in external app")
-           ("I" ivy-insert-action "insert")))
+    (spacemacs/set-leader-keys "fad" 'counsel-goto-recent-directory)
+    (spacemacs/set-leader-keys "faf" 'counsel-find-file-recent-directory)
 
-        (spacemacs/set-leader-keys "fad" 'counsel-goto-recent-directory)
-        (spacemacs/set-leader-keys "faf" 'counsel-find-file-recent-directory)
+    (setq ivy-wrap t)
+    (setq ivy-initial-inputs-alist nil)
+    ;; (setq ivy-count-format "[%d/%d] ")
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-display-style 'fancy)
+    (setq confirm-nonexistent-file-or-buffer t)
 
-        (setq ivy-initial-inputs-alist nil)
-        (setq ivy-wrap t)
-        (setq confirm-nonexistent-file-or-buffer t)
+    (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
+    (define-key ivy-minibuffer-map (kbd "C-s-m") 'ivy-partial-or-done)
+    (define-key ivy-minibuffer-map (kbd "C-c s") 'ivy-ff-checksum)
+    (define-key ivy-minibuffer-map (kbd "s-o") 'ivy-dispatching-done)
+    (define-key ivy-minibuffer-map (kbd "C-c C-e") 'spacemacs//counsel-edit)
+    (define-key ivy-minibuffer-map (kbd "<f3>") 'ivy-occur)
+    (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-call)
+    (define-key ivy-minibuffer-map (kbd "C-s-j") 'ivy-immediate-done)
+    ;; (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
+    ;; (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
+    (define-key ivy-minibuffer-map (kbd "<C-h") 'counsel-up-directory)))
 
-        ;; (when (not (configuration-layer/layer-usedp 'helm))
-        ;;   (spacemacs/set-leader-keys "sp" 'counsel-git-grep)
-        ;;   (spacemacs/set-leader-keys "sP" 'spacemacs/counsel-git-grep-region-or-symbol))
-        (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
-        (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-alt-done)
-        (define-key ivy-minibuffer-map (kbd "C-s-m") 'ivy-partial-or-done)
-        (define-key ivy-minibuffer-map (kbd "C-c s") 'ivy-ff-checksum)
-        (define-key ivy-minibuffer-map (kbd "s-o") 'ivy-dispatching-done)
-        (define-key ivy-minibuffer-map (kbd "C-c C-e") 'spacemacs//counsel-edit)
-        (define-key ivy-minibuffer-map (kbd "<f3>") 'ivy-occur)
-        (define-key ivy-minibuffer-map (kbd "C-s-j") 'ivy-immediate-done)
-        (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
-        (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
-        (define-key ivy-minibuffer-map (kbd "<C-h") 'counsel-up-directory)))
-
-    (define-key global-map (kbd "C-s") 'my-swiper-search)))
-
+(defun zilongshanren-misc/post-init-ivy-rich ()
+  (use-package ivy-rich
+    :init
+    (progn
+      (setcdr (assq t ivy-format-functions-alist) #'ivy-format-function-line)
+      (setq ivy-rich-path-style 'abbrev))
+    :config
+    (progn
+      (setq ivy-rich-display-transformers-list
+            '(counsel-find-file
+              (:columns
+               ((ivy-read-file-transformer)
+                (ivy-rich-counsel-find-file-truename (:face font-lock-doc-face))))
+              counsel-M-x
+              (:columns
+               ((counsel-M-x-transformer (:width 60))
+                (ivy-rich-counsel-function-docstring (:face font-lock-doc-face))))
+              counsel-recentf
+              (:columns
+               ((ivy-rich-candidate (:width 0.8))
+                (ivy-rich-file-last-modified-time (:face font-lock-comment-face))))
+              ))
+      (ivy-rich-reload))))
 
 (defun zilongshanren-misc/post-init-magit ()
   (progn
