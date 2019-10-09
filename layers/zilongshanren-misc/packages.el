@@ -266,13 +266,7 @@
   (use-package helm
     :init
     (progn
-      (setq helm-use-fuzzy 'always)
-      (setq helm-no-header t)
-      (setq helm-position 'bottom)
       (setq helm-move-to-line-cycle-in-source t)
-      ;; (setq helm-enable-auto-resize t)
-      ;; (setq helm-autoresize-max-height 20)
-      ;; (setq helm-autoresize-min-height 20)
 
       ;; limit max number of matches displayed for speed
       (setq helm-candidate-number-limit 100)
@@ -282,12 +276,17 @@
     :config
     (with-eval-after-load 'helm
       (progn
-        ;; (setq helm-buffer-max-length 30)
+        (setq helm-autoresize-max-height 0)
+        (setq helm-autoresize-min-height 30)
+        (helm-autoresize-mode 1)
+
         (when (spacemacs/system-is-mac)
           ;; replace locate with spotlight on Mac
           (setq helm-locate-command "mdfind -name %s %s"))
+
         (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
         (define-key helm-find-files-map (kbd "DEL") 'helm-find-files-up-one-level)
+
         (push "\\.emlx$" helm-boring-file-regexp-list)))))
 
 (defun zilongshanren-misc/init-helm-github-stars ()
