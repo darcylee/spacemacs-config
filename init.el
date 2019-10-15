@@ -172,7 +172,7 @@ This function should only modify configuration layer settings."
                     company-ycm flycheck-ycmd company-ycmd
                     spaceline-all-the-icons all-the-icons memoize font-lock+
                     doom-modeline anzu fancy-battery vim-powerline
-                    xterm-color multiple-cursors blacken)
+                    xterm-color multiple-cursors blacken vterm)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
