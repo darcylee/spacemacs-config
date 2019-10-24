@@ -153,3 +153,12 @@ open and unsaved."
       (youdao-dictionary-search-at-point-tooltip)
     (youdao-dictionary-search-at-point+)
     ))
+
+(defun darcylee/kill-useless-buffers ()
+  "Kill useless buffers"
+  (interactive)
+  (setq useless-buffer-list '("*" "magit"))
+  (let ((num 0))
+    (dolist (element useless-buffer-list)
+      (setq num (+ num (spacemacs/rudekill-matching-buffers element nil))))
+    (message (format "%d buffer(s) killed." num))))

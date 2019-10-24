@@ -58,6 +58,7 @@
 
 (spacemacs/set-leader-keys "bD" 'spacemacs/kill-other-buffers)
 (spacemacs/set-leader-keys "b C-d" 'spacemacs/kill-matching-buffers-rudely)
+(spacemacs/set-leader-keys "b k" 'darcylee/kill-useless-buffers)
 (spacemacs/set-leader-keys "b C-S-d" nil)
 
 ;;Must set key to nil to prevent error: Key sequence b m s starts with non-prefix key b m
