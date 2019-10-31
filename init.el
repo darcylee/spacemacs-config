@@ -161,7 +161,7 @@ This function should only modify configuration layer settings."
                     fancy-battery org-present orgit orglue helm-swoop
                     helm-flyspell flyspell-correct-helm clean-aindent-mode
                     helm-c-yasnippet ace-jump-helm-line helm-make magithub
-                    helm-spacemacs-help smeargle helm-themes
+                    helm-spacemacs-help smeargle helm-themes helm-ls-git
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                     ivy-purpose helm-purpose neotree treemacs-projectile treemacs-evil treemacs treemacs-magit
                     helm-rtags flycheck-rtags company-rtags rtags
