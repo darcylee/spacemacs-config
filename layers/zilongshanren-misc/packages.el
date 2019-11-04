@@ -20,18 +20,17 @@
         command-log
         evil
         discover-my-major
-        ace-window
+        ;; ace-window
         avy
         persp-mode
         helm-github-stars
         tiny
         flyspell-correct
-        peep-dired
+        ;; peep-dired
         markdown-mode
         swiper
         magit
-        git-messenger
-        gist
+        ;; gist
         hydra
         wrap-region
         helm
@@ -225,14 +224,14 @@
         "." 'spacemacs/gist-list-mode-transient-state/body))
     ))
 
-(defun zilongshanren-misc/init-peep-dired ()
-  ;;preview files in dired
-  (use-package peep-dired
-    :defer t
-    :commands (peep-dired-next-file
-               peep-dired-prev-file)
-    :bind (:map dired-mode-map
-                ("P" . peep-dired))))
+;; (defun zilongshanren-misc/init-peep-dired ()
+;;   ;;preview files in dired
+;;   (use-package peep-dired
+;;     :defer t
+;;     :commands (peep-dired-next-file
+;;                peep-dired-prev-file)
+;;     :bind (:map dired-mode-map
+;;                 ("P" . peep-dired))))
 
 (defun zilongshanren-misc/post-init-flyspell-correct ()
   (progn
@@ -752,8 +751,6 @@
     :config
     (spacemacs|hide-lighter wrap-region-mode)))
 
-
-
 (defun zilongshanren-misc/init-keyfreq ()
   (use-package keyfreq
     :init
@@ -838,13 +835,6 @@
          #'zilongshanren/magit-visit-pull-request))
 
     (setq magit-process-popup-time 10)))
-
-(defun zilongshanren-misc/post-init-git-messenger ()
-  (use-package git-messenger
-    :defer t
-    :config
-    (progn
-      (define-key git-messenger-map (kbd "f") 'zilong/github-browse-commit))))
 
 (defun zilongshanren-misc/post-init-markdown-mode ()
   (progn
