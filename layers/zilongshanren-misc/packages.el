@@ -821,6 +821,8 @@
     (setq ivy-display-style 'fancy)
     (setq confirm-nonexistent-file-or-buffer t)
 
+    (define-key ivy-occur-grep-mode-map (kbd "g") nil)
+    (define-key ivy-occur-grep-mode-map (kbd "r") 'ivy-occur-revert-buffer)
     (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
     (define-key ivy-minibuffer-map (kbd "C-s-m") 'ivy-partial-or-done)
     (define-key ivy-minibuffer-map (kbd "C-c s") 'ivy-ff-checksum)
