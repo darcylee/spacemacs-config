@@ -165,7 +165,7 @@ This function should only modify configuration layer settings."
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
                     ivy-purpose helm-purpose neotree treemacs-projectile treemacs-evil treemacs treemacs-magit
                     helm-rtags flycheck-rtags company-rtags rtags
-                    company-ycm flycheck-ycmd company-ycmd
+                    ycmd flycheck-ycmd company-ycmd
                     spaceline-all-the-icons all-the-icons memoize font-lock+
                     doom-modeline anzu fancy-battery vim-powerline
                     xterm-color multiple-cursors blacken vterm)
