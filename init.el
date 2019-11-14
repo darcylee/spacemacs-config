@@ -60,6 +60,7 @@ This function should only modify configuration layer settings."
      (plantuml :variables plantuml-output-type "png"
                plantuml-jar-path (expand-file-name "extra/plantuml.jar" dotspacemacs-directory)
                plantuml-default-exec-mode 'jar
+               plantuml-indent-level 4
                org-plantuml-jar-path plantuml-jar-path)
      graphviz
      (syntax-checking :variables syntax-checking-enable-by-default nil
