@@ -193,6 +193,7 @@
 
 (defun darcylee-better-defaults/post-init-fcitx ()
   (progn
+    ;; (fcitx-aggressive-setup)
     ;; disable fcitx in minibuffer
     (fcitx-aggressive-minibuffer-turn-on)
 

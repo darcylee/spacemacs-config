@@ -294,9 +294,6 @@
     :init
     (setq helm-github-stars-username "darcylee")))
 
-(defun zilongshanren-misc/post-init-fcitx ()
-  (fcitx-aggressive-setup))
-
 (defun zilongshanren-misc/post-init-command-log ()
   (with-eval-after-load 'global-command-log-mode
     (setq clm/log-command-exceptions* (append clm/log-command-exceptions*
