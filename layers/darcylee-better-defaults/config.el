@@ -228,3 +228,6 @@ Single Capitals as you type."
                    (abbreviate-file-name (buffer-file-name)) "%b"))))
 
 (setq-default spaceline-helm-help-p nil)
+
+(add-hook 'ivy-occur-grep-mode-hook (lambda () (setq truncate-lines t)))
+(add-hook 'ivy-occur-mode-hook (lambda () (setq truncate-lines t)))
