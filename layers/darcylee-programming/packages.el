@@ -20,7 +20,6 @@
         cmake-font-lock
         cmake-mode
         flycheck
-        ;; impatient-mode
         (nodejs-repl-eval :location local)
         (doxymacs :location local)
         js2-mode
@@ -33,11 +32,8 @@
         lua-mode
         ;; (cc-mode :location built-in)
         cc-mode
-        ;; flycheck-clojure
-        ;; etags-select
         (python :location built-in)
         (emacs-lisp :location built-in)
-        ;; clojure-mode
         company
         (eldoc :location built-in)
         dumb-jump
@@ -45,7 +41,6 @@
         cider
         ;; editorconfig
         robe
-        ;; ycmd
         (kconfig :location local)
         plantuml-mode
         (ediff :location built-in)
@@ -125,9 +120,6 @@
     (evil-set-jump)
     (dumb-jump-go))
   (global-set-key (kbd "C-s-g") 'my-dumb-jump))
-
-(defun darcylee-programming/post-init-clojure-mode ()
-  )
 
 (defun darcylee-programming/post-init-emacs-lisp ()
     (remove-hook 'emacs-lisp-mode-hook 'auto-compile-mode))
@@ -227,9 +219,6 @@
   (spacemacs/set-leader-keys-for-major-mode 'json-mode
     "ti" 'my-toggle-web-indent))
 
-(defun darcylee-programming/init-flycheck-package ()
-  (use-package flycheck-package))
-
 (defun darcylee-programming/init-lispy ()
   (use-package lispy
     :defer t
@@ -241,7 +230,6 @@
       (add-hook 'ielm-mode-hook (lambda () (lispy-mode 1)))
       (add-hook 'inferior-emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
       ;; (add-hook 'spacemacs-mode-hook (lambda () (lispy-mode 1)))
-      (add-hook 'clojure-mode-hook (lambda () (lispy-mode 1)))
       (add-hook 'scheme-mode-hook (lambda () (lispy-mode 1)))
       (add-hook 'cider-repl-mode-hook (lambda () (lispy-mode 1)))
       )
@@ -316,7 +304,6 @@
     (add-hook 'web-mode-hook 'my-setup-develop-environment)
 
     (spacemacs|define-jump-handlers js2-mode)
-    ;; (add-hook 'spacemacs-jump-handlers-js2-mode 'etags-select-find-tag-at-point)
 
     (setq company-backends-js2-mode '((company-dabbrev-code :with company-keywords company-etags)
                                       company-files company-dabbrev))
@@ -470,9 +457,6 @@
   (progn
     (setq company-backends-c-mode-common '((company-dabbrev-code :with company-keywords company-gtags company-etags)
                                            company-files company-dabbrev))
-    ;; (spacemacs/set-leader-keys-for-major-mode 'c++-mode
-    ;;   "gd" 'etags-select-find-tag-at-point)
-
 
     (add-hook 'c++-mode-hook 'my-setup-develop-environment)
     (add-hook 'c-mode-hook 'my-setup-develop-environment)
@@ -496,52 +480,6 @@
       (define-key c++-mode-map (kbd "s-.") 'company-ycmd)))
 
   )
-
-(defun darcylee-programming/init-flycheck-clojure ()
-  (use-package flycheck-clojure
-    :defer t
-    :init
-    (eval-after-load 'flycheck '(flycheck-clojure-setup))))
-
-(defun darcylee-programming/post-init-ycmd ()
-  (progn
-    (setq ycmd-tag-files 'auto)
-    (setq ycmd-request-message-level -1)
-    (when (spacemacs/system-is-linux)
-      (set-variable 'ycmd-server-command `("python" ,(expand-file-name "/usr/bin/ycmd"))))
-    (when (spacemacs/system-is-mac)
-      (set-variable 'ycmd-server-command `("python" ,(expand-file-name "~/.ycmd/ycmd/__main__.py"))))
-    (setq company-backends-c-mode-common '((company-c-headers
-                                            company-dabbrev-code
-                                            company-keywords
-                                            company-gtags :with company-yasnippet)
-                                           company-files company-dabbrev ))
-
-    (darcylee|toggle-company-backends company-ycmd)
-    (eval-after-load 'ycmd
-      '(spacemacs|hide-lighter ycmd-mode))
-
-    (spacemacs/set-leader-keys-for-major-mode 'c-mode
-      "tb" 'zilong/company-toggle-company-ycmd)
-    (spacemacs/set-leader-keys-for-major-mode 'c++-mode
-      "tb" 'zilong/company-toggle-company-ycmd)))
-
-;; when many project has the need to use tags, I will give etags-table and etags-update a try
-;; (defun darcylee-programming/init-etags-select ()
-;;   (use-package etags-select
-;;     :init
-;;     (progn
-;;       (define-key evil-normal-state-map (kbd "gf")
-;;         (lambda () (interactive) (find-tag (find-tag-default-as-regexp))))
-
-;;       (define-key evil-normal-state-map (kbd "gb") 'pop-tag-mark)
-
-;;       (define-key evil-normal-state-map (kbd "gn")
-;;         (lambda () (interactive) (find-tag last-tag t)))
-
-;;       (evilified-state-evilify etags-select-mode etags-select-mode-map)
-;;       (spacemacs/set-leader-keys-for-major-mode 'js2-mode
-;;         "gd" 'etags-select-find-tag-at-point))))
 
 (defun darcylee-programming/init-gulpjs ()
   (use-package gulpjs
