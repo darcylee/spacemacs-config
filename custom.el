@@ -8,6 +8,7 @@
  '(company-dabbrev-other-buffers nil)
  '(company-show-numbers t)
  '(company-statistics-auto-restore nil)
+ '(counsel-gtags-path-style (quote absolute))
  '(ctags-update-delay-seconds 1024)
  '(diff-default-read-only t)
  '(erc-nick "darcylee")
