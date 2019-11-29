@@ -149,8 +149,9 @@ open and unsaved."
 
 (defun darcylee/youdao-dictionary-search ()
   (interactive)
-  (if (display-graphic-p)
-      (youdao-dictionary-search-at-point-tooltip)
+  (if (and (display-graphic-p)
+           (>= emacs-major-version 26))
+      (youdao-dictionary-search-at-point-posframe)
     (youdao-dictionary-search-at-point+)
     ))
 
