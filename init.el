@@ -132,7 +132,6 @@ This function should only modify configuration layer settings."
            mu4e-use-maildirs-extension t
            mu4e-enable-notifications t)
      (notmuch :variables notmuch-message-deleted-tags '("+deleted" "-inbox" "-unread"))
-     ;; ycmd
      darcylee)
 
    ;; List of additional packages that will be installed without being

@@ -51,9 +51,7 @@
  '(tab-width 4)
  '(tags-revert-without-query t)
  '(vc-follow-symlinks t)
- '(web-mode-markup-indent-offset 2)
- '(ycmd-extra-conf-handler (quote load))
- '(ycmd-extra-conf-whitelist (quote ("/work/*"))))
+ '(web-mode-markup-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

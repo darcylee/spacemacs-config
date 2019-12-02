@@ -475,9 +475,7 @@
     ;;                      (looking-at ".*[(,][ \t]*\\[[^]]*\\][ \t]*[({][^}]*$"))))
     ;;             0                       ; no additional indent
     ;;           ad-do-it)))               ; default behavior
-
-    (with-eval-after-load 'c++-mode
-      (define-key c++-mode-map (kbd "s-.") 'company-ycmd)))
+    )
 
   )
 
