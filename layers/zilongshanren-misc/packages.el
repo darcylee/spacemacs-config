@@ -820,6 +820,14 @@
     (setq ivy-use-virtual-buffers t)
     (setq ivy-display-style 'fancy)
     (setq confirm-nonexistent-file-or-buffer t)
+    (setq ivy-use-selectable-prompt nil)
+    (setq ivy-extra-directories '("./"))
+
+    (add-to-list 'ivy-sort-functions-alist
+                 '(read-file-name-internal . darcylee/eh-ivy-sort-file-function))
+
+    (with-eval-after-load 'ivy
+      (add-to-list 'ivy-ignore-buffers #'darcylee/ignore-dired-buffers))
 
     (define-key ivy-occur-grep-mode-map (kbd "g") nil)
     (define-key ivy-occur-grep-mode-map (kbd "r") 'ivy-occur-revert-buffer)

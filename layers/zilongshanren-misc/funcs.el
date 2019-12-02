@@ -603,3 +603,43 @@ around point as the initial input."
                  (thing-at-point 'symbol t))))
     (evil-normal-state)
     (swiper-all input)))
+
+;; https://github.com/abo-abo/swiper/wiki/Sort-files-by-mtime
+(defun darcylee/eh-ivy-return-recentf-index (dir)
+  (when (and (boundp 'recentf-list)
+             recentf-list)
+    (let ((files-list
+           (cl-subseq recentf-list
+                      0 (min (- (length recentf-list) 1) 20)))
+          (index 0))
+      (while files-list
+        (if (string-match-p dir (car files-list))
+            (setq files-list nil)
+          (setq index (+ index 1))
+          (setq files-list (cdr files-list))))
+      index)))
+
+(defun darcylee/eh-ivy-sort-file-function (x y)
+  (let* ((x (concat ivy--directory x))
+         (y (concat ivy--directory y))
+         (x-mtime (nth 5 (file-attributes x)))
+         (y-mtime (nth 5 (file-attributes y))))
+    (if (file-directory-p x)
+        (if (file-directory-p y)
+            (let ((x-recentf-index (darcylee/eh-ivy-return-recentf-index x))
+                  (y-recentf-index (darcylee/eh-ivy-return-recentf-index y)))
+              (if (and x-recentf-index y-recentf-index)
+                  ;; Directories is sorted by `recentf-list' index
+                  (< x-recentf-index y-recentf-index)
+                (string< x y)))
+          t)
+      (if (file-directory-p y)
+          nil
+        ;; Files is sorted by mtime
+        (time-less-p y-mtime x-mtime)))))
+
+(defun darcylee/ignore-dired-buffers (str)
+  "Return non-nil if STR names a Dired buffer.
+This function is intended for use with `ivy-ignore-buffers'."
+  (let ((buf (get-buffer str)))
+    (and buf (eq (buffer-local-value 'major-mode buf) 'dired-mode))))
