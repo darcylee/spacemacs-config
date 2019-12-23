@@ -446,10 +446,10 @@
                             "autonumber" "resume" "newpage" "alt" "else" "opt" "loop" "par" "break" "critical"
                             "group" "title" "start" "end" "note" "hnote" "rnote" "ref" "activate" "deactivate"
                             "destroy" "create" "skinparam" "guillenmet" "box" "hide" "footbox" "handwritten"
-                            "sequence" "BoxPadding" "ParticipantPadding" "usecace" "static" "abstract" "show"
+                            "sequence" "BoxPadding" "ParticipantPadding" "usecase" "static" "abstract" "show"
                             "empty" "fields" "attributes" "class" "enum" "interface" "packageStyle" "rectangle"
                             "package" "node" "folder" "frame" "cloud" "repeat" "startuml" "salt" "startsalt"
-                            "legend" "sprite" "scale" "monochrome" "define"
+                            "legend" "sprite" "scale" "monochrome" "define" "component"
                             ) company-keywords-alist))
     ))
 
