@@ -39,6 +39,7 @@
         mu4e
         mu4e-alert
         golden-ratio
+        helm
         (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
         ))
 
@@ -292,12 +293,15 @@
     :init
     (spacemacs/set-leader-keys "oe" 'tiny-expand)))
 
-(defun zilongshanren-misc/post-init-helm ()
+(defun zilongshanren-misc/init-helm ()
   (use-package helm
     :init
     (progn
       (setq helm-move-to-line-cycle-in-source t)
 
+      (setq helm-no-header t)
+      (setq helm-use-fuzzy 'always)
+      (setq helm-position 'bottom)
       ;; limit max number of matches displayed for speed
       (setq helm-candidate-number-limit 100)
 
