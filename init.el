@@ -675,7 +675,8 @@ before packages are loaded."
   (setq config-local (expand-file-name ".config-local.el" dotspacemacs-directory))
   (load config-local 'no-error 'no-messge t))
 
-(setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
+(setq custom-file (expand-file-name ".custom.el" dotspacemacs-directory))
+(load (expand-file-name "custom.el" dotspacemacs-directory) 'no-error 'no-message)
 (load custom-file 'no-error 'no-message)
 
 ;; Do not write anything past this comment. This is where Emacs will

@@ -5,3 +5,4 @@ snippets/
 /.config-local.el
 /spacemacs.env
 /.spacemacs.env
+/.custom.el
