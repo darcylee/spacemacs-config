@@ -675,9 +675,12 @@ before packages are loaded."
   (setq config-local (expand-file-name ".config-local.el" dotspacemacs-directory))
   (load config-local 'no-error 'no-messge t))
 
+;; load custom config
 (setq custom-file (expand-file-name ".custom.el" dotspacemacs-directory))
-(load (expand-file-name "custom.el" dotspacemacs-directory) 'no-error 'no-message)
-(load custom-file 'no-error 'no-message)
+(if (file-exists-p custom-file)
+    (load custom-file 'no-error 'no-message)
+  (load (expand-file-name "custom.el" dotspacemacs-directory) 'no-error 'no-message)
+  (custom-save-all))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
