@@ -596,7 +596,8 @@
     :config
     (progn
       ;; If you use other VCS (subversion, for example), enable the following option
-      (setq ffip-project-file '("GTAGS" ".svn" ".hg" ".git"))
+      (dolist (item '("GTAGS"))
+        (push item ffip-project-file))
       ;; Use 'fd' instead of 'find'. fd project https://github.com/sharkdp/fd
       (if (executable-find "fd")
           (progn
@@ -635,6 +636,9 @@
   (progn
     (with-eval-after-load 'projectile
       (progn
+        (dolist (item '("GTAGS"))
+          (push item projectile-project-root-files-bottom-up))
+
         (setq projectile-completion-system 'ivy)
         (add-to-list 'projectile-other-file-alist '("html" "js"))
         (add-to-list 'projectile-other-file-alist '("js" "html"))))
