@@ -284,6 +284,7 @@
           (setq helm-locate-command "mdfind -name %s %s"))
 
         (define-key helm-map (kbd "C-w") 'evil-delete-backward-word)
+        (spacemacs/set-leader-keys "rh" 'helm-resume)
         ;; (define-key helm-find-files-map (kbd "DEL") 'helm-find-files-up-one-level)
 
         (push "\\.emlx$" helm-boring-file-regexp-list)))))
