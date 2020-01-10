@@ -120,10 +120,10 @@
                   '(pyim-probe-punctuation-line-beginning
                     pyim-probe-punctuation-after-punctuation))
 
-    (setq-default pyim-english-input-switch-functions
-                  '(pyim-probe-program-mode
-                    ;; pyim-probe-auto-english
-                    ))
+    ;; (setq-default pyim-english-input-switch-functions
+    ;;               '(pyim-probe-program-mode
+    ;;                 pyim-probe-auto-english
+    ;;                 ))
 
     (setq pyim-fuzzy-pinyin-alist
           '(("z" "zh")
@@ -175,7 +175,9 @@
     (setq pyim-dcache-backend 'pyim-dregcache)
 
     ;; posframe 只在 26 以上的版本才支持
+    ;; NOTE: posframe not work very good on gnome-shell DE
     (when (and (display-graphic-p)
+               (eq system-type 'darwin)
                (>= emacs-major-version 26))
       (require 'posframe)
       (setq pyim-page-tooltip 'posframe)
