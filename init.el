@@ -163,7 +163,8 @@ This function should only modify configuration layer settings."
                     helm-c-yasnippet ace-jump-helm-line helm-make magithub
                     helm-spacemacs-help smeargle helm-themes helm-ls-git
                     ido-vertical-mode flx-ido company-quickhelp counsel-projectile
-                    ivy-purpose helm-purpose neotree treemacs-projectile treemacs-evil treemacs treemacs-magit
+                    ivy-purpose helm-purpose neotree
+                    treemacs-projectile treemacs-evil treemacs treemacs-magit treemacs-persp
                     helm-rtags flycheck-rtags company-rtags rtags
                     ycmd flycheck-ycmd company-ycmd
                     spaceline-all-the-icons all-the-icons memoize font-lock+
@@ -556,10 +557,10 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
-  ;; (setq configuration-layer-elpa-archives
-  ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-  ;;         ("org-cn"   . "http://elpa.emacs-china.org/org/")
-  ;;         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+  (setq configuration-layer-elpa-archives
+        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+          ("org-cn"   . "http://elpa.emacs-china.org/org/")
+          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
 
   ;; https://github.com/syl20bnr/spacemacs/issues/2705
   ;; (setq tramp-mode nil)
