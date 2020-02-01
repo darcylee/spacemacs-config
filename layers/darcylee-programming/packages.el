@@ -449,7 +449,7 @@
                             "sequence" "BoxPadding" "ParticipantPadding" "usecase" "static" "abstract" "show"
                             "empty" "fields" "attributes" "class" "enum" "interface" "packageStyle" "rectangle"
                             "package" "node" "folder" "frame" "cloud" "repeat" "startuml" "salt" "startsalt"
-                            "legend" "sprite" "scale" "monochrome" "define" "component"
+                            "legend" "sprite" "scale" "monochrome" "define" "component" "caption" "state"
                             ) company-keywords-alist))
     ))
 
