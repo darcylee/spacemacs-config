@@ -311,8 +311,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 14
+   dotspacemacs-default-font '("JetBrains Mono"
+                               :size 13
                                :weight normal
                                :width normal)
 
@@ -599,9 +599,9 @@ before packages are loaded."
   ;;解决org表格里面中英文对齐的问题
   (when (configuration-layer/layer-usedp 'chinese)
     (when (and (spacemacs/system-is-mac) window-system)
-      (spacemacs//set-monospaced-font "Source Code Pro" "Hiragino Sans GB" 14 16))
+      (spacemacs//set-monospaced-font "JetBrains Mono" "Hiragino Sans GB" 13 16))
     (when (and (spacemacs/system-is-linux) window-system)
-      (spacemacs//set-monospaced-font "Source Code Pro" "Source Han Serif SC" 14 16)))
+      (spacemacs//set-monospaced-font "JetBrains Mono" "Source Han Serif SC" 13 16)))
 
   ;; Setting Chinese Font
   (when (and (spacemacs/system-is-mswindows) window-system)
