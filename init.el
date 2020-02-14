@@ -579,6 +579,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   ;; spacemacs-theme
   (setq spacemacs-theme-comment-bg nil)
   (setq spacemacs-theme-comment-italic t)
+  (setq spacemacs-theme-org-height nil)
   )
 
 (defun dotspacemacs/user-load ()
