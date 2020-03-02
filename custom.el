@@ -33,6 +33,7 @@
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-start-on-weekday nil)
  '(org-agenda-text-search-extra-files (quote (agenda-archives)))
+ '(org-ascii-text-width 98)
  '(org-deadline-warning-days 14)
  '(org-fast-tag-selection-single-key (quote expert))
  '(org-log-into-drawer t)
