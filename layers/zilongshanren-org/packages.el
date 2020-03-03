@@ -224,7 +224,7 @@ unwanted space when exporting org-mode to html."
       ;;http://www.howardism.org/Technical/Emacs/journaling-org.html
       ;;add multi-file journal
       (setq org-capture-templates
-            '(("t" "Todo" entry (file+headline org-agenda-file-gtd "Workspace")
+            '(("t" "Todo" entry (file+headline org-agenda-file-gtd "Tasks")
                "* TODO [#B] %?\n  %i\n"
                :empty-lines 1)
               ("n" "notes" entry (file+headline org-agenda-file-note "Quick notes")
@@ -237,9 +237,9 @@ unwanted space when exporting org-mode to html."
                (file org-agenda-file-code-snippet)
                "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
               ("w" "work" entry (file+headline org-agenda-file-gtd "Work")
-               "* TODO [#A] %?\n  %i\n %U"
+               "* TODO [#A] %?\n  %i\n"
                :empty-lines 1)
-              ("p" "personal" entry (file+headline org-agenda-file-note "Personal")
+              ("p" "personal" entry (file+headline org-agenda-file-gtd "Personal")
                "* TODO [#B] %?\n  %i\n %U"
                :empty-lines 1)
               ("c" "Chrome" entry (file+headline org-agenda-file-note "Quick notes")
