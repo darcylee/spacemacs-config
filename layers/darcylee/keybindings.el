@@ -49,29 +49,29 @@
            (spacemacs/set-leader-keys "oo" 'zilongshanren/helm-hotspots)))
 
 (spacemacs/set-leader-keys "fF" 'find-file-in-project)
-(spacemacs/set-leader-keys "oC" 'my-auto-update-tags-when-save)
-(spacemacs/set-leader-keys "ocs" 'zilongshanren/capture-selection)
-(spacemacs/set-leader-keys "ocw" 'zilongshanren/capture-window)
-(spacemacs/set-leader-keys "op" 'zilongshanren/org-save-and-export)
 (spacemacs/set-leader-keys "fR" 'spacemacs/rename-current-buffer-file)
-(spacemacs/set-leader-keys "oag" 'helm-github-stars)
 
-(spacemacs/set-leader-keys "bD" 'spacemacs/kill-other-buffers)
-(spacemacs/set-leader-keys "b C-d" 'spacemacs/kill-matching-buffers-rudely)
-(spacemacs/set-leader-keys "b k" 'darcylee/kill-useless-buffers)
-(spacemacs/set-leader-keys "b C-S-d" nil)
-
-;;Must set key to nil to prevent error: Key sequence b m s starts with non-prefix key b m
-(spacemacs/set-leader-keys "bm" nil)
-(spacemacs/declare-prefix "bm" "Bookmark")
-(spacemacs/set-leader-keys "bms" 'bookmark-set)
-(spacemacs/set-leader-keys "bmr" 'bookmark-rename)
-(spacemacs/set-leader-keys "bmd" 'bookmark-delete)
-(spacemacs/set-leader-keys "bmj" 'bookmark-jump)
-
-(spacemacs/set-leader-keys "od" 'occur-dwim)
-(spacemacs/set-leader-keys "ox" 'org-open-at-point)
-(spacemacs/set-leader-keys "oac" 'zilongshanren/browser-refresh--chrome-applescript)
+(spacemacs|spacebind
+ :global
+ (("b" "Buffers"
+   ("D" spacemacs/kill-other-buffers "Kill other buffers")
+   ("k" darcylee/kill-useless-buffers "Kill useless buffers")
+   ("C-d" spacemacs/kill-matching-buffers-rudely "Kill matching buffers")
+   ("M" "Bookmark"
+    ("s" bookmark-set "Set Bookmark")
+    ("r" bookmark-rename "Rename Bookmark")
+    ("d" bookmark-delete "Delete Bookmark")
+    ("j" bookmark-jump "Jump Bookmark"))
+   )
+  ("o" "User Bindings"
+   ("C" my-auto-update-tags-when-save "Auto Update tags when save")
+   ("c" "capture screen"
+    ("s" zilongshanren/capture-selection "Selection")
+    ("w" zilongshanren/capture-window "Window"))
+   ("g" helm-github-stars "Helm github start")
+   ("r" zilongshanren/browser-refresh--chrome-applescript "refresh chrome")
+   ("x" org-open-at-point "org open at point")
+   )))
 
 ;; helm specific keybindings
 (if (configuration-layer/layer-usedp 'helm)
