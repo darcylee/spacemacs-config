@@ -162,7 +162,7 @@ This function should only modify configuration layer settings."
                     helm-spacemacs-help smeargle helm-themes helm-ls-git
                     ido-vertical-mode flx-ido company-quickhelp
                     ivy-purpose helm-purpose neotree
-                    treemacs-projectile treemacs-evil treemacs treemacs-magit treemacs-persp
+                    treemacs-projectile treemacs-evil treemacs treemacs-magit treemacs-persp treemacs-icons-dired
                     helm-rtags flycheck-rtags company-rtags rtags
                     ycmd flycheck-ycmd company-ycmd
                     spaceline-all-the-icons all-the-icons memoize font-lock+
