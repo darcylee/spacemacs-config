@@ -168,6 +168,7 @@ This function should only modify configuration layer settings."
                     spaceline-all-the-icons all-the-icons memoize font-lock+
                     doom-modeline anzu fancy-battery vim-powerline
                     helm-git-grep helm-mu helm-notmuch helm-pydoc helm-company helm-gitignore counsel-gtags
+                    emr cpp-auto-include
                     xterm-color multiple-cursors blacken vterm)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
