@@ -39,6 +39,7 @@
  '(org-log-into-drawer t)
  '(org-pomodoro-play-sounds nil)
  '(org-reverse-note-order t)
+ '(org-confirm-babel-evaluate nil)
  '(paradox-github-token t)
  '(ring-bell-function (quote ignore))
  '(send-mail-function (quote sendmail-send-it))
