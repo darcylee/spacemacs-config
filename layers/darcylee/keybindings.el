@@ -54,9 +54,8 @@
 (spacemacs|spacebind
  :global
  (("b" "Buffers"
-   ("D" spacemacs/kill-other-buffers "Kill other buffers")
    ("k" darcylee/kill-useless-buffers "Kill useless buffers")
-   ("C-d" spacemacs/kill-matching-buffers-rudely "Kill matching buffers")
+   ("D" spacemacs/kill-matching-buffers-rudely "Kill matching buffers")
    ("M" "Bookmark"
     ("s" bookmark-set "Set Bookmark")
     ("r" bookmark-rename "Rename Bookmark")
