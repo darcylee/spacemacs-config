@@ -311,3 +311,14 @@ as the org-buffer/markdown-buffer and insert a link to this file."
     (unless noinsert
       (insert output-string))
     output-string))
+
+(defun darchlee/org-journal-search-fun (str)
+  "Search for a string within all entries."
+  (interactive
+   (list
+    (ivy-completing-read
+     "Enter a string to search for: "
+     org-journal-search-history nil nil nil 'org-journal-search-history)))
+  (org-journal-search-forever str))
+
+;;; funcs.el ends here

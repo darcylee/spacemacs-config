@@ -438,7 +438,8 @@
 
     ;; ;; change evil initial mode state
     (loop for (mode . state) in
-          '((shell-mode . normal))
+          '((shell-mode . normal)
+            (org-journal-search-mode . emacs))
           do (evil-set-initial-state mode state))
 
     ;;mimic "nzz" behaviou in vim
@@ -825,7 +826,7 @@
     (setq ivy-use-virtual-buffers t)
     (setq ivy-display-style 'fancy)
     (setq confirm-nonexistent-file-or-buffer t)
-    (setq ivy-use-selectable-prompt nil)
+    ;; (setq ivy-use-selectable-prompt nil)
     (setq ivy-extra-directories '("./"))
 
     (add-to-list 'ivy-sort-functions-alist

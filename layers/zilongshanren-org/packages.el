@@ -16,6 +16,7 @@
     (org :location built-in)
     org-pomodoro
     deft
+    org-journal
     ;; org-tree-slide
     ;; ox-reveal
     ;; worf
@@ -469,4 +470,32 @@ holding contextual information."
     (setq deft-recursive t)
     (setq deft-extension '("org" "md" "txt"))
     (setq deft-directory deft-dir)))
+
+(defun zilongshanren-org/post-init-org-journal ()
+  (use-package org-journal
+    :custom
+    (org-journal-date-prefix "#+TITLE: ")
+    (org-journal-file-format "%Y-%m-%d.org")
+    (org-journal-dir (expand-file-name "journal/" org-agenda-dir))
+    ;; (org-journal-file-type 'weekly)
+    (org-journal-date-format "%A, %d %B %Y")
+    (org-journal-time-prefix "* ")
+    ;; (org-journal-time-format "")
+    )
+  (progn
+    (defun my-org-journal-mode-hook ()
+      (auto-save-visited-mode))
+    (add-hook 'org-journal-mode-hook 'my-org-journal-mode-hook)
+
+
+    (define-key org-journal-mode-map (kbd "C-c C-s") 'darchlee/org-journal-search-fun)
+    (define-key org-journal-search-mode-map (kbd "s") 'darchlee/org-journal-search-fun)
+    (define-key org-journal-search-mode-map (kbd "j") 'org-journal-search-next)
+    (define-key org-journal-search-mode-map (kbd "k") 'org-journal-search-prev)
+
+    (global-set-key (kbd "C-c j j") 'org-journal-new-entry)
+    (global-set-key (kbd "C-c j t") 'org-journal-new-scheduled-entry)
+    (global-set-key (kbd "C-c j s") 'darchlee/org-journal-search-fun)
+    )
+  )
 ;;; packages.el ends here
