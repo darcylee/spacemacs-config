@@ -858,7 +858,7 @@
     :config
     (progn
       (setq ivy-rich-display-transformers-list
-            '(counsel-find-file
+            '(ivy-switch-buffer
               (:columns
                ((ivy-read-file-transformer)
                 (ivy-rich-counsel-find-file-truename (:face font-lock-doc-face))))
