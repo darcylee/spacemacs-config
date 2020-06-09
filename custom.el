@@ -36,6 +36,8 @@
  '(org-ascii-text-width 98)
  '(org-deadline-warning-days 14)
  '(org-fast-tag-selection-single-key (quote expert))
+ '(org-list-allow-alphabetical t)
+ '(org-list-indent-offset 0)
  '(org-log-into-drawer t)
  '(org-pomodoro-play-sounds nil)
  '(org-reverse-note-order t)
@@ -47,7 +49,9 @@
  '(tab-width 4)
  '(tags-revert-without-query t)
  '(vc-follow-symlinks t)
- '(web-mode-markup-indent-offset 2))
+ '(web-mode-markup-indent-offset 2)
+ '(which-key-min-display-lines 1)
+ '(which-key-sort-order (quote which-key-key-order)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
