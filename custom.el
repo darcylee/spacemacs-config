@@ -23,6 +23,7 @@
  '(fill-column 100)
  '(global-command-log-mode nil)
  '(lua-documentation-url "http://www.lua.org/manual/5.3/manual.html")
+ '(lua-indent-level 4)
  '(only-global-abbrevs t)
  '(org-agenda-custom-commands nil)
  '(org-agenda-files nil)
