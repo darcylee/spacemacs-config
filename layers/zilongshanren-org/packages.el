@@ -467,6 +467,7 @@ holding contextual information."
   (progn
     (setq deft-use-filter-string-for-filename t)
     (spacemacs/set-leader-keys-for-major-mode 'deft-mode "q" 'quit-window)
+    (spacemacs/set-leader-keys "an" 'spacemacs/deft)
     (setq deft-recursive t)
     (setq deft-extension '("org" "md" "txt"))
     (setq deft-directory deft-dir)))
