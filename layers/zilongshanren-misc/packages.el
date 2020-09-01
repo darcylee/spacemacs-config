@@ -893,6 +893,9 @@
       (kbd "n") 'magit-section-forward
       (kbd "p") 'magit-section-backward)
 
+    (evil-define-key 'normal magit-diff-mode-map
+      (kbd "o") 'magit-diff-visit-file-other-window
+      (kbd "C-o") 'magit-diff-visit-worktree-file-other-window)
 
     ;; prefer two way ediff
     (setq magit-ediff-dwim-show-on-hunks t)

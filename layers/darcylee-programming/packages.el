@@ -423,7 +423,7 @@
   (progn
     (add-hook 'lua-mode-hook 'evil-matchit-mode)
     ;; (add-hook 'lua-mode-hook 'smartparens-mode)
-    (setq lua-indent-level 2)
+    ;; (setq lua-indent-level 2)
 
 ;;; add lua language, basic, string and table keywords.
     (with-eval-after-load 'lua-mode
