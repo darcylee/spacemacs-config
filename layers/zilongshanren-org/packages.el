@@ -296,6 +296,38 @@ unwanted space when exporting org-mode to html."
       ;; For tag searches ignore tasks with scheduled and deadline dates
       (setq org-agenda-tags-todo-honor-ignore-options t)
 
+      ;; Show Org Agenda tasks with heigh spacing based on clock time with
+      ;; `org-agenda-log-mode'.
+      ;; https://emacs-china.org/t/org-agenda/8679
+      ;; work with org-agenda dispatcher [c] "Today Clocked Tasks" to view today's
+      ;; clocked tasks.
+      (defun org-agenda-time-grid-colorful-spacing ()
+        "Set different line spacing w.r.t. time duration."
+        (save-excursion
+          (let* ((background (alist-get 'background-mode (frame-parameters)))
+                 (background-dark-p (string= background "dark"))
+                 (colors (if background-dark-p
+                             (list "#336633" "663333" "#666622")
+                           (list "#cceecc" "#eecccc" "#eeeebb")))
+                 pos
+                 duration)
+            (nconc colors colors)
+            (goto-char (point-min))
+            (while (setq pos (next-single-property-change (point) 'duration))
+              (goto-char pos)
+              (when (and (not (equal pos (point-at-eol)))
+                         (setq duration (org-get-at-bol 'duration)))
+                (let ((line-height (if (< duration 30) 1.0 (* 1 (/ duration 30))))
+                      (ov (make-overlay (point-at-bol) (1+ (point-at-eol)))))
+                  (overlay-put ov 'face `(:background ,(car colors)
+                                                      :foreground
+                                                      ,(if background-dark-p "linen" "black" )))
+                  (setq colors (cdr colors))
+                  (overlay-put ov 'line-height line-height)
+                  (overlay-put ov 'line-spacing (1- line-height))))))))
+
+      (add-hook 'org-agenda-finalize-hook #'org-agenda-time-grid-colorful-spacing)
+
       (defvar zilongshanren-website-html-preamble
         "<div class='nav'>
 <ul>
