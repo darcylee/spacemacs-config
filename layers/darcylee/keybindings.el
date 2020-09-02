@@ -70,6 +70,7 @@
    ("g" helm-github-stars "Helm github start")
    ("r" zilongshanren/browser-refresh--chrome-applescript "refresh chrome")
    ("x" org-open-at-point "org open at point")
+   ("/" spacemacs/search-engine-select "search engine select")
    )))
 
 ;; helm specific keybindings

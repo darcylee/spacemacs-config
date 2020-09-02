@@ -906,6 +906,9 @@
       '(define-key magit-mode-map (kbd "C-c g")
          #'zilongshanren/magit-visit-pull-request))
 
+    (put 'magit-log-mode 'magit-log-default-arguments
+         '("--graph" "-n256" "--decorate" "--color"))
+
     (setq magit-process-popup-time 10)))
 
 (defun zilongshanren-misc/post-init-markdown-mode ()
