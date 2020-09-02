@@ -307,7 +307,7 @@ unwanted space when exporting org-mode to html."
           (let* ((background (alist-get 'background-mode (frame-parameters)))
                  (background-dark-p (string= background "dark"))
                  (colors (if background-dark-p
-                             (list "#336633" "663333" "#666622")
+                             (list "#336633" "#663333" "#666622")
                            (list "#cceecc" "#eecccc" "#eeeebb")))
                  pos
                  duration)
