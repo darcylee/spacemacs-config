@@ -560,6 +560,7 @@
     :config
     (progn
       (setq-default magit-gerrit-ssh-creds "lijiaquan@gerrit.ruijie.work")
+      (setq-default magit-gerrit-show-review-labels t)
       )))
 
 (defun darcylee-programming/init-smerge-mode ()
