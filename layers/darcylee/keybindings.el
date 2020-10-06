@@ -55,6 +55,7 @@
 (spacemacs|spacebind
  :global
  (("b" "Buffers"
+   ("o" ivy-switch-buffer-other-window "switch buffer other window")
    ("k" darcylee/kill-useless-buffers "Kill useless buffers")
    ("D" spacemacs/kill-matching-buffers-rudely "Kill matching buffers")
    ("M" "Bookmark"
