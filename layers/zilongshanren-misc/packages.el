@@ -32,7 +32,7 @@
         magit
         ;; gist
         hydra
-        wrap-region
+        ;; wrap-region
         counsel
         ivy
         ivy-rich
@@ -40,6 +40,7 @@
         mu4e-alert
         golden-ratio
         helm
+        find-file-rg
         (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
         ))
 
@@ -691,7 +692,6 @@
       (if (projectile-project-p)
           (multi-occur (projectile-project-buffers) my-simple-todo-regex)
         (occur my-simple-todo-regex)))
-    (spacemacs/set-leader-keys "pf" 'zilongshanren/open-file-with-projectile-or-counsel-git)
     (spacemacs/set-leader-keys "pt" 'my-simple-todo)))
 
 
@@ -1030,3 +1030,6 @@
       ;;                                (expand-file-name "extra/css/org-wide.css" dotspacemacs-directory))
       ;;                               (buffer-string)) "</style>\n</head>\n"))))
       )))
+
+(defun zilongshanren-misc/init-find-file-rg ()
+  (use-package find-file-rg))

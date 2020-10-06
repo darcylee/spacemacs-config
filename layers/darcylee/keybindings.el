@@ -49,6 +49,7 @@
            (spacemacs/set-leader-keys "oo" 'zilongshanren/helm-hotspots)))
 
 (spacemacs/set-leader-keys "fF" 'find-file-in-project)
+(spacemacs/set-leader-keys "fd" 'find-file-rg)
 (spacemacs/set-leader-keys "fR" 'spacemacs/rename-current-buffer-file)
 
 (spacemacs|spacebind
