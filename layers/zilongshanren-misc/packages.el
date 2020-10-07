@@ -40,7 +40,6 @@
         mu4e-alert
         golden-ratio
         helm
-        find-file-rg
         (highlight-global :location (recipe :fetcher github :repo "glen-dai/highlight-global"))
         ))
 
@@ -1030,6 +1029,3 @@
       ;;                                (expand-file-name "extra/css/org-wide.css" dotspacemacs-directory))
       ;;                               (buffer-string)) "</style>\n</head>\n"))))
       )))
-
-(defun zilongshanren-misc/init-find-file-rg ()
-  (use-package find-file-rg))

@@ -69,6 +69,7 @@
    ("c" "capture screen"
     ("s" zilongshanren/capture-selection "Selection")
     ("w" zilongshanren/capture-window "Window"))
+   ("f" darcylee/find-file-recursively "Find file recursively")
    ("g" helm-github-stars "Helm github start")
    ("r" zilongshanren/browser-refresh--chrome-applescript "refresh chrome")
    ("x" org-open-at-point "org open at point")
@@ -118,3 +119,8 @@
 (define-key ido-common-completion-map (kbd "C-n") 'ido-next-match)
 (define-key ido-common-completion-map (kbd "C-k") 'ido-prev-match)
 (define-key ido-common-completion-map (kbd "C-j") 'ido-next-match)
+
+;; (define-key dired-mode-map (kbd "F") 'find-file-rg)
+(define-key dired-mode-map (kbd "F")
+  (lambda () (interactive)
+    (darcylee/find-file-recursively (dired-current-directory))))

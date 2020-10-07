@@ -17,6 +17,7 @@
     pyim
     (posframe :toggle (>= emacs-major-version 26))
     fcitx
+    find-file-rg
     )
 )
 
@@ -201,5 +202,8 @@
 
     (fcitx-prefix-keys-add "M-m" "C-M-m" "C-x" "C-c" "C-h" "M-s" "M-o")
     (fcitx-prefix-keys-turn-on)))
+
+(defun darcylee-better-defaults/init-find-file-rg ()
+  (use-package find-file-rg))
 
 ;;; packages.el ends here

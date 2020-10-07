@@ -163,3 +163,12 @@ open and unsaved."
     (dolist (element useless-buffer-list)
       (setq num (+ num (spacemacs/rudekill-matching-buffers element nil))))
     (message (format "%d buffer(s) killed." num))))
+
+(defun darcylee/find-file-recursively (&optional dir)
+  "Find file recursively use ripgrep"
+  (interactive "P")
+  (unless dir (setq dir (read-directory-name "Start form directory: ")))
+  (let* ((file (completing-read (format "Find file in %s: " (abbreviate-file-name dir))
+                                (find-file-rg--file-list dir)
+                                nil t nil 'file-name-history)))
+    (when file (find-file (expand-file-name file dir)))))
