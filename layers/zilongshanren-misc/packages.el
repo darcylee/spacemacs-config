@@ -834,8 +834,14 @@
     (with-eval-after-load 'ivy
       (add-to-list 'ivy-ignore-buffers #'darcylee/ignore-dired-buffers))
 
+    (defun ivy-occur-previous-error (&optional n)
+      (interactive "p")
+      (ivy-occur-next-error (- (or n 1))))
+
     (define-key ivy-occur-grep-mode-map (kbd "g") nil)
     (define-key ivy-occur-grep-mode-map (kbd "r") 'ivy-occur-revert-buffer)
+    (define-key ivy-occur-grep-mode-map (kbd "n") 'ivy-occur-next-error)
+    (define-key ivy-occur-grep-mode-map (kbd "p") 'ivy-occur-previous-error)
     (define-key ivy-minibuffer-map (kbd "C-c o") 'ivy-occur)
     (define-key ivy-minibuffer-map (kbd "C-s-m") 'ivy-partial-or-done)
     (define-key ivy-minibuffer-map (kbd "C-c s") 'ivy-ff-checksum)
