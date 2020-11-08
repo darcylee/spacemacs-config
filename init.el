@@ -60,10 +60,10 @@ This function should only modify configuration layer settings."
                plantuml-default-exec-mode 'jar
                plantuml-indent-level 4
                org-plantuml-jar-path plantuml-jar-path)
-     graphviz
-     (syntax-checking :variables syntax-checking-enable-by-default nil
-                      syntax-checking-enable-tooltips nil)
-     (spell-checking :variables spell-checking-enable-by-default nil)
+     ;; graphviz
+     ;; (syntax-checking :variables syntax-checking-enable-by-default nil
+     ;;                  syntax-checking-enable-tooltips nil)
+     ;; (spell-checking :variables spell-checking-enable-by-default nil)
      (vinegar :variables vinegar-reuse-dired-buffer t)
      (spacemacs-layouts :variables layouts-enable-autosave t
                         spacemacs-layouts-restrict-spc-tab t
@@ -96,11 +96,11 @@ This function should only modify configuration layer settings."
      deft
      markdown
      (org :variables org-enable-org-journal-support t)
-     yaml
+     ;; yaml
      yang
-     react
-     (python :variables
-             python-test-runner '(nose pytest))
+     ;; react
+     ;; (python :variables
+     ;;         python-test-runner '(nose pytest))
      ;;(ruby :variables ruby-version-manager 'chruby)
      ;;ruby-on-rails
      lua
