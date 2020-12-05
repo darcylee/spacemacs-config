@@ -560,6 +560,9 @@
     :config
     (progn
       (setq-default magit-gerrit-ssh-creds "lijiaquan@gerrit.ruijie.work")
+      (add-to-list 'magit-gerrit-review-labels (list "PSTL-Check" "PC") t)
+      ;; (add-to-list 'magit-gerrit-review-labels (list "All-Comments-Resolved" "ACR") t)
+
       (setq-default magit-gerrit-show-review-labels t)
       )))
 
