@@ -169,7 +169,7 @@ This function should only modify configuration layer settings."
                     doom-modeline anzu fancy-battery vim-powerline
                     helm-git-grep helm-mu helm-notmuch helm-pydoc helm-company helm-gitignore counsel-gtags
                     emr cpp-auto-include
-                    org-superstar
+                    org-superstar forge
                     xterm-color multiple-cursors blacken vterm)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
